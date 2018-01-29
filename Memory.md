@@ -1,3 +1,8 @@
+# Virtual Memory vs Physical Memory
+
+### Questions
+* What will impact the size of virtual memory? Especially for an AdServer.
+* ...
 
 ### What Is the Difference Between Virtual Memory & Physical Memory?
 * Random access memory (RAM) is physical memory that holds the applications, documents and procedures on a computer.
