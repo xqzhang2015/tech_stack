@@ -59,6 +59,9 @@ TCP/IP五层协议和OSI的七层协议对应关系如下。
 
 ![network_OSI_TCP_IP-2](../images/2018/network_OSI_TCP_IP-2.png)<br/>
 
+### HTTP packets
+![packet](../images/2018/packet.jpg)<br/>
+
 # 参考文献：
 1.百度百科：OSI参考模型
 
