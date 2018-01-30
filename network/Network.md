@@ -9,7 +9,7 @@ ___
 ## OSI七层模型的划分
   OSI定义了网络互连的七层框架（物理层、数据链路层、网络层、传输层、会话层、表示层、应用层），即ISO开放互连系统参考模型。如下图。<br/>
   每一层实现各自的功能和协议，并完成与相邻层的接口通信。OSI的服务定义详细说明了各层所提供的服务。某一层的服务就是该层及其下各层的一种能力，它通过接口提供给更高一层。各层所提供的服务与这些服务是怎么实现的无关。
-![network_OSI](tech_stack/images/2018/network_OSI.png)<br/>
+![network_OSI](../images/2018/network_OSI.png)<br/>
 ## 各层功能定义
 这里我们只对OSI各层进行功能上的大概阐述，不详细深究，因为每一层实际都是一个复杂的层。后面我也会根据个人方向展开部分层的深入学习。这里我们就大概了解一下。我们从最顶层——应用层 开始介绍。整个过程以公司A和公司B的一次商业报价单发送为例子进行讲解。
 ### 应用层
@@ -44,20 +44,20 @@ MAC子层处理CSMA/CD算法、数据出错校验、成帧等；LLC子层定义�
 
 ## 通信特点：对等通信      
 对等通信，为了使数据分组从源传送到目的地，源端OSI模型的每一层都必须与目的端的对等层进行通信，这种通信方式称为对等层通信。在每一层通信过程中，使用本层自己协议进行通信。
-![network_OSI-2](images/2018/network_OSI-2.png)<br/>
+![network_OSI-2](../images/2018/network_OSI-2.png)<br/>
 
 # TCP/IP五层模型
 TCP/IP五层协议和OSI的七层协议对应关系如下。
 
-![network_TCP_IP](images/2018/network_TCP_IP.png)<br/>
+![network_TCP_IP](../images/2018/network_TCP_IP.png)<br/>
 
 在每一层都工作着不同的设备，比如我们常用的交换机就工作在数据链路层的，一般的路由器是工作在网络层的。
 
-![network_OSI_TCP_IP](images/2018/network_OSI_TCP_IP.png)<br/>
+![network_OSI_TCP_IP](../images/2018/network_OSI_TCP_IP.png)<br/>
 
 在每一层实现的协议也各不同，即每一层的服务也不同.下图列出了每层主要的协议。其中每层中具体的协议，我会在后面的逐一学习。
 
-![network_OSI_TCP_IP-2](images/2018/network_OSI_TCP_IP-2.png)<br/>
+![network_OSI_TCP_IP-2](../images/2018/network_OSI_TCP_IP-2.png)<br/>
 
 # 参考文献：
 1.百度百科：OSI参考模型
