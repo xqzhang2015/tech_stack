@@ -1,6 +1,6 @@
 # Zookeeper Usage Cases
 
-![zookeeper_usage](zookeeper_usage.jpg)
+![zookeeper_usage](../images/2018/zookeeper_usage.jpg)
 
 # Zookeeper Architecture
 
