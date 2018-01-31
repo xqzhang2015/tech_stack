@@ -1,5 +1,7 @@
 # Zookeeper Usage Cases
 
+![zookeeper_usage](zookeeper_usage.jpg)
+
 # Zookeeper Architecture
 
 # References
