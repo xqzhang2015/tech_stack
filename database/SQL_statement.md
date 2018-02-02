@@ -11,4 +11,4 @@ Return all records from the right table, and the matched records from the left t
 * FULL (OUTER) JOIN
 Return all records when there is a match in either left or right table <br/>
 
-![SQL_joins](../images/2018/SQL_joins.gif)
+![SQL_joins](../images/2018/SQL_joins.png)
