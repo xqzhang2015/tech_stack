@@ -28,5 +28,7 @@ In other words: **The HTML DOM is a standard for how to get, change, add, or del
 
 
 ### Rerferences
-[w3school JavaScript Tutorial](http://www.w3school.com.cn/js/index.asp)<br/>
+[w3school JavaScript Tutorial(CN)](http://www.w3school.com.cn/js/index.asp)<br/>
+
+[w3school JavaScript Tutorial(EN)](http://www.w3school.com/js/index.asp)<br/>
 
