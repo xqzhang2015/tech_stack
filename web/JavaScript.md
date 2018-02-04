@@ -1,3 +1,6 @@
+## JavaScript
+* 提示：JavaScript 是脚本语言。浏览器会在读取代码时，**逐行地执行**脚本代码。而对于传统编程来说，会在**执行前对所有代码进行编译**。
+
 ## JavaScript HTML DOM
 With the HTML DOM, JavaScript can access and change all the elements of an HTML document.<br/>
 ### The HTML DOM (Document Object Model)
