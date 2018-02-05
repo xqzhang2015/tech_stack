@@ -36,4 +36,6 @@ In other words:<br>
 
 [JavaScript Standard built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)<br/>
 
+[微信小游戏初体验](https://segmentfault.com/a/1190000012646888)<br/>
+
 
