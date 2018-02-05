@@ -63,9 +63,9 @@ TCP/IP五层协议和OSI的七层协议对应关系如下。
 ![packet](../images/2018/packet.jpg)<br/>
 
 # 参考文献：
-1.百度百科：OSI参考模型
+1. 百度百科：OSI参考模型
 
-2.http://blog.csdn.net/wdkirchhoff/article/details/43915825
+2. [CSDN: HCNA-HNTD——以太网帧结构](http://blog.csdn.net/wdkirchhoff/article/details/43915825)
 
 3. [TCP协议要点和难点全解](https://www.cnblogs.com/widget90/p/5776944.html)
 
