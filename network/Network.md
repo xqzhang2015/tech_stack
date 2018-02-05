@@ -66,3 +66,18 @@ TCP/IP五层协议和OSI的七层协议对应关系如下。
 1.百度百科：OSI参考模型
 
 2.http://blog.csdn.net/wdkirchhoff/article/details/43915825
+
+3. [TCP协议要点和难点全解](https://www.cnblogs.com/widget90/p/5776944.html)
+
+4. [简书: TCP协议详解](https://www.jianshu.com/p/ef892323e68f)
+
+5. [tcp应答报文中sequence nummber 和ack number关系](http://ju.outofmemory.cn/entry/260825)
+
+6. [知乎: TCP/IP 协议到底在讲什么？](https://www.zhihu.com/question/51074319)
+
+7. [百度文库: TCPCopy 在架构测试中的应用](https://wenku.baidu.com/view/4feb7e307275a417866fb84ae45c3b3567ecddaa.html)
+
+8. [简书: TCPCopy 源码阅读](http://masutangu.com/2016/05/read-tcpcopy-source-code/)
+
+9. [CSDN: route命令管理路由表和默认网关](http://blog.csdn.net/xiaozhongma/article/details/52945029)
+
