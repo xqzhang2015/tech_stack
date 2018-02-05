@@ -24,7 +24,9 @@ The HTML DOM is a standard object model and programming interface for HTML. It d
 * The methods to access all HTML elements
 * The events for all HTML elements
 
-In other words: **The HTML DOM is a standard for how to get, change, add, or delete HTML elements.**
+In other words:<br>
+**The HTML DOM is a standard for how to get, change, add, or delete HTML elements.**<br>
+-- **增 / 删 / 改 / 查***
 
 
 ### Rerferences
