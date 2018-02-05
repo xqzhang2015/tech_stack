@@ -34,4 +34,6 @@ In other words:<br>
 
 [w3school JavaScript Tutorial(EN)](https://www.w3schools.com/js/default.asp)<br/>
 
+[JavaScript Standard built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)<br/>
+
 
