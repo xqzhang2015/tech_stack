@@ -17,7 +17,7 @@ COMMAND     PID    USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
 AdServerR 43041 xqzhang    3u  IPv6 0xfc83dc0e4858a7f7      0t0  TCP *:emp-server1 (LISTEN)
 ```
 
-<br/>
+<br>
 ### traceroute
 In computing, traceroute is a computer network diagnostic tool for 
 * displaying the route (path) and
