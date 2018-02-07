@@ -1,5 +1,4 @@
-### Git Data Transport Commands
-![git_data_transport_command](../images/2018/Git-data-transport-commands.png)
+
 
 ### git add
 * NAME: git-add - Add file contents to the index
@@ -155,8 +154,9 @@ bool is_auto_generated():
     This reverts merge request !1234
 ```
 
+### Git Data Transport Commands
+![git_data_transport_command](../images/2018/Git-data-transport-commands.png)
+
 ### References
 [Git fetch + merge, Git fetch + rebase, Git pull](https://tapaswenipathak.wordpress.com/2016/02/15/git-fetch-merge-git-fetch-rebase-git-pull/)<br/>
 
-
-s
