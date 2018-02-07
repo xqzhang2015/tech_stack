@@ -9,7 +9,7 @@
                  [--intent-to-add | -N] [--refresh] [--ignore-errors] [--ignore-missing]
                  [--] [<pathspec>...]
 ```
-* DESCRIPTION
+* DESCRIPTION<br>
        This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit.<br>
        The "index" holds a snapshot of the content of the working tree, and it is this snapshot that is taken as the contents of the next commit. Thus after making any changes to the working directory, and before running the commit command, you must use the add command to add any new or modified files to the index.<br>
 
