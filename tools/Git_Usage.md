@@ -1,6 +1,16 @@
+### Git Data Transport Commands
+![git_data_transport_command](../images/2018/Git-data-transport-commands.png)
+
 ### git add
 * NAME: git-add - Add file contents to the index
-* usage: git add [<options>] [--] <pathspec>...
+* SYNOPSIS
+```
+       git add [-n] [-v] [--force | -f] [--interactive | -i] [--patch | -p]
+                 [--edit | -e] [--[no-]all | --[no-]ignore-removal | [--update | -u]]
+                 [--intent-to-add | -N] [--refresh] [--ignore-errors] [--ignore-missing]
+                 [--] [<pathspec>...]
+```
+* DESCRIPTION
 ```
        This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit.
        The "index" holds a snapshot of the content of the working tree, and it is this snapshot that is taken as the contents of the next commit. Thus after making any changes to the working directory, and before running the commit command, you must use the add command to add any new or modified files to the index.
@@ -144,3 +154,9 @@ bool is_auto_generated():
 
     This reverts merge request !1234
 ```
+
+### References
+[Git fetch + merge, Git fetch + rebase, Git pull](https://tapaswenipathak.wordpress.com/2016/02/15/git-fetch-merge-git-fetch-rebase-git-pull/)<br/>
+
+
+s
