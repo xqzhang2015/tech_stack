@@ -1,7 +1,7 @@
 # work_stack
 
 ### What am I looking forward to know during 2018?
-#### Everything Github
+#### Everything about Github
 #### Echart 4.0 and Our traffic geo-location
 #### Our business codes
 #### C++ libevent
