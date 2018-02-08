@@ -193,3 +193,7 @@ bool is_auto_generated():
 ### References
 [Git fetch + merge, Git fetch + rebase, Git pull](https://tapaswenipathak.wordpress.com/2016/02/15/git-fetch-merge-git-fetch-rebase-git-pull/)<br/>
 
+[Github blog: Reset Demystified](https://git-scm.com/blog)<br>
+[Github: book(v2)](https://git-scm.com/book/en/v2)<br>
+[Github: video](https://git-scm.com/videos)<br>
+[Github: about](https://git-scm.com/about)<br>
