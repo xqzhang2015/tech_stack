@@ -1,4 +1,16 @@
+## Concepts
+### HEAD
+* HEAD is the latest commit object of the current active branch(working tree of local responsitory).<br>
+A head is simply a reference to a commit object. Each head has a name (branch name or tag name, etc). By default, there is a head in every repository called master. A repository can contain any number of heads. At any given time, one head is selected as the “current head.” This head is aliased to HEAD, always in capitals".<br>
 
+Note this difference: a “head” (lowercase) refers to any one of the named heads in the repository; “HEAD” (uppercase) refers exclusively to the currently active head. This distinction is used frequently in Git documentation.<br>
+* Example
+```
+➜  .git git:(ISP) cat HEAD
+ref: refs/heads/ISP
+➜  .git git:(ISP) cat refs/heads/ISP
+869518d83aae0c99aa61a4c52ffa4c90d7c236c4
+```
 
 ### git add
 * NAME: git-add - Add file contents to the index
