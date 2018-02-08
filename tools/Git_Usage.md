@@ -18,6 +18,27 @@
     -u, --update          update tracked files
 ```
 
+### git diff
+* NAME<br>
+git-diff - Show changes between commits, commit and working tree, etc
+* EXAMPLES
+```
+       Various ways to check your working tree
+
+               $ git diff            (1)
+               $ git diff --cached   (2)
+               $ git diff HEAD       (3)
+
+           1. Changes in the working tree not yet staged for the next commit.
+           2. Changes between the index and your last commit; what you would be committing if you run "git commit" without "-a" option.
+           3. Changes in the working tree since your last commit; what you would be committing if you run "git commit -a"
+	   
+       Comparing with arbitrary commits
+               $ git diff HEAD^ HEAD      (3)
+           3. Compare the version before the last commit and the last commit.
+
+```
+
 ### git archive
 * NAME: git-archive - Create an archive of files from a named tree
 * SYNOPSIS
