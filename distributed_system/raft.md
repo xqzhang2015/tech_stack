@@ -19,21 +19,21 @@ After the election timeout the follower becomes a candidate and starts a new ele
 * Once a candidate has a majority of votes it becomes leader.
 
 2 The leader begins sending out *Append Entries* messages to its followers.
-
-These messages are sent in intervals specified by the *heartbeat timeout*.
-Followers then respond to each *Append Entries* message.
+<br/>
+These messages are sent in intervals specified by the *heartbeat timeout*.<br/>
+Followers then respond to each *Append Entries* message.<br/>
 This election term will continue until a follower stops receiving heartbeats and becomes a candidate.<br/>
 
-x. Requiring a majority of votes guarantees that 
-only one leader can be elected per term.
--- 不会脑裂
--- Let's take a look at a split vote example...: two nodes become candidates at the same time
-x1. For nodes: A / B / C / D
--- Two nodes(A&B) both start an election for the same term...
--- Now each candidate has 2 votes and can receive no more for this term.
--- The nodes will wait for a new election and try again.
--- Node D received a majority of votes in term 5 so it becomes leader.
-
+x. Requiring a majority of votes guarantees that <br/>
+only one leader can be elected per term.<br/>
+-- 不会脑裂<br/>
+-- Let's take a look at a split vote example...: two nodes become candidates at the same time<br/>
+x1. For nodes: A / B / C / D<br/>
+<br/>-- Two nodes(A&B) both start an election for the same term...
+<br/>-- Now each candidate has 2 votes and can receive no more for this term.
+<br/>-- The nodes will wait for a new election and try again.
+<br/>-- Node D received a majority of votes in term 5 so it becomes leader.
+<br/>
 
 ### References
 [The Raft Consensus Algorithm](https://raft.github.io)<br/>
