@@ -15,7 +15,7 @@
 * Kubernetes Master（Kubernetes主节点）
 
 ### Replication Controller
-![kubernetes archtecture](../images/2018/k8s-2.png)
+![kubernetes archtecture](../images/2018/k8s-2.gif)
 当创建Replication Controller时，需要指定两个东西：
 * Pod模板：用来创建Pod副本的模板
 * Label：Replication Controller需要监控的Pod的标签。
@@ -32,7 +32,7 @@ Service是定义一系列Pod以及访问这些Pod的策略的一层抽象。Serv
 
 下述动画展示了Service的功能。注意该图作了很多简化。如果不进入网络配置，那么达到透明的负载均衡目标所涉及的底层网络和路由相对先进。如果有兴趣，这里有更深入的介绍
 
-![kubernetes archtecture](../images/2018/k8s-3.png)
+![kubernetes archtecture](../images/2018/k8s-3.gif)
 
 有一个特别类型的Kubernetes Service，称为'LoadBalancer'，作为外部负载均衡器使用，在一定数量的Pod之间均衡流量。比如，对于负载均衡Web流量很有用。
 
