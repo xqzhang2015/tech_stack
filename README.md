@@ -13,6 +13,9 @@
 * 计算广告学
 * 亿级流量
 
+### Monitoring
+* 普罗米修斯 grafana influxdb
+
 ### C++
 * libevent: AS access
 * libcurl: file transmit
