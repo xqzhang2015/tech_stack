@@ -8,7 +8,7 @@
 #### Tencent: libco source code
 #### [推荐系统/搜索引擎/广告系统](https://mp.weixin.qq.com/s?__biz=MzA3MjEyNTE4MQ==&mid=2652733119&idx=1&sn=5d3347a99db576a0ea2150202f7f8cb5&chksm=84cac12db3bd483bad94b1820a84404fd48ef43e886f7ee2b3f331984f49a00db86baf17dc15&mpshare=1&scene=23&srcid=0226qW0cXLOno3xAEnwIqega#rd)
 #### TCPDump/TCPCopy
-#### 怎么部署 gitlab
+#### 怎么部署 gitlab & version history 管理原理
 #### Books
 * 圈子圈套
 * 计算广告学
