@@ -54,9 +54,9 @@ API Server提供可以用来和集群交互的REST端点。master节点包括用
 ### References
 [十分钟带你理解Kubernetes核心概念](http://www.dockone.io/article/932)<br/>
 
-[]()<br/>
+[《Kubernetes权威指南》——Kubelet运行机制与安全机制](https://www.cnblogs.com/suolu/p/6841848.html)<br/>
 
-[]()<br/>
+[闲谈Kubernetes 的主要特性和经验分享](https://www.oschina.net/question/2432428_246729)<br/>
 
 []()<br/>
 
