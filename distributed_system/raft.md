@@ -1,6 +1,7 @@
 ### References
-[The Secret Lives of Data: Raft](http://thesecretlivesofdata.com/raft/)
-[Raft Paper](https://raft.github.io/raft.pdf)
+[The Secret Lives of Data: Raft](http://thesecretlivesofdata.com/raft/)<br/>
+
+[Raft Paper](https://raft.github.io/raft.pdf)<br/>
 
 ### Concepts
 1. This process is called *Leader Election*.
