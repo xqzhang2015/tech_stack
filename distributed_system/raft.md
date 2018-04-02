@@ -49,4 +49,15 @@ x1. For nodes: A / B / C / D<br/>
 
 [从etcd看Raft协议](http://qa.blog.163.com/blog/static/19014700220153155498735)<br/>
 
+[raft.github.io: where can I get RAFT?](https://raft.github.io/)<br/>
+
+
+[github: braft](https://github.com/brpc/braft)<br/>
+
+[github: 360raft](https://github.com/Qihoo360/floyd)<br/>
+
+[Consensus2 course: Replicated State Machines, RAFT](https://www.cs.princeton.edu/courses/archive/fall16/cos418/docs/L8-consensus-2.pdf)<br/>
+
+[]()<br/>
+
 []()<br/>
