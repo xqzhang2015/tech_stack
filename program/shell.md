@@ -1,4 +1,5 @@
-[awk](./awk)<br/>
+<a href="awk">awk</a>
+
 []()<br/>
 []()<br/>
 ### awk
