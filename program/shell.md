@@ -1,4 +1,8 @@
-### awk - pattern-directed scanning and processing language
+[awk](./awk)<br/>
+[]()<br/>
+[]()<br/>
+### awk
+- pattern-directed scanning and processing language <br>
 an associated action that will be performed when a line of a file matches the pattern.<br/>
 * SYNOPSIS
 ```
