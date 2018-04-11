@@ -23,6 +23,27 @@ In computing, traceroute is a computer network diagnostic tool for
 * measuring transit delays of packets across an Internet Protocol (IP) network.
 
 
+### Linux TCP/IP 网络工具对比：net-tools 和 iproute2
+net-tools
+* ifconfig
+* netstat
+* route
+iproute2
+* ip link show
+* ip addr show dev eth0
+```
+$ ip addr show dev eth0
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP qlen 1000
+    link/ether 14:02:ec:32:4b:90 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.14.139/23 brd 192.168.15.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet 192.168.14.231/24 brd 192.168.14.255 scope global eth0:0
+       valid_lft forever preferred_lft forever
+    inet 192.168.14.232/24 brd 192.168.14.255 scope global secondary eth0:1
+       valid_lft forever preferred_lft forever
+```
+* ip route show
+
 ### References
 [Linux TCP/IP 网络工具对比：net-tools 和 iproute2](http://blog.jobbole.com/97270/)<br/>
 []()<br/>
