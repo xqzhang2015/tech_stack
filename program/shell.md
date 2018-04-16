@@ -2,6 +2,20 @@
 
 []()<br/>
 []()<br/>
+
+### Pretty Print JSON With Python
+
+```
+echo '{"one":1,"two":[{"foo":1,"bar":2}]}' | python -m json.tool
+```
+<br/>
+[Pretty Print JSON With Python](http://www.hashbangcode.com/blog/pretty-print-json-python)<br/>
+
+[]()<br/>
+
+[]()<br/>
+
+
 ### awk
 - pattern-directed scanning and processing language <br>
 an associated action that will be performed when a line of a file matches the pattern.<br/>
