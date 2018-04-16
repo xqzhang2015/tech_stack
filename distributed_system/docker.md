@@ -11,6 +11,19 @@
 
 ![docker_architecture](../images/2018/docker_architecture.png)<br/>
 
+### 运行交互式的容器
+我们通过docker的两个参数 -i -t，让docker运行的容器实现"对话"的能力
+
+```
+runoob@runoob:~$ docker run -i -t ubuntu:15.10 /bin/bash
+root@dc0050c79503:/#
+```
+各个参数解析：
+* -t:在新容器内指定一个伪终端或终端。
+* -i:允许你对容器内的标准输入 (STDIN) 进行交互。
+
+此时我们已进入一个 ubuntu15.10系统的容器
+
 ### References
 [Docker 架构](http://www.runoob.com/docker/docker-architecture.html)<br/>
 []()<br/>
