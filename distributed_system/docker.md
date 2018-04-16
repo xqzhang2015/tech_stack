@@ -43,6 +43,18 @@ test$ sudo docker port 21e9305569d1
 8999/tcp -> 0.0.0.0:30000
 9000/tcp -> 0.0.0.0:30001
 ```
+### Frequent other commands
+```
+runoob@runoob:~$ docker stop determined_swanson   
+determined_swanson
+
+runoob@runoob:~$ docker start determined_swanson
+determined_swanson
+
+runoob@runoob:~$ docker rm determined_swanson  
+determined_swanson
+```
+* 删除容器时，容器必须是停止状态，否则会报错误.
 
 ## References
 [Docker 架构](http://www.runoob.com/docker/docker-architecture.html)<br/>
