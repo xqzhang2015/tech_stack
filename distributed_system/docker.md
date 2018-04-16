@@ -36,6 +36,13 @@ root@dc0050c79503:/#
 ```
       -p 1234-1236:1234-1236/tcp)
 ```
+* docker port 查看端口映射
+```
+test$ sudo docker port 21e9305569d1
+3306/tcp -> 0.0.0.0:30002
+8999/tcp -> 0.0.0.0:30000
+9000/tcp -> 0.0.0.0:30001
+```
 
 ## References
 [Docker 架构](http://www.runoob.com/docker/docker-architecture.html)<br/>
