@@ -10,8 +10,10 @@ Amazon VPC provides features that you can use to increase and monitor the securi
 ![security-diagram](../images/2018/security-diagram.png)<br/>
 
 
+
+
 ### References
-[]()<br/>
+[VPC Security](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Security.html)<br/>
 
 
 []()<br/>
