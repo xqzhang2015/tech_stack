@@ -32,6 +32,56 @@ Gdb.txt中内容的说明和分析：第一列为当前内存地址，如0x22c2f
 
 ....
 
+### Some commands
+* strings<br/>
+
+```
+strings /usr/lib64/libmyodbc5w.so | grep "GLIBC\|lib"
+libodbc.so.2
+libmysqlclient.so.18
+libpthread.so.0
+libm.so.6
+libodbcinst.so.2
+libdl.so.2
+libc.so.6
+libmyodbc5w.so
+GLIBC_2.2.5
+GLIBC_2.3
+GLIBC_2.14
+GLIBC_2.4
+GLIBC_2.3.4
+libmysqlclient_18
+```
+
+* ldd
+```
+ldd /usr/lib64/libmyodbc5w.so
+    linux-vdso.so.1 =>  (0x00007ffc5a9cc000)
+    libodbc.so.2 => /lib64/libodbc.so.2 (0x00007f85e58e8000)
+    libmysqlclient.so.18 => /usr/lib64/mysql/libmysqlclient.so.18 (0x00007f85e53e8000)
+    libpthread.so.0 => /lib64/libpthread.so.0 (0x00007f85e51cb000)
+    libm.so.6 => /lib64/libm.so.6 (0x00007f85e4ec9000)
+    libodbcinst.so.2 => /lib64/libodbcinst.so.2 (0x00007f85e4cb7000)
+    libdl.so.2 => /lib64/libdl.so.2 (0x00007f85e4ab2000)
+    libc.so.6 => /lib64/libc.so.6 (0x00007f85e46f1000)
+    libltdl.so.7 => /lib64/libltdl.so.7 (0x00007f85e44e7000)
+    libz.so.1 => /lib64/libz.so.1 (0x00007f85e42d0000)
+    libssl.so.10 => /lib64/libssl.so.10 (0x00007f85e4062000)
+    libcrypto.so.10 => /lib64/libcrypto.so.10 (0x00007f85e3c78000)
+    libstdc++.so.6 => /lib64/libstdc++.so.6 (0x00007f85e396e000)
+    /lib64/ld-linux-x86-64.so.2 (0x00007f85e5db6000)
+    libgssapi_krb5.so.2 => /lib64/libgssapi_krb5.so.2 (0x00007f85e3720000)
+    libkrb5.so.3 => /lib64/libkrb5.so.3 (0x00007f85e3438000)
+    libcom_err.so.2 => /lib64/libcom_err.so.2 (0x00007f85e3234000)
+    libk5crypto.so.3 => /lib64/libk5crypto.so.3 (0x00007f85e3002000)
+    libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007f85e2deb000)
+    libkrb5support.so.0 => /lib64/libkrb5support.so.0 (0x00007f85e2bdc000)
+    libkeyutils.so.1 => /lib64/libkeyutils.so.1 (0x00007f85e29d8000)
+    libresolv.so.2 => /lib64/libresolv.so.2 (0x00007f85e27bd000)
+    libselinux.so.1 => /lib64/libselinux.so.1 (0x00007f85e2596000)
+    libpcre.so.1 => /lib64/libpcre.so.1 (0x00007f85e2334000)
+```
+
 ### References
 There is one memory leak bug in mysql-connector-odbc-5.2.5-6.el7.x86_64,
 described in https://bugs.mysql.com/bug.php?id=70113
