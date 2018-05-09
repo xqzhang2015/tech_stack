@@ -86,6 +86,7 @@ ldd /usr/lib64/libmyodbc5w.so
 There is one memory leak bug in mysql-connector-odbc-5.2.5-6.el7.x86_64,
 described in https://bugs.mysql.com/bug.php?id=70113
 <br/>
+
 [利用进程信息追查内存泄漏](https://blog.csdn.net/baidu_mtc/article/details/50504608)
 
 <br/>
