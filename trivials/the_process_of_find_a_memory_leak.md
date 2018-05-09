@@ -31,6 +31,10 @@ Some kind of memory leak maybe happen or some kind of traffic should be differen
 Gdb.txt中内容的说明和分析：第一列为当前内存地址，如0x22c2f00；第二、三、四列分别为当前内存地址对应所存储的值（使用十六进制表示），以及gdb的debug的符号信息，例如：0x10200d0<_ZTVN7bigpipe15BigpipeDIEngineE+16> 0x4600000001，分别表示：“前16字节”、“符号信息（注意有+16的偏移）”、“后16字节”，但不是所有地址都会打印gdb的debug符号信息，有时符号信息显示在第三列，有时显示在第二列。
 
 ....
+### Dive into MySQL Driver
+
+![mysql_odbc_driver](../images/2018/mysql_odbc_driver.png)<br/>
+
 
 ### Some commands
 * strings<br/>
