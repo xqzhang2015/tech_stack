@@ -1,10 +1,11 @@
 
-# [How To Attach And Mount An EBS Volume To EC2 Linux Instances](https://devopscube.com/mount-ebs-volume-ec2-instance/)
+# [How To Attach And Mount An EBS Volume To EC2](https://devopscube.com/mount-ebs-volume-ec2-instance/)
 
 ### Mount An EBS Volume To EC2 Linux
 In this tutorial, we will teach you how to  attach and mount an EBS volume to ec2 linux instances. Follow the steps given below carefully for the setup.
 
 __Step 1__: Head over to EC2 –> Volumes and create a new volume of your preferred size and type.
+
 Note: the EC2 and Volume should be in the same zone.
 
 __Step 2__: Select the created volume, right click and select the “attach volume” option.
