@@ -56,6 +56,8 @@ By default on every reboot the  EBS volumes other than root volume will get unmo
 1. Back up the /etc/fstab file.
 ```
 sudo cp /etc/fstab /etc/fstab.bak
+```
+
 2. Open /etc/fstab file and make an entry in the following format.
 ```
 device_name mount_point file_system_type fs_mntops fs_freq fs_passno
