@@ -6,7 +6,7 @@ In this tutorial, we will teach you how to  attach and mount an EBS volume to ec
 
 __Step 1__: Head over to EC2 –> Volumes and create a new volume of your preferred size and type.
 
-Note: the EC2 and Volume should be in the same zone.
+Note: the EC2 and Volume should be __in the same zone__.
 
 __Step 2__: Select the created volume, right click and select the “attach volume” option.
 
@@ -22,31 +22,31 @@ The above command will list the disk you attached to your instance.
 
 __Step 5__: Check if the volume has any data using the following command.
 ```
-sudo file -s /dev/xvdf
+sudo file -s /dev/xvdb
 ```
-If the above command output shows “/dev/xvdf: data”, it means your volume is empty.
+If the above command output shows “/dev/xvdb: data”, it means your volume is empty.
 __Step 6__: Format the volume to ext4 filesystem  using the following command.
 ```
-sudo mkfs -t ext4 /dev/xvdf
+sudo mkfs -t ext4 /dev/xvdb
 ```
 __Step 7__: Create a directory of your choice to mount our new ext4 volume. I am using the name “newvolume”
 ```
-sudo mkdir /newvolume
+sudo mkdir /export
 ```
 __Step 8__: Mount the volume to “newvolume” directory using the following command.
 ```
-sudo mount /dev/xvdf /newvolume/
+sudo mount /dev/xvdb /export/
 ```
 __Step 9__: cd into newvolume directory and check the disk space for confirming the volume mount.
 ```
-cd /newvolume
+cd /export
 df -h .
 ```
 The above command would show the free space in the newvolume directory.
 
 To unmount the volume, you have to use the following command.
 ```
-umount /dev/xvdf
+umount /dev/xvdb
 ```
 
 ### EBS Automount On Reboot
@@ -62,7 +62,7 @@ device_name mount_point file_system_type fs_mntops fs_freq fs_passno
 ```
 For example,
 ```
-/dev/xvdf       /newvolume   ext4    defaults,nofail        0       0
+/dev/xvdb       /export   ext4    defaults,nofail        0       0
 ```
 3. Execute the following command to check id the fstab file has any error.
 ```
