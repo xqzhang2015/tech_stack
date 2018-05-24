@@ -1,6 +1,7 @@
 ### Concepts
 
-| Docker | 面向对象 |
+| AWS | Traditional |
 | :--- | :--- |
-| Container  | 对象  |
-| Image  | 类  |
+| VPC(Virtual Private Cloud)  | DC(Data Center) |
+| ACL | subnet firewall  |
+| Security group | single host firewall |
