@@ -3,6 +3,7 @@ C dynamic memory allocation refers to performing manual memory management for dy
 * realloc, 
 * calloc 
 * and free.<br/>
+
 In C++, operators __new__ and __delete__ are recommended by the language's authors.br/
 <br/>
 The C programming language manages memory
