@@ -11,5 +11,5 @@ The C programming language manages memory
 * automatically, -- allocated on the stack
 * or dynamically -- from the free store, called __heap__ <br/>
 
-# Usage Example
+### Usage Example
 ___
