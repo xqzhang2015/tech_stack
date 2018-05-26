@@ -13,3 +13,24 @@ The C programming language manages memory
 
 ### Usage Example
 ___
+Creating an array of ten integers with automatic scope is straightforward in C:
+```
+int array[10];
+```
+However, the size of the array is fixed at compile time. <br/>
+Allocate a similar array dynamically:
+```
+int *array = malloc(10 * sizeof(int));
+if (array == NULL) {
+  fprintf(stderr, "malloc failed\n");
+  return -1;
+}
+
+array = realloc(array, 11 * sizeof(int));
+array[10] = 13;
+
+free(array);
+```
+
+### Type Safety
+---
