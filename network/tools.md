@@ -45,8 +45,19 @@ $ ip addr show dev eth0
 ```
 * ip route show
 
+### [tee命令](http://man.linuxde.net/tee)
+* NAME
+       tee - read from standard input and write to __standard output and files__
+* SYNOPSIS
+       tee [OPTION]... [FILE]...
+
+![linux_tee](../images/2018/linux_tee.md)<br/>
+
 ### References
 [Linux TCP/IP 网络工具对比：net-tools 和 iproute2](http://blog.jobbole.com/97270/)<br/>
+
+[linuxde: Linux命令大全](http://man.linuxde.net)<br/>
+
 []()<br/>
 []()<br/>
 []()<br/>
