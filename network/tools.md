@@ -46,6 +46,7 @@ $ ip addr show dev eth0
 * ip route show
 
 ### [tee命令](http://man.linuxde.net/tee)
+---
 * NAME<br/>
        tee - read from standard input and write to __standard output and files__
 * SYNOPSIS<br/>
