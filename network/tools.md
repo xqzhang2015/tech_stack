@@ -24,6 +24,7 @@ In computing, traceroute is a computer network diagnostic tool for
 
 
 ### Linux TCP/IP 网络工具对比：net-tools 和 iproute2
+---
 net-tools
 * ifconfig
 * netstat
@@ -45,7 +46,7 @@ $ ip addr show dev eth0
 ```
 * ip route show
 
-### [tee命令](http://man.linuxde.net/tee)
+### [tee 命令](http://man.linuxde.net/tee)
 ---
 * NAME<br/>
        tee - read from standard input and write to __standard output and files__
@@ -53,6 +54,22 @@ $ ip addr show dev eth0
        tee [OPTION]... [FILE]...
 
 ![linux_tee](../images/2018/linux_tee.png)<br/>
+
+### [ethtool 命令](http://man.linuxde.net/ethtool)
+---
+```
+NAME
+       ethtool - query or control network driver and hardware settings
+SYNOPSIS
+       ethtool devname
+```
+* Example
+```
+# ethtool eth0
+Settings for eth0:
+	Speed: 1000Mb/s
+	Duplex: Full
+```
 
 ### References
 [Linux TCP/IP 网络工具对比：net-tools 和 iproute2](http://blog.jobbole.com/97270/)<br/>
