@@ -46,6 +46,19 @@ A typical tear-down requires a pair of FIN and ACK segments from each TCP endpoi
 上面是一方主动关闭，另一方被动关闭的情况，实际中还会出现同时发起主动关闭的情况，具体流程如下图：
 ![tcp_handshake_4](../images/2018/tcp_handshake_4.png)<br/>
 
+### Questions?
+* 三次/四次流程？
+* 为什么建立连接是三次握手，而关闭连接却是四次挥手呢?
+* TCP/IP packet header 有哪些？
+
+# TCP Header
+![tcp_header_1](../images/2018/tcp_header_1.png)<br/>
+* Source port (16 bits)
+Identifies the sending port.
+* Destination port (16 bits)
+Identifies the receiving port.
+* Sequence number (32 bits)
+* Acknowledgment number (32 bits)
 
 
 # References
