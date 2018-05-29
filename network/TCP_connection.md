@@ -64,9 +64,9 @@ Identifies the receiving port.
 # References
 [wiki/Transmission_Control_Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)<br/>
 
-[]()<br/>
+[linuxprobe: 女朋友式得 TCP/IP 三次握手与四次挥手](https://www.linuxprobe.com/tcp-ip-protocol.html)<br/>
 
-[]()<br/>
+[linuxde: Linux命令大全](http://man.linuxde.net)<br/>
 
 []()<br/>
 
