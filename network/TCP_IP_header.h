@@ -17,10 +17,10 @@ typedef struct ip
 // TCP报头结构体   
 typedef struct tcphdr   
 {  
-    u_short th_sport;  
-    u_short th_dport;  
-    u_int th_seq;  
-    u_int th_ack;  
+    u_short th_sport; // 16 bits
+    u_short th_dport; // 16 bits  
+    u_int th_seq; // 32 bits
+    u_int th_ack; // 32 bits
     u_int th_off:4;  
     u_int th_x2:4;  
     u_char th_flags;  
