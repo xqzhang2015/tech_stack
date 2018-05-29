@@ -81,3 +81,5 @@ TCP/IP五层协议和OSI的七层协议对应关系如下。
 
 9. [CSDN: route命令管理路由表和默认网关](http://blog.csdn.net/xiaozhongma/article/details/52945029)
 
+
+[linuxde: Linux命令大全](http://man.linuxde.net)<br/>
