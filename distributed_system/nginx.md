@@ -7,7 +7,7 @@ __模块化设计__: 以功能块为单位 进行程序设计，实现其求解�
 
 
 # References
-[]()<br/>
+[docs.nginx.com: admin-guide](https://docs.nginx.com/nginx/admin-guide/)<br/>
 
 []()<br/>
 
