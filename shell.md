@@ -59,7 +59,7 @@ cat test.txt | awk '{sum1+=$1;sum2+=$2;count++}END{print sum1/count,sum2/count}'
 
 <br/><br/>
 ### References
-[]()<br/>
+[ssh代理转发](http://www.zsythink.net/archives/2422)<br/>
 []()<br/>
 []()<br/>
 []()<br/>
