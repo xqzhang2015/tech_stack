@@ -1,7 +1,8 @@
 # Contents
 - [Concepts](#Concepts)
   - [HEAD](#HEAD)
-- [Git Data Transport Commands](#Git-Data-Transport-Commands)
+  - [Git Data Transport Commands](#git-data-transport-commands)
+- [Specific Commands](#specific-commands)
   - [git add](#git-add)
   - [git diff](#git-diff)
   - [git archive](#git-archive)
@@ -25,8 +26,10 @@ ref: refs/heads/ISP
 869518d83aae0c99aa61a4c52ffa4c90d7c236c4
 ```
 
-# Git Data Transport Commands
+### Git Data Transport Commands
 ![git_data_transport_command](../images/2018/Git-data-transport-commands.png)
+
+# Specific Commands
 
 ### git add
 * NAME: git-add - Add file contents to the index
