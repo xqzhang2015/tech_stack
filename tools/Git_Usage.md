@@ -1,6 +1,7 @@
 # Contents
 - [Concepts](#Concepts)
   - [HEAD](#HEAD)
+- [Git Data Transport Commands](#Git-Data-Transport-Commands)
   - [git add](#git-add)
   - [git diff](#git-diff)
   - [git archive](#git-archive)
@@ -9,7 +10,7 @@
   - [git reset](#git-reset)
   - [git rebase](#git-rebase)
 
-## Concepts
+# Concepts
 ### HEAD
 * HEAD is the latest commit object of the current active branch(working tree of local responsitory).<br/>
 
@@ -23,6 +24,9 @@ ref: refs/heads/ISP
 ➜  .git git:(ISP) cat refs/heads/ISP
 869518d83aae0c99aa61a4c52ffa4c90d7c236c4
 ```
+
+# Git Data Transport Commands
+![git_data_transport_command](../images/2018/Git-data-transport-commands.png)
 
 ### git add
 * NAME: git-add - Add file contents to the index
@@ -198,8 +202,6 @@ bool is_auto_generated():
     This reverts merge request !1234
 ```
 
-### Git Data Transport Commands
-![git_data_transport_command](../images/2018/Git-data-transport-commands.png)
 
 ### References
 [Git fetch + merge, Git fetch + rebase, Git pull](https://tapaswenipathak.wordpress.com/2016/02/15/git-fetch-merge-git-fetch-rebase-git-pull/)<br/>
