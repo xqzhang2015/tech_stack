@@ -1,18 +1,13 @@
 # Contents
 - [Concepts](#Concepts)
   - [HEAD](#HEAD)
-  - [git add](#git add)
-  - [git diff](#git diff)
-  - [git archive](#git archive)
-  - [git log](#git log)
-  - [git blame](#git blame)
-  - [git reset](#git reset)
-  - [git rebase](#git rebase)
-  - [](#)
-  - [](#)
-  - [](#)
-  - [](#)
-  - [](#)
+  - [git add](#git-add)
+  - [git diff](#git-diff)
+  - [git archive](#git-archive)
+  - [git log](#git-log)
+  - [git blame](#git-blame)
+  - [git reset](#git-reset)
+  - [git rebase](#git-rebase)
 
 ## Concepts
 ### HEAD
