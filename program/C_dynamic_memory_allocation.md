@@ -1,6 +1,13 @@
 - [C Dynamic Memory](#c_dynamic_memory)
   - [Usage example](#usage_example)
-  
+  - [Type safety](#type_safety)
+  - [Common errors](#common_errors)
+  - [Implementations](#implementations)
+    - [FreeBSD's and NetBSD's jemalloc](#freebsd's_and_netbsd's_jemalloc)
+    - [jemalloc](#jemalloc)
+    - [](#)
+    - [](#)
+- [References](#references)
   
 # C Dynamic Memory
 C dynamic memory allocation refers to performing manual memory management for dynamic memory allocation in the C programming language via a group of functions in the C standard library, namely 
