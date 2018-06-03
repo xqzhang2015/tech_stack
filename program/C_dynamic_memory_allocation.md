@@ -113,6 +113,7 @@ TCMalloc is faster than the glibc 2.3 malloc.
 * 浅拷贝与深拷贝
 * 拷贝赋值操作符
 
-[]()<br/>
-[]()<br/>
+[Jianshu: ptmalloc/tcmalloc/jemalloc内存分配策略](https://www.jianshu.com/p/91d2956f22c1)<br/>
+
+[blog.sina: Redis采用不同内存分配器碎片率对比](http://blog.sina.com.cn/s/blog_6f5b220601012x3x.html)<br/>
 []()<br/>
