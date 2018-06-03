@@ -1,4 +1,4 @@
-- [C Dynamic Memory](#c_dynamic_memory)
+- [C Dynamic Memory](#c-dynamic-memory)
   - [Usage example](#usage-example)
   - [Type safety](#type_safety)
   - [Common errors](#common_errors)
