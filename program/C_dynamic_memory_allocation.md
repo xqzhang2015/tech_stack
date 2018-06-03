@@ -76,22 +76,25 @@ usually causes a segmentation fault and results in a crash of the program.
 ### Implementations
 ---
 ##### Heap-based
-##### dlmalloc ==> glibc(GNU C library)
-##### [FreeBSD's and NetBSD's jemalloc](http://jemalloc.net/)
+##### glibc dlmalloc
+* dlmalloc ==> glibc(GNU C library)
+
+##### FreeBSD and NetBSD jemalloc
+[FreeBSD's and NetBSD's jemalloc](http://jemalloc.net/)
 jemalloc is a general purpose malloc(3) implementation that emphasizes 
 * fragmentation avoidance 
 * and scalable concurrency support.
 
 In order to avoid lock contention, jemalloc uses separate "arenas" for each CPU.
 
-##### [tcmalloc (Thread-caching malloc)](http://goog-perftools.sourceforge.net/doc/tcmalloc.html)
+##### Google tcmalloc
+[tcmalloc (Thread-caching malloc)](http://goog-perftools.sourceforge.net/doc/tcmalloc.html)
 * A malloc developed by Google.
 * Every thread has local storage for small allocations,
 * Has garbage-collection for local storage of dead threads.
 
 TCMalloc is faster than the glibc 2.3 malloc.
 
-##### jemalloc
 ##### 
 
 ```
