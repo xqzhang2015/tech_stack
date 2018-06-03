@@ -3,9 +3,9 @@
   - [Type safety](#type_safety)
   - [Common errors](#common_errors)
   - [Implementations](#implementations)
-    - [FreeBSD's and NetBSD's jemalloc](#freebsd's_and_netbsd's_jemalloc)
-    - [jemalloc](#jemalloc)
-    - [](#)
+    - [glibc dlmalloc](#glibc-dlmalloc)
+    - [FreeBSD and NetBSD jemalloc](#freebsd-and-netbsd-jemalloc)
+    - [Google tcmalloc](#google-tcmalloc)
     - [](#)
 - [References](#references)
   
