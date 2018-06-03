@@ -107,7 +107,12 @@ TCMalloc is faster than the glibc 2.3 malloc.
 
 [C语言中手把手教你动态内存分配](https://blog.csdn.net/qq_29924041/article/details/54897204)<br/>
 
-[]()<br/>
+[C++ 动态内存分配（6种情况，好几个例子）](https://www.cnblogs.com/findumars/p/5272691.html)<br/>
+* 指针数组和数组指针
+* 堆对象与构造函数
+* 浅拷贝与深拷贝
+* 拷贝赋值操作符
+
 []()<br/>
 []()<br/>
 []()<br/>
