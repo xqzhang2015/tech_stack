@@ -10,7 +10,9 @@
 - [References](#references)
   
 # C Dynamic Memory
-C dynamic memory allocation refers to performing manual memory management for dynamic memory allocation in the C programming language via a group of functions in the C standard library, namely 
+![memory_allocation_errors](../images/2018/memory_allocation_errors.png)
+
+C dynamic memory allocation: manually memory management for dynamic memory allocation in the C standard library, namely 
 * malloc, -- allocates the specified number of bytes
 * realloc, 
 * calloc -- allocates the specified number of bytes and initializes them to zero
@@ -103,7 +105,8 @@ TCMalloc is faster than the glibc 2.3 malloc.
 # References
 [CSDN: 内存优化总结:ptmalloc、tcmalloc和jemalloc](https://blog.csdn.net/junlon2006/article/details/77854898)<br/>
 
-[]()<br/>
+[C语言中手把手教你动态内存分配](https://blog.csdn.net/qq_29924041/article/details/54897204)<br/>
+
 []()<br/>
 []()<br/>
 []()<br/>
