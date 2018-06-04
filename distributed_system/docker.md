@@ -52,7 +52,7 @@ test$ sudo docker port 21e9305569d1
 8999/tcp -> 0.0.0.0:30000
 9000/tcp -> 0.0.0.0:30001
 ```
-### Frequent other commands
+### Docker container start/stop/rm
 ```
 runoob@runoob:~$ docker stop determined_swanson   
 determined_swanson
