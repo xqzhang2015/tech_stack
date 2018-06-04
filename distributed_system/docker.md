@@ -33,6 +33,7 @@
 
 ![docker_architecture](../images/2018/docker_architecture.png)<br/>
 ### 命名空间「Namespaces」
+---
 ##### pid namespace
 不同用户的进程就是通过 pid namespace 隔离开的，且不同 namespace 中可以有相同 PID。具有以下特征:
 
@@ -68,6 +69,7 @@ container 中进程交互还是采用 Linux 常见的进程间交互方法 (inte
 有了以上 6 种 namespace 从进程、网络、IPC、文件系统、UTS 和用户角度的隔离，一个 container 就可以对外展现出一个独立计算机的能力，并且不同 container 从 OS 层面实现了隔离。 然而不同 namespace 之间资源还是相互竞争的，仍然需要类似 ulimit 来管理每个 container 所能使用的资源 - cgroup。<br/>
 
 ### 资源配额「cgroups」
+---
 ##### Memory
 内存相关的限制
 
