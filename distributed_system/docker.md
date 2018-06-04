@@ -9,7 +9,7 @@
   - [构建镜像](#构建镜像)
 - [References](#references)
 
-## Docker Architecture
+# Docker Architecture
 - Docker 使用客户端-服务器 **(C/S)架构模式**，使用远程API来管理和创建Docker容器。
 - Docker 容器通过 Docker 镜像来创建。
 - 容器与镜像的关系类似于面向对象编程中的 **对象与类**。
@@ -20,8 +20,15 @@
 | Image  | 类  |
 
 ![docker_architecture](../images/2018/docker_architecture.png)<br/>
+# 命名空间「Namespaces」
+### pid namespace
+### mnt namespace
+### net namespace
+### uts namespace
+### ipc namespace
+### user namespace
 
-## Container: docker run
+# Container: docker run
 ### 运行交互式的容器
 我们通过docker的两个参数 -i -t，让docker运行的容器实现"对话"的能力
 
@@ -79,7 +86,7 @@ sudo service docker status
 ```
 
 
-## Image: docker build
+# Image: docker build
 
 ### commands
 * 我们可以使用 docker images 来列出本地主机上的镜像。
@@ -151,13 +158,19 @@ runoob@runoob:~$ docker tag 860c279d2fec runoob/centos:dev
 ```
 
 
-## References
+# References
 [Docker 架构](http://www.runoob.com/docker/docker-architecture.html)<br/>
 
 [Docker 镜像使用](http://www.runoob.com/docker/docker-image-usage.html)<br/>
 
 [cnblogs: 非常详细的Docker学习笔记](https://www.cnblogs.com/huatianbuyuexia/p/6540166.html)<br/>
-
+* 命名空间「Namespaces」
+** pid namespace
+** mnt namespace
+** net namespace
+** uts namespace
+** ipc namespace
+** user namespace
 []()<br/>
 []()<br/>
 []()<br/>
