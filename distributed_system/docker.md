@@ -2,7 +2,8 @@
 - [Container: docker run](#container-docker-run)
   - [运行交互式的容器](#运行交互式的容器)
   - [运行一个web应用: port mapping](#运行一个web应用-port-mapping)
-  - [Frequent other commands](#frequent-other-commands)
+  - [Docker container start/stop/rm](#docker-container-startstoprm)
+  - [Docker daemon]()
 - [Image: docker build](#image-docker-build)
   - [Commands](#commands)
   - [构建镜像](#构建镜像)
@@ -64,6 +65,19 @@ runoob@runoob:~$ docker rm determined_swanson
 determined_swanson
 ```
 * 删除容器时，容器必须是停止状态，否则会报错误.
+
+### Docker daemon start/stop
+* start/stop/restart Docker daemon
+```
+sudo service docker start
+
+sudo service docker stop
+
+sudo service docker restart
+
+sudo service docker status
+```
+
 
 ## Image: docker build
 
