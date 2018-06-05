@@ -1,6 +1,6 @@
 - [TCP connection state transition](#tcp-connection-state-transition)
 - [Connection establishment](#connection-establishment)
-  - [Why 三次](#Why 三次)
+  - [Why 三次](#why-三次)
   - [Workflow](#workflow)
   - [Example](#example)
   - [SYN攻击](#syn攻击)
