@@ -10,7 +10,7 @@
 - [TCP Header](#tcp-header)
 - [References](#references)
 
-# TCP connection state transition
+# [TCP connection state transition](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.halu101/constatus.htm)
 ![TCP_state_transition](../images/2018/TCP_state_transition.gif)
 
 # Connection establishment
