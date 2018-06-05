@@ -1,3 +1,18 @@
+- [TCP connection state transition](#)
+- [Connection establishment](#)
+  - [Why 三次](#)
+  - [Workflow](#)
+  - [Example](#)
+  - [SYN攻击](#)
+- [Connection termination](#)
+  - [为什么建立连接是三次握手，而关闭连接却是四次挥手呢?](#)
+  - [Questions?](#)
+- [TCP Header](#)
+- [References](#)
+
+# TCP connection state transition
+![TCP_state_transition](../images/2018/TCP_state_transition.gif)
+
 # Connection establishment
 To establish a connection, TCP uses a three-way handshake.
 * __SYN__: The active open is performed by the client sending a SYN to the server.
@@ -68,6 +83,6 @@ Identifies the receiving port.
 
 [linuxde: Linux命令大全](http://man.linuxde.net)<br/>
 
-[]()<br/>
+[TCP connection status](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.halu101/constatus.htm)<br/>
 
 []()<br/>
