@@ -228,5 +228,12 @@ runoob@runoob:~$ docker tag 860c279d2fec runoob/centos:dev
 
 [kamilszymanski.github.io: Optimizing Docker images for image size and build time](https://kamilszymanski.github.io/optimizing-docker-images-for-image-size-and-build-time/)<br/>
 
+[Redhat developer: Keep it small: a closer look at Docker image sizing](https://developers.redhat.com/blog/2016/03/09/more-about-docker-images-size/)<br/>
+
 []()<br/>
+
+[]()<br/>
+
+[]()<br/>
+
 []()<br/>
