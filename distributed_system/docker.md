@@ -324,6 +324,22 @@ For yum,
 
 ```
 
+##### Don’t use a single layer image
+To make effective use of the layered filesystem, 
+* always create your own base image layer for your OS, 
+* another layer for the username definition, 
+* another layer for the runtime installation, 
+* another layer for the configuration, 
+* and finally another layer for your application.
+
+It will be easier to recreate, manage, and distribute your image.
+##### Don’t create images from running containers
+In other terms, don’t use “docker commit” to create an image. 
+
+This method to create an image is __NOT reproducible__ and should be completely avoided.
+
+Always use a Dockerfile or any other S2I (source-to-image) approach that is totally reproducible, and you can __track changes__ to the Dockerfile if you store it in a source control repository (git).
+
 ##### References
 [www.fromlatest.io: Dockerfile online validation](https://www.fromlatest.io/#/)<br/>
 
@@ -351,7 +367,7 @@ For yum,
 
 [docs.docker.com: Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)<br/>
 
-[]()<br/>
+[10 things to avoid in docker containers](https://developers.redhat.com/blog/2016/02/24/10-things-to-avoid-in-docker-containers/)<br/>
 
 []()<br/>
 
