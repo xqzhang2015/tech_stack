@@ -219,12 +219,12 @@ runoob@runoob:~$ docker tag 860c279d2fec runoob/centos:dev
 
 [cnblogs: 非常详细的Docker学习笔记](https://www.cnblogs.com/huatianbuyuexia/p/6540166.html)<br/>
 * 命名空间 Namespaces
-** pid namespace
-** mnt namespace
-** net namespace
-** uts namespace
-** ipc namespace
-** user namespace
+  * pid namespace
+  * mnt namespace
+  * net namespace
+  * uts namespace
+  * ipc namespace
+  * user namespace
 
 [Optimizing Docker images for image size and build time](https://kamilszymanski.github.io/optimizing-docker-images-for-image-size-and-build-time/)<br/>
 
