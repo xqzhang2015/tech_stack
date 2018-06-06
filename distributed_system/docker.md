@@ -226,7 +226,7 @@ runoob@runoob:~$ docker tag 860c279d2fec runoob/centos:dev
   * ipc namespace
   * user namespace
 
-[Optimizing Docker images for image size and build time](https://kamilszymanski.github.io/optimizing-docker-images-for-image-size-and-build-time/)<br/>
+[kamilszymanski.github.io: Optimizing Docker images for image size and build time](https://kamilszymanski.github.io/optimizing-docker-images-for-image-size-and-build-time/)<br/>
 
 []()<br/>
 []()<br/>
