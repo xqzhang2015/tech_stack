@@ -237,7 +237,7 @@ The __latest__ tag maybe __NOT__ always means the newest version image, which is
 ### docker image size
 
 
-##### Group commands in ONE instruction when possible
+##### Minimize Layers: Group commands in ONE instruction when possible
 Each Dockerfile instruction creates a layer at build time.
 * Do not perform multiple installs in multiple ___RUN___ instructions.
 * Others
@@ -292,12 +292,22 @@ RUN apt-get update \
 
 
 ##### Clean apt-cache after packages installs
+At the end of `the apt-get -y install`,
+```
+rm -rf /var/lib/apt/lists/* 
+```
 
+Or for yum,
+```
+yum clean all
+```
 
 ##### References
 [www.fromlatest.io: Dockerfile online validation](https://www.fromlatest.io/#/)<br/>
 
 [5 tips to reduce Docker image size](https://blog.florianlopes.io/5-tips-to-reduce-docker-image-size/)<br/>
+
+[Tips to Reduce Docker Image Sizes](https://hackernoon.com/tips-to-reduce-docker-image-sizes-876095da3b34)<br/>
 
 # References
 [Docker 架构](http://www.runoob.com/docker/docker-architecture.html)<br/>
