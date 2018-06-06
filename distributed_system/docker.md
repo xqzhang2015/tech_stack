@@ -369,6 +369,6 @@ Always use a Dockerfile or any other S2I (source-to-image) approach that is tota
 
 [10 things to avoid in docker containers](https://developers.redhat.com/blog/2016/02/24/10-things-to-avoid-in-docker-containers/)<br/>
 
-[]()<br/>
+[Docker Explained: Using Dockerfiles to Automate Building of Images](https://www.digitalocean.com/community/tutorials/docker-explained-using-dockerfiles-to-automate-building-of-images#dockerfile-syntax)<br/>
 
 []()<br/>
