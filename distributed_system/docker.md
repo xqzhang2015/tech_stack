@@ -20,6 +20,7 @@
   - [Commands](#commands)
   - [构建镜像](#构建镜像)
   - [docker tag](#docker-tag)
+  - [docker image size](#docker-image-size)
 - [References](#references)
 
 # Docker Architecture
@@ -233,6 +234,71 @@ centos-test    latest               772dc29cfb4c        2 minutes ago       199.
 * latest tag
 The __latest__ tag maybe __NOT__ always means the newest version image, which is just a special tag name.
 
+### docker image size
+
+
+##### Group commands in ONE instruction when possible
+Each Dockerfile instruction creates a layer at build time.
+* Do not perform multiple installs in multiple ___RUN___ instructions.
+* Others
+
+Example: bad one
+```
+RUN curl -O https://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz  
+RUN tar xf wildfly-$WILDFLY_VERSION.tar.gz 
+RUN mv /tmp/wildfly-$WILDFLY_VERSION /opt/jboss/wildfly 
+RUN rm /tmp/wildfly-$WILDFLY_VERSION.tar.gz
+```
+Example: good one
+```
+RUN cd /tmp \
+  && curl -O https://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz \
+      && tar xf wildfly-$WILDFLY_VERSION.tar.gz \
+      && mv /tmp/wildfly-$WILDFLY_VERSION /opt/jboss/wildfly \
+      && rm /tmp/wildfly-$WILDFLY_VERSION.tar.gz
+```
+
+##### Do not install packages recommendations (-–no-install-recommends) when installing packages
+* apt-get
+```
+RUN apt-get update apt-get install -y --no-install-recommends curl
+```
+
+* yum
+```
+RUN apt-get update apt-get install -y --no-install-recommends curl
+```
+
+##### Removing no longer needed packages or files
+* Single instruction: apt-get
+```
+FROM ubuntu:16.04  
+MAINTAINER Florian Lopes  
+RUN apt-get update \
+    && apt-get install -y curl \
+    && curl http://[...] \
+    && apt-get remove -y curl
+```
+
+* Single instruction: yum
+```
+FROM ubuntu:16.04  
+MAINTAINER Florian Lopes  
+RUN apt-get update \
+    && apt-get install -y curl \
+    && curl http://[...] \
+    && apt-get remove -y curl
+```
+
+
+##### Clean apt-cache after packages installs
+
+
+##### References
+[www.fromlatest.io: Dockerfile online validation](https://www.fromlatest.io/#/)<br/>
+
+[5 tips to reduce Docker image size](https://blog.florianlopes.io/5-tips-to-reduce-docker-image-size/)<br/>
+
 # References
 [Docker 架构](http://www.runoob.com/docker/docker-architecture.html)<br/>
 
@@ -251,7 +317,7 @@ The __latest__ tag maybe __NOT__ always means the newest version image, which is
 
 [Redhat developer: Keep it small: a closer look at Docker image sizing](https://developers.redhat.com/blog/2016/03/09/more-about-docker-images-size/)<br/>
 
-[]()<br/>
+[docs.docker.com: Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)<br/>
 
 []()<br/>
 
