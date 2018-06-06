@@ -266,7 +266,7 @@ RUN apt-get update apt-get install -y --no-install-recommends curl
 
 * yum
 ```
-RUN apt-get update apt-get install -y --no-install-recommends curl
+Anyone?
 ```
 
 ##### Removing no longer needed packages or files
@@ -300,6 +300,26 @@ rm -rf /var/lib/apt/lists/*
 Or for yum,
 ```
 yum clean all
+```
+
+##### Final Example
+For apt-get,
+* one line
+* --no-install-recommends
+* remove not-used tool
+* cleanup cache
+```
+FROM ubuntu:14.04
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends curl python-pip && \
+    pip install requests && \
+    apt-get remove -y python-pip curl && \
+    rm -rf /var/lib/apt/lists/*
+```
+
+For yum,
+```
+
 ```
 
 ##### References
