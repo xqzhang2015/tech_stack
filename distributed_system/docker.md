@@ -19,6 +19,7 @@
 - [Image: docker build](#image-docker-build)
   - [Commands](#commands)
   - [构建镜像](#构建镜像)
+  - [docker tag](#docker-tag)
 - [References](#references)
 
 # Docker Architecture
@@ -205,12 +206,32 @@ Step 3 : RUN /bin/echo 'root:123456' |chpasswd
 Step 4 : RUN useradd runoob
 ......
 ```
-* 设置镜像标签
+### docker tag
 我们可以使用 docker tag 命令，为镜像添加一个新的标签。
+
+* SYNOPSIS
+```
+       docker tag [-f|--force[=false]] [--help] IMAGE[:TAG] [REGISTRY_HOST/][USERNAME/]NAME[:TAG]
+```
+* Examples
 ```
 runoob@runoob:~$ docker tag 860c279d2fec runoob/centos:dev
 ```
 
+```
+~/test/docker$ sudo docker images | grep centos
+centos-test    v1                   772dc29cfb4c        2 minutes ago       199.7 MB
+```
+
+```
+~/test/docker$ sudo docker tag centos-test:v1 centos-test:latest
+~/test/docker$ sudo docker images | grep centos
+centos-test    v1                   772dc29cfb4c        2 minutes ago       199.7 MB
+centos-test    latest               772dc29cfb4c        2 minutes ago       199.7 MB
+```
+
+* latest tag
+The __latest__ tag maybe __NOT__ always means the newest version image, which is just a special tag name.
 
 # References
 [Docker 架构](http://www.runoob.com/docker/docker-architecture.html)<br/>
