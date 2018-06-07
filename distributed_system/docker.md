@@ -354,7 +354,7 @@ Always use a Dockerfile or any other S2I (source-to-image) approach that is tota
 
 [cnblogs: 非常详细的Docker学习笔记](https://www.cnblogs.com/huatianbuyuexia/p/6540166.html)<br/>
 * 命名空间 Namespaces
-** pid namespace
+  * pid namespace
   * mnt namespace
   * net namespace
   * uts namespace
