@@ -354,7 +354,7 @@ Always use a Dockerfile or any other S2I (source-to-image) approach that is tota
 
 [cnblogs: 非常详细的Docker学习笔记](https://www.cnblogs.com/huatianbuyuexia/p/6540166.html)<br/>
 * 命名空间 Namespaces
-  * pid namespace
+** pid namespace
   * mnt namespace
   * net namespace
   * uts namespace
@@ -370,5 +370,9 @@ Always use a Dockerfile or any other S2I (source-to-image) approach that is tota
 [10 things to avoid in docker containers](https://developers.redhat.com/blog/2016/02/24/10-things-to-avoid-in-docker-containers/)<br/>
 
 [Docker Explained: Using Dockerfiles to Automate Building of Images](https://www.digitalocean.com/community/tutorials/docker-explained-using-dockerfiles-to-automate-building-of-images#dockerfile-syntax)<br/>
+
+[Run Docker Container as a Service](https://www.jetbrains.com/help/youtrack/standalone/run-docker-container-as-service.html)<br/>
+* sudo service docker.youtrack stop
+* sudo service docker.youtrack start
 
 []()<br/>
