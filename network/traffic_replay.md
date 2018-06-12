@@ -17,6 +17,20 @@
 
 
 # [Goreplay](https://github.com/buger/goreplay/wiki/Capturing-and-replaying-traffic)
+__--output-xxx__
+```
+sudo ./gor --input-raw :8000 --output-stdout
+
+sudo ./gor --input-raw :8000 --output-http http://staging.env
+
+sudo ./gor --input-raw :8000 --output-file=requests.gor
+```
+
+__--input-file__
+```
+./gor --input-file requests.gor --output-http="http://localhost:8001"
+```
+
 ### Forwarding to multiple addresses
 You can forward traffic to multiple endpoints.
 
