@@ -1,3 +1,11 @@
+-[traceroute](#traceroute)
+-[Linux TCP/IP 网络工具对比：net-tools 和 iproute2](##linux-tcpip-网络工具对比net-tools-和-iproute2)
+-[tee 命令](#tee-命令)
+-[ethtool 命令](#ethtool-命令)
+-[](#)
+-[](#)
+
+
 ### how to check if a port is opened(or ocuppied)? And then kill?
 * lsof - list open files
 * An open file may be a regular file, a directory, a block special file, a character special file, an executing text reference, a library, a stream or  a  network  file (Internet socket, NFS file or UNIX domain socket.)
