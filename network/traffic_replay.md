@@ -1,0 +1,64 @@
+- [goreplay](#goreplay)
+  - [](#)
+  - [](#)
+  - [](#)
+  - [](#)
+  - [](#)
+- [](#)
+  - [](#)
+  - [](#)
+  - [](#)
+- [](#)
+  - [](#)
+  - [](#)
+  - [](#)
+- [](#)
+  - [](#)
+  - [](#)
+- [References](#References)
+  - [](#)
+  - [](#)
+
+# [Goreplay](https://github.com/buger/goreplay/wiki/Capturing-and-replaying-traffic)
+### Forwarding to multiple addresses
+You can forward traffic to multiple endpoints.
+
+```
+gor --input-tcp :28020 --output-http "http://staging.com"  --output-http "http://dev.com"
+```
+
+### Splitting traffic
+By default, it will send same traffic to all outputs, but you have options to equally split it (round-robin) using __--split-output__ option.
+
+```
+gor --input-raw :80 --output-http "http://staging.com"  --output-http "http://dev.com" --split-output true
+```
+### Tracking responses
+By default __input-raw__ does not intercept responses, only requests. You can turn response tracking using __--input-raw-track-response__ option. When enable you will be able to access response information in middleware and __output-file__.
+
+### Traffic interception engine
+By default, Gor will use __libpcap__ for intercepting traffic, it should work in most cases. If you have any troubles with it, you may try alternative engine: __raw_socket__.
+
+```
+sudo gor --input-raw :80 --input-raw-engine "raw_socket" --output-http "http://staging.com"
+```
+
+
+  
+
+# References
+[github.com: goreplay](https://github.com/buger/goreplay)<br/>
+
+[]()<br/>
+
+[]()<br/>
+
+[]()<br/>
+
+[]()<br/>
+
+[]()<br/>
+
+[]()<br/>
+
+[]()<br/>
