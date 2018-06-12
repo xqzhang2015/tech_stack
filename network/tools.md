@@ -1,9 +1,9 @@
--[traceroute](#traceroute)
--[Linux TCP/IP 网络工具对比：net-tools 和 iproute2](##linux-tcpip-网络工具对比net-tools-和-iproute2)
--[tee 命令](#tee-命令)
--[ethtool 命令](#ethtool-命令)
--[](#)
--[](#)
+- [traceroute](#traceroute)
+- [Linux TCP/IP 网络工具对比：net-tools 和 iproute2](##linux-tcpip-网络工具对比net-tools-和-iproute2)
+- [tee 命令](#tee-命令)
+- [ethtool 命令](#ethtool-命令)
+- [](#)
+- [](#)
 
 
 ### how to check if a port is opened(or ocuppied)? And then kill?
