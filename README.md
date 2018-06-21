@@ -38,7 +38,17 @@
 
 [主析取范式](https://baike.baidu.com/item/主析取范式/2342425)<br/>
 
-[]()<br/>
+[mac-setup](https://sourabhbajaj.com/mac-setup/)<br/>
+* homebrew
+* iterm + zsh
+* git
+* vim: maximum awesome vim
+* sublime
+* python
+* golang
+* LaTex
+
+
 
 []()<br/>
 
