@@ -58,9 +58,9 @@ API Server提供可以用来和集群交互的REST端点。master节点包括用
 
 [闲谈Kubernetes 的主要特性和经验分享](https://www.oschina.net/question/2432428_246729)<br/>
 
-[]()<br/>
+[Interactive Tutorial - Creating a Cluster](https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-interactive/)<br/>
 
-[]()<br/>
+[Tutorials: hello minikube](https://kubernetes.io/docs/tutorials/hello-minikube/)<br/>
 
 []()<br/>
 
