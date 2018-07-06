@@ -12,6 +12,7 @@
   - [git reset](#git-reset)
   - [git rebase](#git-rebase)
 - [Reduce repository size](#reduce-repository-size)
+  - [Running filter-branch](#running-filter-branch)
 - [References](#references)
 
 # Concepts
@@ -216,6 +217,20 @@ bool is_auto_generated():
 $ du -hs .git/objects
 45M	.git/objects 
 ```
+
+### Running filter-branch
+The filter-branch command can contain task specific filters for rewriting the Git index.  For example, a filter can remove a file from every indexed commit.  The syntax for this is the following:<br/>
+```
+git filter-branch --index-filter 'git rm --cached --ignore-unmatch pathname' commitHASH
+```
+
+* The --index-filter option modifies a repo's staging (or index).
+* The --cached option removes a file from the index not the disk.  This is faster as you don't have to checkout each revision before running the filter. 
+* The --ignore-unmatch option in git rm prevents the command from failing if the pathname it is trying to remove isn't there. 
+* By specifying a commit HASH, you remove the pathname from every commit starting with the HASH on up.  To remove from the start, leave this off or you can specify HEAD.  
+<br/>
+If all your large files are in different branches, you'll need to delete each file by name. If all the files are within a single branch,  you can delete the branch itself.<br/>
+
 [Confluence: Reduce repository size](https://confluence.atlassian.com/bitbucket/reduce-repository-size-321848262.html)<br/>
 
 # References
