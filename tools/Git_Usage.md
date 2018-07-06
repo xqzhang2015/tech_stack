@@ -229,7 +229,10 @@ git filter-branch --index-filter 'git rm --cached --ignore-unmatch pathname' com
 * The --ignore-unmatch option in git rm prevents the command from failing if the pathname it is trying to remove isn't there. 
 * By specifying a commit HASH, you remove the pathname from every commit starting with the HASH on up.  To remove from the start, leave this off or you can specify HEAD.  
 <br/>
-If all your large files are in different branches, you'll need to delete each file by name. If all the files are within a single branch,  you can delete the branch itself.<br/>
+
+If all your large files are in different branches, you'll need to delete each file by name. If all the files are within a single branch,  you can delete the branch itself.
+<br/>
+
 
 [Confluence: Reduce repository size](https://confluence.atlassian.com/bitbucket/reduce-repository-size-321848262.html)<br/>
 
