@@ -3,6 +3,7 @@
   - [HEAD](#HEAD)
   - [Git Data Transport Commands](#git-data-transport-commands)
 - [Specific Commands](#specific-commands)
+  - [git commit](#git-commit)
   - [git add](#git-add)
   - [git diff](#git-diff)
   - [git archive](#git-archive)
@@ -31,6 +32,8 @@ ref: refs/heads/ISP
 ![git_data_transport_command](../images/2018/Git-data-transport-commands.png)
 
 # Specific Commands
+### git commit
+* git commit --amend ...
 
 ### git add
 * NAME: git-add - Add file contents to the index
