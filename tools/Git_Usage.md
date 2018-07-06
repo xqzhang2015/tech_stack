@@ -11,6 +11,7 @@
   - [git blame](#git-blame)
   - [git reset](#git-reset)
   - [git rebase](#git-rebase)
+- [Reduce repository size](#reduce-repository-size)
 - [References](#references)
 
 # Concepts
@@ -209,6 +210,13 @@ bool is_auto_generated():
     This reverts merge request !1234
 ```
 
+# Reduce repository size
+* Find out the size of the .git folder.
+```
+$ du -hs .git/objects
+45M	.git/objects 
+```
+[Confluence: Reduce repository size](https://confluence.atlassian.com/bitbucket/reduce-repository-size-321848262.html)<br/>
 
 # References
 [Git fetch + merge, Git fetch + rebase, Git pull](https://tapaswenipathak.wordpress.com/2016/02/15/git-fetch-merge-git-fetch-rebase-git-pull/)<br/>
