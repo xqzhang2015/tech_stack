@@ -21,6 +21,7 @@
   - [构建镜像](#构建镜像)
   - [docker tag](#docker-tag)
   - [docker image size](#docker-image-size)
+- [Manage Docker as a non-root user](#manage-docker-as-a-non-root-user)
 - [References](#references)
 
 # Docker Architecture
@@ -346,6 +347,30 @@ Always use a Dockerfile or any other S2I (source-to-image) approach that is tota
 [5 tips to reduce Docker image size](https://blog.florianlopes.io/5-tips-to-reduce-docker-image-size/)<br/>
 
 [Tips to Reduce Docker Image Sizes](https://hackernoon.com/tips-to-reduce-docker-image-sizes-876095da3b34)<br/>
+
+# Manage Docker as a non-root user
+To create the docker group and add your user:
+
+1. Create the docker group.
+```
+$ sudo groupadd docker
+```
+
+2. Add your user to the docker group.
+```
+$ sudo usermod -aG docker $USER
+```
+
+3. Log out and log back in so that your group membership is re-evaluated.
+
+If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.
+
+On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.
+
+4. Verify that you can run docker commands without sudo.
+```
+$ docker run hello-world
+```
 
 # References
 [Docker 架构](http://www.runoob.com/docker/docker-architecture.html)<br/>
