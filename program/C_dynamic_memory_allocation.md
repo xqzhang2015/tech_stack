@@ -125,9 +125,9 @@ TCMalloc is faster than the glibc 2.3 malloc.
 To set a timer to ring in one second, and thereafter every 50 milliseconds, write
 ```
 struct itimerspec spec;
-spec.it_value.tv_sec = 1;
+spec.it_value.tv_sec = 1;// Initial value and decrease
 spec.it_value.tv_nsec = 0;
-spec.it_interval.tv_sec = 0;
+spec.it_interval.tv_sec = 0;// Interval
 spec.it_interval.tv_nsec = 50000000;
 timer_settime( tmr, 0, &spec, NULL );
 ```
