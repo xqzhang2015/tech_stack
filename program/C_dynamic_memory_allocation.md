@@ -8,9 +8,9 @@
     - [Google tcmalloc](#google-tcmalloc)
     - [](#)
 - [Timers](#timers)
-  - [Some predefined signals](some-predefined-signals)
-  - [Setting the alarm time](setting-the-alarm-time)
-  - [More timer settings](more-timer-settings)
+  - [Some predefined signals](#some-predefined-signals)
+  - [Setting the alarm time](#setting-the-alarm-time)
+  - [More timer settings](#more-timer-settings)
 - [References](#references)
   
 # C Dynamic Memory
