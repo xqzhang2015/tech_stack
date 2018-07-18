@@ -134,7 +134,7 @@ timer_settime( tmr, 0, &spec, NULL );
 
 ### More timer settings
 
-To set a timer to ring just once, set the *it_interval* to 0
+To set a timer to ring just once, set the _*it_interval*_ to 0
 ```
 spec.it_value.tv_sec = 1;
 spec.it_value.tv_nsec = 0;
@@ -142,7 +142,7 @@ spec.it_interval.tv_sec = 0;
 spec.it_interval.tv_nsec = 0;
 timer_settime( tmr, 0, &spec, NULL );
 ```
-To temporarily disable a timer, set the *it_value* to 0
+To temporarily disable a timer, set the _*it_value*_ to 0
 ```
 spec.it_value.tv_sec = 0;
 spec.it_value.tv_nsec = 0;
