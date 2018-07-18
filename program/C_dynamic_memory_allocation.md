@@ -7,6 +7,10 @@
     - [FreeBSD and NetBSD jemalloc](#freebsd-and-netbsd-jemalloc)
     - [Google tcmalloc](#google-tcmalloc)
     - [](#)
+- [Timers](#timers)
+  - [Some predefined signals](some-predefined-signals)
+  - [Setting the alarm time](setting-the-alarm-time)
+  - [More timer settings](more-timer-settings)
 - [References](#references)
   
 # C Dynamic Memory
@@ -100,6 +104,51 @@ TCMalloc is faster than the glibc 2.3 malloc.
 ##### 
 
 ```
+```
+
+# [Timers](http://www.sm.luth.se/csee/courses/d0003e/lectures/lecture13.pdf)
+### Some predefined signals
+```
+•SIGINT "interrupt" (Control-C)
+•SIGILL illegal instruction (internal)
+•SIGKILL kill process (can't be ignored)
+•SIGALRM timer alarm
+•SIGCHLD child process terminated
+•SIGTSTP terminal stop (Control-Z)
+•SIGUSR1 .. SIGUSR2
+  • user defined
+•SIGRTMIN .. SIGRTMAX
+  • user defined (with extra data payload)
+```
+
+### Setting the alarm time
+To set a timer to ring in one second, and thereafter every 50 milliseconds, write
+```
+struct itimerspec spec;
+spec.it_value.tv_sec = 1;
+spec.it_value.tv_nsec = 0;
+spec.it_interval.tv_sec = 0;
+spec.it_interval.tv_nsec = 50000000;
+timer_settime( tmr, 0, &spec, NULL );
+```
+
+### More timer settings
+
+To set a timer to ring just once, set the *it_interval* to 0
+```
+spec.it_value.tv_sec = 1;
+spec.it_value.tv_nsec = 0;
+spec.it_interval.tv_sec = 0;
+spec.it_interval.tv_nsec = 0;
+timer_settime( tmr, 0, &spec, NULL );
+```
+To temporarily disable a timer, set the *it_value* to 0
+```
+spec.it_value.tv_sec = 0;
+spec.it_value.tv_nsec = 0;
+spec.it_interval.tv_sec = 0;
+spec.it_interval.tv_nsec = 50000000;
+timer_settime( tmr, 0, &spec, NULL );
 ```
 
 # References
