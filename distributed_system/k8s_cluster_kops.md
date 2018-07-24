@@ -31,11 +31,51 @@ Then restart the machines with:
 kops rolling-update cluster --yes
 ```
 
-or modify yaml, then
+or __modify yaml, then__
 ```
 kops replace -f xxx.yml
 kops update cluster $CLUSTER_NAME --yes
-kops rolling-update cluster --force --yes
+kops rolling-update cluster --fail-on-validate-error="false" --force --yes
+```
+
+* [XXX ~]$ kops rolling-update cluster --help
+This command updates a kubernetes cluster to match the cloud and kops specifications.
+
+```
+Usage:
+  kops rolling-update cluster [flags]
+  
+Examples:
+  # Roll the k8s-cluster.example.com kops cluster,
+  # only roll the node instancegroup,
+  # use the new drain an validate functionality.
+  kops rolling-update cluster k8s-cluster.example.com --yes \
+  --fail-on-validate-error="false" \
+  --node-interval 8m \
+  --instance-group nodes
+
+Flags:
+      --bastion-interval duration    Time to wait between restarting bastions (default 5m0s)
+      --cloudonly                    Perform rolling update without confirming progress with k8s
+      --fail-on-drain-error          The rolling-update will fail if draining a node fails. (default true)
+      --fail-on-validate-error       The rolling-update will fail if the cluster fails to validate. (default true)
+      --force                        Force rolling update, even if no changes
+      --instance-group stringSlice   List of instance groups to update (defaults to all if not specified)
+      --master-interval duration     Time to wait between restarting masters (default 5m0s)
+      --node-interval duration       Time to wait between restarting nodes (default 4m0s)
+  -y, --yes                          Perform rolling update immediately, without --yes rolling-update executes a dry-run
+
+Global Flags:
+      --alsologtostderr                  log to standard error as well as files
+      --config string                    config file (default is $HOME/.kops.yaml)
+      --log_backtrace_at traceLocation   when logging hits line file:N, emit a stack trace (default :0)
+      --log_dir string                   If non-empty, write log files in this directory
+      --logtostderr                      log to standard error instead of files (default false)
+      --name string                      Name of cluster
+      --state string                     Location of state storage (default "s3://adsk8s.replay.ads.aws.fwmrm.net")
+      --stderrthreshold severity         logs at or above this threshold go to stderr (default 2)
+  -v, --v Level                          log level for V logs
+      --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
 ```
 
 ### Resize an instance group
