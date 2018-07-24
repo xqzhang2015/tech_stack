@@ -39,6 +39,7 @@ kops rolling-update cluster --fail-on-validate-error="false" --force --yes
 ```
 
 * [XXX ~]$ kops rolling-update cluster --help
+
 This command updates a kubernetes cluster to match the cloud and kops specifications.
 
 ```
