@@ -1,6 +1,5 @@
 
 # [GTID(Global Transaction IDentifier)](https://blog.csdn.net/solarison/article/details/60468505)
----
 ### __简介__
 ---
 基于GTID的复制是MySQL 5.6后新增的复制方式.
@@ -57,7 +56,6 @@ ERROR 1785 (HY000): Statement violates GTID consistency: Updates to non-transact
 
 
 # ODBC Driver and Data Source
----
 ```
   $ odbcinst -j
 unixODBC 2.3.1
@@ -72,7 +70,6 @@ SQLSETPOSIROW Size.: 8
 
 
 # References
----
 [CSDN: LINUX安装ODBC驱动](https://blog.csdn.net/dongweizu33/article/details/54616258)<br/>
 []()<br/>
 []()<br/>
