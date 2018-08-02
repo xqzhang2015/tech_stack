@@ -34,7 +34,7 @@
 ## References
 [Github Help: Basic writing and formatting syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/)<br/>
 <br/>
-[Markdown 语法说明 (简体中文版)](https://www.appinn.com/markdown/)<br/>
+[简书：Markdown 语法说明 (简体中文版)](https://www.appinn.com/markdown/)<br/>
 
 [主析取范式](https://baike.baidu.com/item/主析取范式/2342425)<br/>
 
