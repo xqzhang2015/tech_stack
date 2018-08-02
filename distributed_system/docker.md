@@ -1,14 +1,14 @@
 <!-- MarkdownTOC -->
 
 - [Docker Architecture](#docker-architecture)
-  - [命名空间「Namespaces」](#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E3%80%8Cnamespaces%E3%80%8D)
+  - [命名空间 Namespaces](#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4-namespaces)
     - [pid namespace](#pid-namespace)
     - [mnt namespace](#mnt-namespace)
     - [net namespace](#net-namespace)
     - [uts namespace](#uts-namespace)
     - [ipc namespace](#ipc-namespace)
     - [user namespace](#user-namespace)
-  - [资源配额「cgroups」](#%E8%B5%84%E6%BA%90%E9%85%8D%E9%A2%9D%E3%80%8Ccgroups%E3%80%8D)
+  - [资源配额 cgroups](#%E8%B5%84%E6%BA%90%E9%85%8D%E9%A2%9D-cgroups)
     - [Memory](#memory)
     - [CPU](#cpu)
     - [blkio](#blkio)
@@ -50,7 +50,7 @@
 
 ![docker_architecture](../images/2018/docker_architecture.png)<br/>
 
-### 命名空间「Namespaces」
+### 命名空间 Namespaces
 
 ---
 ##### pid namespace
@@ -87,7 +87,7 @@ container 中进程交互还是采用 Linux 常见的进程间交互方法 (inte
 <br/>
 有了以上 6 种 namespace 从进程、网络、IPC、文件系统、UTS 和用户角度的隔离，一个 container 就可以对外展现出一个独立计算机的能力，并且不同 container 从 OS 层面实现了隔离。 然而不同 namespace 之间资源还是相互竞争的，仍然需要类似 ulimit 来管理每个 container 所能使用的资源 - cgroup。<br/>
 
-### 资源配额「cgroups」
+### 资源配额 cgroups
 
 ---
 ##### Memory
