@@ -28,5 +28,8 @@ or
 
 `Pick from menu: Tools > MarkdownTOC > Insert TOC`
 
+### [Sublime: Package control popular](https://packagecontrol.io/browse/popular)
 
 ### [plugin-examples](http://www.sublimetext.com/docs/plugin-examples)
+
+
