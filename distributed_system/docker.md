@@ -37,6 +37,7 @@
 <!-- /MarkdownTOC -->
 
 
+
 # Docker Architecture
 - Docker 使用客户端-服务器 **(C/S)架构模式**，使用远程API来管理和创建Docker容器。
 - Docker 容器通过 Docker 镜像来创建。
