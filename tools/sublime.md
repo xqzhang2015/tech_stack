@@ -6,6 +6,7 @@
   - [Usage](#usage)
   - [Sublime: Package control popular](#sublime-package-control-popular)
   - [plugin-examples](#plugin-examples)
+  - [回到上一次光标编辑处](#%E5%9B%9E%E5%88%B0%E4%B8%8A%E4%B8%80%E6%AC%A1%E5%85%89%E6%A0%87%E7%BC%96%E8%BE%91%E5%A4%84)
 - [Index tree for git](#index-tree-for-git)
 
 <!-- /MarkdownTOC -->
@@ -54,6 +55,10 @@ or
 
 ### [plugin-examples](http://www.sublimetext.com/docs/plugin-examples)
 
+
+### 回到上一次光标编辑处
+
+`windows下是alt+-, mac下是ctrl+-`
 
 
 # Index tree for git
