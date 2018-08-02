@@ -1,17 +1,26 @@
+<!-- MarkdownTOC -->
+
 - [C Dynamic Memory](#c-dynamic-memory)
-  - [Usage example](#usage-example)
-  - [Type safety](#type_safety)
-  - [Common errors](#common_errors)
-  - [Implementations](#implementations)
-    - [glibc dlmalloc](#glibc-dlmalloc)
-    - [FreeBSD and NetBSD jemalloc](#freebsd-and-netbsd-jemalloc)
-    - [Google tcmalloc](#google-tcmalloc)
-    - [](#)
+    - [Usage example](#usage-example)
+  - [### Type safety](#-type-safety)
+  - [### Common errors](#-common-errors)
+      - [Not checking for allocation failures](#not-checking-for-allocation-failures)
+      - [Memory leaks](#memory-leaks)
+      - [Logical errors](#logical-errors)
+  - [### Implementations](#-implementations)
+      - [Heap-based](#heap-based)
+      - [glibc dlmalloc](#glibc-dlmalloc)
+      - [FreeBSD and NetBSD jemalloc](#freebsd-and-netbsd-jemalloc)
+      - [Google tcmalloc](#google-tcmalloc)
+      - [](#)
 - [Timers](#timers)
-  - [Some predefined signals](#some-predefined-signals)
-  - [Setting the alarm time](#setting-the-alarm-time)
-  - [More timer settings](#more-timer-settings)
+    - [Some predefined signals](#some-predefined-signals)
+    - [Setting the alarm time](#setting-the-alarm-time)
+    - [More timer settings](#more-timer-settings)
 - [References](#references)
+
+<!-- /MarkdownTOC -->
+
   
 # C Dynamic Memory
 ![memory_allocation_errors](../images/2018/memory_allocation_errors.png)

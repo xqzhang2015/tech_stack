@@ -1,3 +1,10 @@
+<!-- MarkdownTOC -->
+
+- [Zookeeper Usage Cases](#zookeeper-usage-cases)
+- [Zookeeper Architecture](#zookeeper-architecture)
+- [References](#references)
+
+<!-- /MarkdownTOC -->
 # Zookeeper Usage Cases
 
 ![zookeeper_usage](../images/2018/zookeeper_usage.jpg)

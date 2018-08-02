@@ -1,20 +1,28 @@
-# Contents
-- [Concepts](#Concepts)
-  - [HEAD](#HEAD)
-  - [Git Data Transport Commands](#git-data-transport-commands)
+<!-- MarkdownTOC -->
+
+- [Contents](#contents)
+- [Concepts](#concepts)
+    - [HEAD](#head)
+    - [Git Data Transport Commands](#git-data-transport-commands)
 - [Specific Commands](#specific-commands)
-  - [git commit](#git-commit)
-  - [git add](#git-add)
-  - [git diff](#git-diff)
-  - [git archive](#git-archive)
-  - [git log](#git-log)
-  - [git blame](#git-blame)
-  - [git reset](#git-reset)
-  - [git rebase](#git-rebase)
+    - [git commit](#git-commit)
+    - [git add](#git-add)
+    - [git diff](#git-diff)
+    - [git archive](#git-archive)
+    - [git log](#git-log)
+    - [git blame](#git-blame)
+    - [git reset](#git-reset)
+    - [git rebase](#git-rebase)
+  - [If auto-generated file is really generated automatically?](#if-auto-generated-file-is-really-generated-automatically)
+    - [Limitation: only check the latest commit for a specific file](#limitation-only-check-the-latest-commit-for-a-specific-file)
+    - [Approach](#approach)
+    - [Edge case](#edge-case)
 - [Reduce repository size](#reduce-repository-size)
-  - [Running filter-branch](#running-filter-branch)
+    - [Running filter-branch](#running-filter-branch)
 - [References](#references)
 
+<!-- /MarkdownTOC -->
+# Contents
 # Concepts
 ### HEAD
 * HEAD is the latest commit object of the current active branch(working tree of local responsitory).<br/>

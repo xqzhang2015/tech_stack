@@ -1,3 +1,12 @@
+<!-- MarkdownTOC -->
+
+- [GTID\(Global Transaction IDentifier\)](#gtidglobal-transaction-identifier)
+  - [### __简介__](#-__%E7%AE%80%E4%BB%8B__)
+  - [### __GTID Limits__](#-__gtid-limits__)
+- [ODBC Driver and Data Source](#odbc-driver-and-data-source)
+- [References](#references)
+
+<!-- /MarkdownTOC -->
 
 # [GTID(Global Transaction IDentifier)](https://blog.csdn.net/solarison/article/details/60468505)
 ### __简介__

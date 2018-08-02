@@ -1,3 +1,11 @@
+<!-- MarkdownTOC -->
+
+- [References](#references)
+- [Concepts](#concepts)
+- [More](#more)
+- [References](#references-1)
+
+<!-- /MarkdownTOC -->
 ### References
 [The Secret Lives of Data: Raft](http://thesecretlivesofdata.com/raft/)<br/>
 

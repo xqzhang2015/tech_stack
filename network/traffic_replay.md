@@ -1,19 +1,16 @@
-- [goreplay](#goreplay)
+<!-- MarkdownTOC -->
+
+- [Goreplay](#goreplay)
   - [Forwarding to multiple addresses](#forwarding-to-multiple-addresses)
   - [Splitting traffic](#splitting-traffic)
   - [Tracking responses](#tracking-responses)
   - [Traffic interception engine](#traffic-interception-engine)
-  - [](#)
 - [TCPDump](#tcpdump)
-  - [](#)
-  - [](#)
 - [TCPCopy](#tcpcopy)
-  - [](#)
-  - [](#)
-- [](#)
-  - [](#)
-  - [](#)
-- [References](#References)
+- [References](#references)
+
+<!-- /MarkdownTOC -->
+
 
 
 # [Goreplay](https://github.com/buger/goreplay/wiki/Capturing-and-replaying-traffic)

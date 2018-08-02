@@ -1,3 +1,9 @@
+<!-- MarkdownTOC -->
+
+- [RB Tree](#rb-tree)
+- [References](#references)
+
+<!-- /MarkdownTOC -->
 
 ### RB Tree
 

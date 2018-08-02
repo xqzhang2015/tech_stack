@@ -1,3 +1,9 @@
+<!-- MarkdownTOC -->
+
+- [Normal proxy](#normal-proxy)
+- [Reverse proxy](#reverse-proxy)
+
+<!-- /MarkdownTOC -->
 # Normal proxy
 With client, to form a LAN.
 

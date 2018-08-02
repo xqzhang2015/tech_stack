@@ -1,9 +1,14 @@
+<!-- MarkdownTOC -->
+
+- [how to check if a port is opened\(or ocuppied\)? And then kill?](#how-to-check-if-a-port-is-openedor-ocuppied-and-then-kill)
 - [traceroute](#traceroute)
-- [Linux TCP/IP 网络工具对比：net-tools 和 iproute2](##linux-tcpip-网络工具对比net-tools-和-iproute2)
-- [tee 命令](#tee-命令)
-- [ethtool 命令](#ethtool-命令)
-- [](#)
-- [](#)
+- [### Linux TCP/IP 网络工具对比：net-tools 和 iproute2](#-linux-tcpip-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94%EF%BC%9Anet-tools-%E5%92%8C-iproute2)
+- [### tee 命令](#-tee-%E5%91%BD%E4%BB%A4)
+- [### ethtool 命令](#-ethtool-%E5%91%BD%E4%BB%A4)
+- [References](#references)
+
+<!-- /MarkdownTOC -->
+
 
 
 ### how to check if a port is opened(or ocuppied)? And then kill?

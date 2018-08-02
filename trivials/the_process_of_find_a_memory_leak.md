@@ -1,3 +1,14 @@
+<!-- MarkdownTOC -->
+
+- [The Process of figure out memory leak issue](#the-process-of-figure-out-memory-leak-issue)
+  - [Issue](#issue)
+  - [Suspect](#suspect)
+  - [Process](#process)
+  - [Dive into MySQL Driver](#dive-into-mysql-driver)
+  - [Some commands](#some-commands)
+  - [References](#references)
+
+<!-- /MarkdownTOC -->
 # The Process of figure out memory leak issue
 ### Issue
 The memory of one server is always increasing and higher than others.

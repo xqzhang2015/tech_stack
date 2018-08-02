@@ -1,3 +1,10 @@
+<!-- MarkdownTOC -->
+
+- [SQL Joins](#sql-joins)
+  - [Different Types of SQL JOINs](#different-types-of-sql-joins)
+- [References](#references)
+
+<!-- /MarkdownTOC -->
 ## SQL Joins
 A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
 

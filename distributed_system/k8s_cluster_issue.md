@@ -1,3 +1,9 @@
+<!-- MarkdownTOC -->
+
+- [Failing to communication between pods on same host, if kube-dns is also on this host](#failing-to-communication-between-pods-on-same-host-if-kube-dns-is-also-on-this-host)
+  - [Solution](#solution)
+
+<!-- /MarkdownTOC -->
 
 
 ### Failing to communication between pods on same host, if kube-dns is also on this host

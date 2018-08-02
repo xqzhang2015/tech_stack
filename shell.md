@@ -1,7 +1,11 @@
-<a href="awk">awk</a>
 
-[]()<br/>
-[]()<br/>
+<!-- MarkdownTOC -->
+
+- [Pretty Print JSON With Python](#pretty-print-json-with-python)
+- [awk](#awk)
+- [References](#references)
+
+<!-- /MarkdownTOC -->
 
 ### Pretty Print JSON With Python
 

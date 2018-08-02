@@ -1,3 +1,13 @@
+<!-- MarkdownTOC -->
+
+- [Plugins](#plugins)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+  - [Usage](#usage)
+  - [Sublime: Package control popular](#sublime-package-control-popular)
+  - [plugin-examples](#plugin-examples)
+
+<!-- /MarkdownTOC -->
 # Plugins
 ### Installation
 
@@ -11,7 +21,18 @@ Select __expected package__ when the list appears.
 
 ### Configuration
 * Pick: Sublime Text > Preferences > Package Settings > MarkdownTOC > Settings - User
+
+```
+{
+  "defaults": {
+    "autolink": true,
+    "indent": "  "
+  }
+}
+```
+
 * Pick: Sublime Text > Preferences > Package Settings > Git > Settings - User
+
 * ...
 
 

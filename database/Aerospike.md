@@ -1,3 +1,11 @@
+<!-- MarkdownTOC -->
+
+- [Knowledge](#knowledge)
+  - [Archtecture](#archtecture)
+  - [Client API](#client-api)
+- [References](#references)
+
+<!-- /MarkdownTOC -->
 
 
 # Knowledge

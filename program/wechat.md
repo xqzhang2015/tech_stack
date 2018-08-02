@@ -1,5 +1,10 @@
+<!-- MarkdownTOC -->
+
 - [Techs](#techs)
 - [References](#references)
+
+<!-- /MarkdownTOC -->
+
 
 # Techs
 

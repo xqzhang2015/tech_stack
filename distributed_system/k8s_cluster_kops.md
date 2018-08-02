@@ -1,7 +1,11 @@
+<!-- MarkdownTOC -->
+
 - [Instance Groups](#instance-groups)
   - [Change the instance type in an instance group](#change-the-instance-type-in-an-instance-group)
-  - [Resize an instance group](resize-an-instance-group)
-  - [Changing the root volume size or type](changing-the-root-volume-size-or-type)
+  - [Resize an instance group](#resize-an-instance-group)
+  - [Changing the root volume size or type](#changing-the-root-volume-size-or-type)
+
+<!-- /MarkdownTOC -->
 
 # [Instance Groups](https://github.com/kubernetes/kops/blob/master/docs/instance_groups.md)
 ### Change the instance type in an instance group

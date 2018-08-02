@@ -1,3 +1,22 @@
+<!-- MarkdownTOC -->
+
+- [OSI参考模型](#osi%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B)
+  - [OSI的来源](#osi%E7%9A%84%E6%9D%A5%E6%BA%90)
+  - [OSI七层模型的划分](#osi%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%92%E5%88%86)
+  - [各层功能定义](#%E5%90%84%E5%B1%82%E5%8A%9F%E8%83%BD%E5%AE%9A%E4%B9%89)
+    - [应用层](#%E5%BA%94%E7%94%A8%E5%B1%82)
+    - [表示层](#%E8%A1%A8%E7%A4%BA%E5%B1%82)
+    - [会话层](#%E4%BC%9A%E8%AF%9D%E5%B1%82)
+    - [传输层 \(port for process\)](#%E4%BC%A0%E8%BE%93%E5%B1%82-port-for-process)
+    - [网络层 \(IP address\)](#%E7%BD%91%E7%BB%9C%E5%B1%82-ip-address)
+    - [数据链路层 \(ethernet mac address\)](#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82-ethernet-mac-address)
+    - [物理层](#%E7%89%A9%E7%90%86%E5%B1%82)
+  - [通信特点：对等通信](#%E9%80%9A%E4%BF%A1%E7%89%B9%E7%82%B9%EF%BC%9A%E5%AF%B9%E7%AD%89%E9%80%9A%E4%BF%A1)
+- [TCP/IP五层模型](#tcpip%E4%BA%94%E5%B1%82%E6%A8%A1%E5%9E%8B)
+    - [HTTP packets](#http-packets)
+- [参考文献：](#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%EF%BC%9A)
+
+<!-- /MarkdownTOC -->
 OSI七层模型与TCP/IP五层模型
 ___
 博主是搞是个FPGA的，一直没有真正的研究过以太网相关的技术，现在终于能静下心学习一下，希望自己能更深入的掌握这项最基本的通信接口技术。下面就开始搞了。
