@@ -17,12 +17,15 @@ Select __expected package__ when the list appears.
 
 ### Usage
 * [Git](https://packagecontrol.io/packages/Git)
+
 `Command+Shift+p on OS X, then git`
 
 * [MarkdownTOC](https://packagecontrol.io/packages/MarkdownTOC#installation)
+
 `Command+Shift+p on OS X, then MarkdownTOC`
 
 or
+
 `Pick from menu: Tools > MarkdownTOC > Insert TOC`
 
 
