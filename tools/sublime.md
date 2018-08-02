@@ -4,9 +4,9 @@
 Bring up the Command Palette (Command+Shift+p on OS X, Control+Shift+p on Linux/Windows).
 Select "Package Control: Install Package" (it'll take a few seconds)
 Select __expected package__ when the list appears.
-* Git
-* 
-* MarkdownTOC
+* [Git](https://packagecontrol.io/packages/Git)
+* [GitGutter](https://packagecontrol.io/packages/GitGutter)
+* [MarkdownTOC](https://packagecontrol.io/packages/MarkdownTOC)
 * 
 
 ### Configuration
@@ -16,11 +16,11 @@ Select __expected package__ when the list appears.
 
 
 ### Usage
-* [Git](https://packagecontrol.io/packages/Git)
+* Git
 
 `Command+Shift+p on OS X, then git`
 
-* [MarkdownTOC](https://packagecontrol.io/packages/MarkdownTOC#installation)
+* MarkdownTOC
 
 `Command+Shift+p on OS X, then MarkdownTOC`
 
