@@ -1,36 +1,36 @@
 <!-- MarkdownTOC -->
 
 - [Docker Architecture](#docker-architecture)
-  - [### 命名空间「Namespaces」](#-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E3%80%8Cnamespaces%E3%80%8D)
-      - [pid namespace](#pid-namespace)
-      - [mnt namespace](#mnt-namespace)
-      - [net namespace](#net-namespace)
-      - [uts namespace](#uts-namespace)
-      - [ipc namespace](#ipc-namespace)
-      - [user namespace](#user-namespace)
-  - [### 资源配额「cgroups」](#-%E8%B5%84%E6%BA%90%E9%85%8D%E9%A2%9D%E3%80%8Ccgroups%E3%80%8D)
-      - [Memory](#memory)
-      - [CPU](#cpu)
-      - [blkio](#blkio)
-      - [devices](#devices)
+  - [命名空间「Namespaces」](#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E3%80%8Cnamespaces%E3%80%8D)
+    - [pid namespace](#pid-namespace)
+    - [mnt namespace](#mnt-namespace)
+    - [net namespace](#net-namespace)
+    - [uts namespace](#uts-namespace)
+    - [ipc namespace](#ipc-namespace)
+    - [user namespace](#user-namespace)
+  - [资源配额「cgroups」](#%E8%B5%84%E6%BA%90%E9%85%8D%E9%A2%9D%E3%80%8Ccgroups%E3%80%8D)
+    - [Memory](#memory)
+    - [CPU](#cpu)
+    - [blkio](#blkio)
+    - [devices](#devices)
 - [Container: docker run](#container-docker-run)
-    - [运行交互式的容器](#%E8%BF%90%E8%A1%8C%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%9A%84%E5%AE%B9%E5%99%A8)
-    - [运行一个web应用: port mapping](#%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AAweb%E5%BA%94%E7%94%A8-port-mapping)
-    - [Docker container start/stop/rm](#docker-container-startstoprm)
-    - [Docker daemon start/stop](#docker-daemon-startstop)
+  - [运行交互式的容器](#%E8%BF%90%E8%A1%8C%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%9A%84%E5%AE%B9%E5%99%A8)
+  - [运行一个web应用: port mapping](#%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AAweb%E5%BA%94%E7%94%A8-port-mapping)
+  - [Docker container start/stop/rm](#docker-container-startstoprm)
+  - [Docker daemon start/stop](#docker-daemon-startstop)
 - [Image: docker build](#image-docker-build)
-    - [commands](#commands)
-    - [构建镜像](#%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F)
-    - [docker tag](#docker-tag)
-    - [docker image size](#docker-image-size)
-      - [Minimize Layers: Group commands in ONE instruction when possible](#minimize-layers-group-commands-in-one-instruction-when-possible)
-      - [Do not install packages recommendations \(-–no-install-recommends\) when installing packages](#do-not-install-packages-recommendations--%E2%80%93no-install-recommends-when-installing-packages)
-      - [Removing no longer needed packages or files](#removing-no-longer-needed-packages-or-files)
-      - [Clean apt-cache after packages installs](#clean-apt-cache-after-packages-installs)
-      - [Final Example](#final-example)
-      - [Don’t use a single layer image](#don%E2%80%99t-use-a-single-layer-image)
-      - [Don’t create images from running containers](#don%E2%80%99t-create-images-from-running-containers)
-      - [References](#references)
+  - [commands](#commands)
+  - [构建镜像](#%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F)
+  - [docker tag](#docker-tag)
+  - [docker image size](#docker-image-size)
+    - [Minimize Layers: Group commands in ONE instruction when possible](#minimize-layers-group-commands-in-one-instruction-when-possible)
+    - [Do not install packages recommendations \(-–no-install-recommends\) when installing packages](#do-not-install-packages-recommendations--%E2%80%93no-install-recommends-when-installing-packages)
+    - [Removing no longer needed packages or files](#removing-no-longer-needed-packages-or-files)
+    - [Clean apt-cache after packages installs](#clean-apt-cache-after-packages-installs)
+    - [Final Example](#final-example)
+    - [Don’t use a single layer image](#don%E2%80%99t-use-a-single-layer-image)
+    - [Don’t create images from running containers](#don%E2%80%99t-create-images-from-running-containers)
+    - [References](#references)
 - [Manage Docker as a non-root user](#manage-docker-as-a-non-root-user)
 - [References](#references-1)
 
@@ -48,7 +48,9 @@
 | Image  | 类  |
 
 ![docker_architecture](../images/2018/docker_architecture.png)<br/>
+
 ### 命名空间「Namespaces」
+
 ---
 ##### pid namespace
 不同用户的进程就是通过 pid namespace 隔离开的，且不同 namespace 中可以有相同 PID。具有以下特征:
@@ -85,6 +87,7 @@ container 中进程交互还是采用 Linux 常见的进程间交互方法 (inte
 有了以上 6 种 namespace 从进程、网络、IPC、文件系统、UTS 和用户角度的隔离，一个 container 就可以对外展现出一个独立计算机的能力，并且不同 container 从 OS 层面实现了隔离。 然而不同 namespace 之间资源还是相互竞争的，仍然需要类似 ulimit 来管理每个 container 所能使用的资源 - cgroup。<br/>
 
 ### 资源配额「cgroups」
+
 ---
 ##### Memory
 内存相关的限制
@@ -113,24 +116,30 @@ root@dc0050c79503:/#
 此时我们已进入一个 ubuntu15.10系统的容器
 
 ### 运行一个web应用: port mapping
+
 ```
  -p, --publish=[]
     Publish a container's port, or range of ports, to the host.
       format: ip:hostPort:containerPort | ip::containerPort | hostPort:containerPort | containerPort
 ```
 * Both hostPort and containerPort can be specified as a range of ports.
-* When specifying ranges for both, the number of container ports in the range must match the number of host ports in the range. (e.g.,
+* When specifying ranges for both, the number of container ports in the range must match the number of host ports in the range. example:
+
 ```
-      -p 1234-1236:1234-1236/tcp)
+      -p 1234-1236:1234-1236/tcp
 ```
+
 * docker port 查看端口映射
+
 ```
 test$ sudo docker port 21e9305569d1
 3306/tcp -> 0.0.0.0:30002
 8999/tcp -> 0.0.0.0:30000
 9000/tcp -> 0.0.0.0:30001
 ```
+
 ### Docker container start/stop/rm
+
 ```
 runoob@runoob:~$ docker stop determined_swanson   
 determined_swanson
@@ -145,6 +154,7 @@ determined_swanson
 
 ### Docker daemon start/stop
 * start/stop/restart Docker daemon
+
 ```
 sudo service docker start
 
@@ -187,7 +197,9 @@ Status: Downloaded newer image for ubuntu:13.10
 ```
 runoob@runoob:~$  docker search httpd
 ```
+
 ### 构建镜像
+
 我们使用命令 docker build ， 从零开始来创建一个新的镜像.
 为此，我们需要创建一个 **Dockerfile** 文件，其中包含一组指令来告诉 Docker 如何构建我们的镜像。
 ```
@@ -221,6 +233,7 @@ Step 3 : RUN /bin/echo 'root:123456' |chpasswd
 Step 4 : RUN useradd runoob
 ......
 ```
+
 ### docker tag
 我们可以使用 docker tag 命令，为镜像添加一个新的标签。
 
