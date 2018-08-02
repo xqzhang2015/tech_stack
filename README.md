@@ -1,3 +1,22 @@
+<!-- MarkdownTOC -->
+
+- [work_stack](#work_stack)
+    - [What am I looking forward to know during 2018?](#what-am-i-looking-forward-to-know-during-2018)
+      - [Everything about Github](#everything-about-github)
+      - [Echart 4.0 and Our traffic geo-location](#echart-40-and-our-traffic-geo-location)
+      - [Our business codes](#our-business-codes)
+      - [Golang: k8s source code and some database core algorithm, like influxDB \(ETCD\)](#golang-k8s-source-code-and-some-database-core-algorithm-like-influxdb-etcd)
+      - [Tencent: libco source code](#tencent-libco-source-code)
+      - [推荐系统/搜索引擎/广告系统](#%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%B9%BF%E5%91%8A%E7%B3%BB%E7%BB%9F)
+      - [TCPDump/TCPCopy](#tcpdumptcpcopy)
+      - [怎么部署 gitlab & version history 管理原理](#%E6%80%8E%E4%B9%88%E9%83%A8%E7%BD%B2-gitlab--version-history-%E7%AE%A1%E7%90%86%E5%8E%9F%E7%90%86)
+      - [Books](#books)
+    - [Monitoring](#monitoring)
+    - [C++](#c)
+    - [High Peformance Servers Optimaztion](#high-peformance-servers-optimaztion)
+  - [References](#references)
+
+<!-- /MarkdownTOC -->
 # work_stack
 
 ### What am I looking forward to know during 2018?

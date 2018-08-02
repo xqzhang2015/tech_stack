@@ -1,3 +1,11 @@
+<!-- MarkdownTOC levels="1,2,3" -->
+
+- [Virtual Memory vs Physical Memory](#virtual-memory-vs-physical-memory)
+  - [Questions](#questions)
+  - [What Is the Difference Between Virtual Memory & Physical Memory?](#what-is-the-difference-between-virtual-memory--physical-memory)
+- [References](#references)
+
+<!-- /MarkdownTOC -->
 # Virtual Memory vs Physical Memory
 
 ### Questions
