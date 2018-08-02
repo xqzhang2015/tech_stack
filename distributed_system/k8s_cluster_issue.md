@@ -3,14 +3,14 @@
 ### Failing to communication between pods on same host, if kube-dns is also on this host
 
 ##### Solution
-1. load kernel module __br_netfilter__
+1. load kernel module __br_netfilter__ when booting
 ```
 centos@ip-xxx.ec2.internal:~ ·
 !45 $ cat /etc/modules-load.d/net.conf
 br_netfilter
 ```
 
-2. set system variables
+2. set system variables when booting
 
 ```
 centos@ip-xxx.ec2.internal:~ ·
