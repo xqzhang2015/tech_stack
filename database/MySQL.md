@@ -25,7 +25,7 @@ GTID (global transaction identifier) 即全局事务ID, 保证了在每个在主
 ---
 `enforce_gtid_consistency` 强制GTID一致性, 启用后以下命令无法再使用
 
-1. create table … select …
+1. __create table … select …__
 
 ```
 mysql> create table dept select * from departments;
@@ -33,7 +33,7 @@ ERROR 1786 (HY000): Statement violates GTID consistency: CREATE TABLE ... SELECT
 ```
 * 因为实际上是两个独立事件, 所以只能将其拆分先建立表, 然后再把数据插入到表中
 
-2. create temporary table
+2. __create temporary table__
 
 * 事务内部不能创建临时表
 ```
@@ -44,7 +44,11 @@ mysql> create temporary table dept(id int);
 ERROR 1787 (HY000): Statement violates GTID consistency: CREATE TEMPORARY TABLE and DROP TEMPORARY TABLE can only be executed outside transactional context.  These statements are also not allowed in a function or trigger because functions and triggers are also considered to be multi-statement transactions.
 ```
 
-3. 同一事务中更新事务表与非事务表(MyISAM)
+* __How to solve it?__
+
+calling `set autocommit = 1` before executing it.
+
+3. __同一事务中更新事务表与非事务表(MyISAM)__
 
 ```
 mysql> CREATE TABLE `dept_innodb` (id INT(11) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT);
