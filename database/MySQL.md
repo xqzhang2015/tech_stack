@@ -1,8 +1,8 @@
 <!-- MarkdownTOC -->
 
 - [GTID\(Global Transaction IDentifier\)](#gtidglobal-transaction-identifier)
-  - [### __简介__](#-__%E7%AE%80%E4%BB%8B__)
-  - [### __GTID Limits__](#-__gtid-limits__)
+  - [__简介__](#__%E7%AE%80%E4%BB%8B__)
+  - [__GTID Limits__](#__gtid-limits__)
 - [ODBC Driver and Data Source](#odbc-driver-and-data-source)
 - [References](#references)
 
@@ -10,6 +10,7 @@
 
 # [GTID(Global Transaction IDentifier)](https://blog.csdn.net/solarison/article/details/60468505)
 ### __简介__
+
 ---
 基于GTID的复制是MySQL 5.6后新增的复制方式.
 
@@ -20,6 +21,7 @@ GTID (global transaction identifier) 即全局事务ID, 保证了在每个在主
 而基于GTID的复制中, 从库会告知主库已经执行的事务的GTID的值, 然后主库会将所有未执行的事务的GTID的列表返回给从库. 并且可以保证同一个事务只在指定的从库执行一次.
 
 ### __GTID Limits__
+
 ---
 `enforce_gtid_consistency` 强制GTID一致性, 启用后以下命令无法再使用
 
