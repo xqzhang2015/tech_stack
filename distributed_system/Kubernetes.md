@@ -1,5 +1,7 @@
 <!-- MarkdownTOC -->
 
+- [Cluster concepts](#cluster-concepts)
+  - [Namespaces](#namespaces)
 - [集群](#%E9%9B%86%E7%BE%A4)
   - [Replication Controller](#replication-controller)
   - [Service](#service)
@@ -9,7 +11,23 @@
 
 <!-- /MarkdownTOC -->
 
-## 集群
+# Cluster concepts
+### Namespaces
+1. Who is in a namespace scope?
+
+* deployment
+* pods
+* services
+* configmap
+
+
+2. who is global scope?
+
+* node ports
+* node IP
+
+
+# 集群
 
 集群是一组节点，这些节点可以是物理服务器或者虚拟机，之上安装了Kubernetes平台。下图展示这样的集群。注意该图为了强调核心概念有所简化。这里可以看到一个典型的Kubernetes架构图。
 
