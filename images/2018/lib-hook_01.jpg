@@ -1,0 +1,11 @@
+--2018-08-03 13:08:05--  https://i1.wp.com/opensourceforu.com/wp-content/uploads/2011/08/figure-1-e1322584503522.jpg?w=621&ssl=1
+Resolving i1.wp.com (i1.wp.com)... 192.0.77.2
+Connecting to i1.wp.com (i1.wp.com)|192.0.77.2|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 21595 (21K) [image/jpeg]
+Saving to: 'figure-1-e1322584503522.jpg?w=621&ssl=1'
+
+     0K .......... .......... .                               100% 83.0K=0.3s
+
+2018-08-03 13:08:06 (83.0 KB/s) - 'figure-1-e1322584503522.jpg?w=621&ssl=1' saved [21595/21595]
+
