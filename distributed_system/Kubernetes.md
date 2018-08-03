@@ -25,6 +25,10 @@
 
 * node ports
 * node IP
+* helm release
+
+3. helm package: deployment vs configmap
+In a package(or release), maybe there are multiple deployments for one configmap.
 
 
 # 集群
