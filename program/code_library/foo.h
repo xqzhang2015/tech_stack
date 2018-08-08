@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-void dynamic_a();
-void dynamic_b();
-void dynamic_c();
+void foo_a();
+void foo_b();
+void foo_c();
 
 #endif

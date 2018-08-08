@@ -1,9 +1,9 @@
-#include "dynamic.h"
+#include "foo.h"
 
 int main(void)
 {
-	std::cout << "Calling dynamic library" << std::endl;
-	dynamic_a();
-	dynamic_b();
-	dynamic_c();
+	std::cout << "Calling foo library" << std::endl;
+	foo_a();
+	foo_b();
+	foo_c();
 }

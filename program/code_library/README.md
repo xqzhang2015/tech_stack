@@ -1,6 +1,8 @@
 <!-- MarkdownTOC -->
 
-- [compile dynamic library](#compile-dynamic-library)
+- [Compile foo library](#compile-foo-library)
+  - [将这几个文件编译成动态库 libfoo.so](#%E5%B0%86%E8%BF%99%E5%87%A0%E4%B8%AA%E6%96%87%E4%BB%B6%E7%BC%96%E8%AF%91%E6%88%90%E5%8A%A8%E6%80%81%E5%BA%93-libfooso)
+  - [将main.cpp与libfoo.so链接成一个可执行文件main](#%E5%B0%86maincpp%E4%B8%8Elibfooso%E9%93%BE%E6%8E%A5%E6%88%90%E4%B8%80%E4%B8%AA%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6main)
   - [Step 1: Compiling with Position Independent Code](#step-1-compiling-with-position-independent-code)
   - [Step 2: Creating a shared library from an object file](#step-2-creating-a-shared-library-from-an-object-file)
   - [Step 3: Linking with a shared library](#step-3-linking-with-a-shared-library)
@@ -8,34 +10,40 @@
     - [1. Using env variable LD_LIBRARY_PATH, work for one user](#1-using-env-variable-ld_library_path-work-for-one-user)
     - [2. System conf, work for all users](#2-system-conf-work-for-all-users)
   - [check result](#check-result)
-  - [Notes](#notes)
-- [compile static library](#compile-static-library)
+  - [runtime load vs on-demand load](#runtime-load-vs-on-demand-load)
+- [Compile static library](#compile-static-library)
+  - [编译静态库](#%E7%BC%96%E8%AF%91%E9%9D%99%E6%80%81%E5%BA%93)
+  - [使用 ar 命令创建静态库文件](#%E4%BD%BF%E7%94%A8-ar-%E5%91%BD%E4%BB%A4%E5%88%9B%E5%BB%BA%E9%9D%99%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6)
+  - [链接静态库](#%E9%93%BE%E6%8E%A5%E9%9D%99%E6%80%81%E5%BA%93)
+  - [使用nm -s 命令来查看.a文件的内容](#%E4%BD%BF%E7%94%A8nm--s-%E5%91%BD%E4%BB%A4%E6%9D%A5%E6%9F%A5%E7%9C%8Ba%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%85%E5%AE%B9)
 
 <!-- /MarkdownTOC -->
 
-# compile dynamic library
-将这几个文件编译成动态库libdynamic.so。编译命令如下：
+# Compile foo library
+### 将这几个文件编译成动态库 libfoo.so
+编译命令如下：
 
 ```
-g++ dynamic_a.cpp dynamic_b.cpp dynamic_c.cpp -fpic -shared -o libdynamic.so
+g++ foo_a.cpp foo_b.cpp foo_c.cpp -fpic -shared -o libfoo.so
 ```
 
 参数说明：
 
 * -shared：该选项指定生成动态连接库
-* -fPIC：表示编译为位置独立的代码，不用此选项的话编译后的代码是位置相关的所以动态载入时是通过代码拷贝的方式来满足不同进程的需要，而不能达到真正代码段共享的目的。
+* -fpic：表示编译为位置独立的代码，不用此选项的话编译后的代码是位置相关的所以动态载入时是通过代码拷贝的方式来满足不同进程的需要，而不能达到真正代码段共享的目的。
 
 
-将main.cpp与libdynamic.so链接成一个可执行文件main。命令如下：
+### 将main.cpp与libfoo.so链接成一个可执行文件main
+命令如下：
 
 ``` 
-g++ main.cpp -L. -ldynamic -o main
+g++ main.cpp -L. -lfoo -o main
 ```
 
 参数说明：
 
 * -L.：表示要连接的库在当前目录中
-* -ldynamic：编译器查找动态连接库时有隐含的命名规则，即在给出的名字前面加上lib，后面加上.so来确定库的名称
+* -lfoo：编译器查找动态连接库时有隐含的命名规则，即在给出的名字前面加上lib，后面加上.so来确定库的名称
 
 
 or
@@ -130,7 +138,7 @@ Then run `sudo ldconfig`.
 ```
 tech_stack/program/code_library(master)$ ldd main
 	linux-vdso.so.1 =>  (0x00007fffa7508000)
-	libdynamic.so => /home/xqzhang/docker/tech_stack/program/code_library/libdynamic.so (0x00007fd0c400f000)
+	libfoo.so => /home/xxx/docker/tech_stack/program/code_library/libfoo.so (0x00007fd0c400f000)
 	libstdc++.so.6 => /lib64/libstdc++.so.6 (0x00007fd0c3cf6000)
 	libm.so.6 => /lib64/libm.so.6 (0x00007fd0c39f4000)
 	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x00007fd0c37de000)
@@ -138,12 +146,63 @@ tech_stack/program/code_library(master)$ ldd main
 	/lib64/ld-linux-x86-64.so.2 (0x00007fd0c4212000)
 ```
 
-### Notes
+```
+SYNOPSIS
+       ldd [OPTION]... FILE...
+NAME
+       ldd - print shared library dependencies
+```
+
+### runtime load vs on-demand load
 
 * 
 
 
 
+# Compile static library
 
+### 编译静态库
 
-# compile static library
+```
+g++ -c foo_a.cpp foo_b.cpp foo_c.cpp
+```
+
+### 使用 ar 命令创建静态库文件
+
+```
+ar cr libstatic.a foo_a.o foo_b.o foo_c.o  //cr标志告诉ar将object文件封装(archive)
+```
+
+```
+NAME
+    ar - create, modify, and extract from archives
+
+SYNOPSIS
+    ar [--plugin name] [-X32_64] [-]p[mod [relpos] [count]] [--target bfdname] archive [member...] 
+
+ 
+The p keyletter specifies what operation to execute; it may be any of the following, but you must specify only one of them:
+	r   Insert the files member... into archive (with replacement).
+
+A number of modifiers (mod) may immediately follow the p keyletter, to specify variations on an operation's behavior:    
+	c   Create the archive.
+```
+
+### 链接静态库
+
+```
+$:~/docker/tech_stack/program/code_library(master)$ ar -rc libfoo.a foo_a.o foo_b.o foo_c.o
+$:~/docker/tech_stack/program/code_library(master)$ g++ main.cpp -L. -lfoo -o main
+
+g++ main.cpp -lstatic -L. -static -o main//这里的-static选项是告诉编译器,hello是静态库也可以用
+```
+
+Notes:
+
+`libfoo.a` must be named with prefix __lib__.
+
+### 使用nm -s 命令来查看.a文件的内容
+
+```
+nm -s libstatic.a 
+```
