@@ -62,7 +62,7 @@ Now we need to actually turn this object file into a shared library. We will cal
 gcc -shared -o libfoo.so foo.o
 ```
 
-* This is not arbitrary - shared libraries should be called __lib<name>.so__ for them to link properly later on (as we’ll see in the linking section below).
+* This is not arbitrary - shared libraries should be called __lib\<name\>.so__ for them to link properly later on (as we’ll see in the linking section below).
 
 ### Step 3: Linking with a shared library
 * Telling GCC where to find the shared library
