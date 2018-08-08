@@ -2,6 +2,6 @@
 
 void dynamic_c()
 {
-	cout << "this is dynamic_c" << endl;
+	std::cout << "this is dynamic_c" << std::endl;
 }
 

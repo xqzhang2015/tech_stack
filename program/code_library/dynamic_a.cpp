@@ -2,5 +2,5 @@
 
 void dynamic_a()
 {
-	cout << "this is dynamic_a" << endl;
+	std::cout << "this is dynamic_a" << std::endl;
 }
