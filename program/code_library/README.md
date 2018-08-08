@@ -12,7 +12,7 @@
   - [check result](#check-result)
   - [runtime load vs on-demand load](#runtime-load-vs-on-demand-load)
 - [Compile static library](#compile-static-library)
-  - [编译静态库](#%E7%BC%96%E8%AF%91%E9%9D%99%E6%80%81%E5%BA%93)
+  - [编译静态库: an archive](#%E7%BC%96%E8%AF%91%E9%9D%99%E6%80%81%E5%BA%93-an-archive)
   - [使用 ar 命令创建静态库文件](#%E4%BD%BF%E7%94%A8-ar-%E5%91%BD%E4%BB%A4%E5%88%9B%E5%BB%BA%E9%9D%99%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6)
   - [链接静态库](#%E9%93%BE%E6%8E%A5%E9%9D%99%E6%80%81%E5%BA%93)
   - [使用nm -s 命令来查看.a文件的内容](#%E4%BD%BF%E7%94%A8nm--s-%E5%91%BD%E4%BB%A4%E6%9D%A5%E6%9F%A5%E7%9C%8Ba%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%85%E5%AE%B9)
@@ -161,7 +161,7 @@ NAME
 
 # Compile static library
 
-### 编译静态库
+### 编译静态库: an archive
 
 ```
 g++ -c foo_a.cpp foo_b.cpp foo_c.cpp
@@ -170,7 +170,7 @@ g++ -c foo_a.cpp foo_b.cpp foo_c.cpp
 ### 使用 ar 命令创建静态库文件
 
 ```
-ar cr libstatic.a foo_a.o foo_b.o foo_c.o  //cr标志告诉ar将object文件封装(archive)
+ar -rc libfoo.a foo_a.o foo_b.o foo_c.o  //cr标志告诉ar将object文件封装(archive)
 ```
 
 ```
@@ -191,8 +191,9 @@ A number of modifiers (mod) may immediately follow the p keyletter, to specify v
 ### 链接静态库
 
 ```
-$:~/docker/tech_stack/program/code_library(master)$ ar -rc libfoo.a foo_a.o foo_b.o foo_c.o
 $:~/docker/tech_stack/program/code_library(master)$ g++ main.cpp -L. -lfoo -o main
+
+or
 
 g++ main.cpp -lstatic -L. -static -o main//这里的-static选项是告诉编译器,hello是静态库也可以用
 ```
@@ -204,5 +205,5 @@ Notes:
 ### 使用nm -s 命令来查看.a文件的内容
 
 ```
-nm -s libstatic.a 
+nm -s libfoo.a
 ```
