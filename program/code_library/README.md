@@ -146,6 +146,8 @@ tech_stack/program/code_library(master)$ ldd main
 	/lib64/ld-linux-x86-64.so.2 (0x00007fd0c4212000)
 ```
 
+* ldd only output __Shared Libraries__, not including __Static Libraries__.
+
 ```
 SYNOPSIS
        ldd [OPTION]... FILE...
@@ -189,6 +191,8 @@ A number of modifiers (mod) may immediately follow the p keyletter, to specify v
 ```
 
 ### 链接静态库
+
+* Static Libraries are linked into a compiled executable (or another library).
 
 ```
 $:~/docker/tech_stack/program/code_library(master)$ g++ main.cpp -L. -lfoo -o main
