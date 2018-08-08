@@ -71,6 +71,8 @@ gcc -shared -o libfoo.so foo.o
 $ gcc -L/home/username/foo -Wall -o test main.c -lfoo
 ```
 
+* Note that paths specified by __-L__ only affect the search path when linking - not during runtime. We’ll specify the current directory:
+
 ### Step 4: Making the library available at runtime
 ##### 1. Using env variable LD_LIBRARY_PATH, work for one user
 
