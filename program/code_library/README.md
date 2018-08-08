@@ -163,7 +163,7 @@ NAME
 
 # Compile static library
 
-* Static Libraries are linked into a compiled executable (or another library).
+* __Static Libraries are linked into a compiled executable (or another library)__.
 
 ### 编译静态库: an archive
 
