@@ -163,6 +163,8 @@ NAME
 
 # Compile static library
 
+* Static Libraries are linked into a compiled executable (or another library).
+
 ### 编译静态库: an archive
 
 ```
@@ -191,8 +193,6 @@ A number of modifiers (mod) may immediately follow the p keyletter, to specify v
 ```
 
 ### 链接静态库
-
-* Static Libraries are linked into a compiled executable (or another library).
 
 ```
 $:~/docker/tech_stack/program/code_library(master)$ g++ main.cpp -L. -lfoo -o main
