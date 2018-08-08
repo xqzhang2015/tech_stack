@@ -31,4 +31,4 @@ Here is the homepage of cache
 
 [CSDN: 缓存穿透，缓存击穿，缓存雪崩解决方案分析](https://blog.csdn.net/zeb_perfect/article/details/54135506)<br/>
 
-
+[简书: 缓存穿透、缓存击穿、缓存雪崩概念及解决方案](https://www.jianshu.com/p/b57d0773ee96)<br/>
