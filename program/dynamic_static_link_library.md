@@ -14,14 +14,30 @@
 
 ![mysql_driver](../images/2018/mysql_driver.png)
 
+
+
+			[Driver Manager]
+				|
+	  +------------+--------+---------------------+-----------------------+
+[Driver]  |	       |	|	  	      |			      |
+      [PostgreSQL]    [MySQL] [MySQL ANSI Driver]  [MySQL Unicode Driver]   [...]
+          |
+	  |
+      [DataBase]
+    
+
 [The unixODBC Project home page](http://www.unixodbc.org/)<br/>
 
 ### Workflow
 Driver manager: /lib64/libodbc.so.2
 
-1. ==> parsing
+1. SQLDriverConnect(,,,
+		    dsn.str, dsn.length, ...)
+==> parsing
 
 dsn='DRIVER=MySQL;...'
+
+__For "DRIVER" in dsn.str, which is MySQL, get Driver or Driver64 from [MySQL]__
 
 \# cat /etc/odbcinst.ini
 
@@ -35,9 +51,11 @@ Setup64=/usr/lib64/libodbcmyS.so
 FileUsage=1
 ```
 
-2. ==> dlopen() & dlsym()
+2. For driver `Driver64=/usr/lib64/libmyodbc5w.so`,
 
-`/usr/lib64/libmyodbc5w.so`
+==> dlopen() & dlsym()
+
+All related *.so will be linked.
 
 3. ==> ldd
 
