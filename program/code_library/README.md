@@ -24,7 +24,8 @@ Brief introduction
     - [1. Using env variable LD_LIBRARY_PATH, work for one user](#1-using-env-variable-ld_library_path-work-for-one-user)
     - [2. System conf, work for all users](#2-system-conf-work-for-all-users)
   - [check result](#check-result)
-  - [runtime load vs on-demand load](#runtime-load-vs-on-demand-load)
+  - [dynamic on-demand load shared library](#dynamic-on-demand-load-shared-library)
+    - [Making C++ Shared Libraries](#making-c-shared-libraries)
 - [Compile static library](#compile-static-library)
   - [编译静态库: an archive](#%E7%BC%96%E8%AF%91%E9%9D%99%E6%80%81%E5%BA%93-an-archive)
   - [使用 ar 命令创建静态库文件](#%E4%BD%BF%E7%94%A8-ar-%E5%91%BD%E4%BB%A4%E5%88%9B%E5%BB%BA%E9%9D%99%E6%80%81%E5%BA%93%E6%96%87%E4%BB%B6)
@@ -173,11 +174,59 @@ NAME
        ldd - print shared library dependencies
 ```
 
-### runtime load vs on-demand load
+### dynamic on-demand load shared library
 
-* 
+1. generate shared library: libfoo.so
+
+2. gcc main_dlsym.cpp -ldl -o main_dlsym
+
+##### Making C++ Shared Libraries
+In order to work with C++, you need to understand C++ name mangling. A C++ compiler essentially converts all your method calls into C functions with the name mangled so that it resolves to the correct method.
+
+In general, 
+
+* you do not need to do anything special to use C++ libraries, 
+* but you need to be careful when mixing straight C and C++. 
+
+If you are calling and compiling C code with a C++ compiler, you need to make sure that the C++ compiler does not mangle the name by wrapping your C function declarations such as:
+```
+#ifdef  __cplusplus
+extern "C" {
+#endif
+
+int my_c_function();
+
+#ifdef  __cplusplus
+}
+#endif
+```
+
+For example,
+
+* gcc -shared -fPIC -o libfoo.so foo_a.c foo_b.c foo_c.c
+
+`nm -s libfoo.so` will output,
+
+```
+0000000000000708 T foo_a
+000000000000071c T foo_b
+0000000000000730 T foo_c
+```
+
+* g++ -shared -fPIC -o libfoo.so foo_a.c foo_b.c foo_c.c
+
+`nm -s libfoo.so` will output,
+
+```
+0000000000000738 T _Z5foo_av
+000000000000074c T _Z5foo_bv
+0000000000000760 T _Z5foo_cv
+```
+
+__So dlsym() need to use \_Z5foo\_av, instead of foo_a__.
 
 
+* __C++ compiler has issue when compiling c libraryP__
 
 # Compile static library
 
