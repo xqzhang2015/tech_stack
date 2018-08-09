@@ -288,3 +288,8 @@ nm -s libfoo.a
 * In order to work with C++, you need to understand C++ name mangling. 
 
 
+[Shared Libraries: Understanding Dynamic Loading](https://amir.rachum.com/blog/2016/09/17/shared-libraries/#debugging-cheat-sheet)<br/>
+
+
+
+
