@@ -9,10 +9,11 @@
 
 # MySQL library
 
-### Workflow
+### Architecture
 
 ![mysql_driver](../images/2018/mysql_driver.png)
 
+### Workflow
 Driver manager: /lib64/libodbc.so.2
 
 1. ==> parsing
@@ -45,7 +46,7 @@ tech_stack/program/code_library(master)$ ldd /usr/lib64/libmyodbc5w.so
 	libodbcinst.so.2 => /lib64/libodbcinst.so.2 (0x00007fa27181d000)
 	...
 ```
-### 
+### First call: SQLDriverConnect
 
 ```
 tech_stack/program/code_library(master)$ readelf -s /lib64/libodbc.so.2.0.0 | grep SQLDriverConnect
