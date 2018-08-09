@@ -23,6 +23,8 @@ Driver manager: /lib64/libodbc.so.2
 
 dsn='DRIVER=MySQL;...'
 
+\# cat /etc/odbcinst.ini
+
 ```
 [MySQL]
 Description=ODBC for MySQL
