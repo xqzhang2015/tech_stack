@@ -1,8 +1,9 @@
 <!-- MarkdownTOC -->
 
 - [MySQL library](#mysql-library)
+  - [Architecture](#architecture)
   - [Workflow](#workflow)
-  - [](#)
+  - [First call: SQLDriverConnect](#first-call-sqldriverconnect)
   - [References](#references)
 
 <!-- /MarkdownTOC -->
