@@ -226,7 +226,7 @@ For example,
 __So dlsym() need to use \_Z5foo\_av, instead of foo_a__.
 
 
-* __C++ compiler has issue when compiling c libraryP__
+* __C++ compiler has issue when compiling c codes library__
 
 # Compile static library
 
