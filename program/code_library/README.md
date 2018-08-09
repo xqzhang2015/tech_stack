@@ -1,7 +1,6 @@
 Brief introduction
 
-* Shared library is .so(shared object)
-
+* Shared library is .so(shared object) <br/>
 ** gcc -c -Wall -Werror -fpic foo.c <br/>
 ** g++ --shared -o libfoo.so foo.o <br/>
 ** gcc -L/home/username/foo -Wall -o test main.c -lfoo <br/>
