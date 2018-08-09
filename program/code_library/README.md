@@ -178,7 +178,9 @@ NAME
 
 1. generate shared library: libfoo.so
 
-2. gcc main_dlsym.cpp -ldl -o main_dlsym
+`gcc -shared -fPIC -o libfoo.so foo_a.c foo_b.c foo_c.c`
+
+2. gcc main_dlsym.c -ldl -o main_dlsym
 
 ##### Making C++ Shared Libraries
 In order to work with C++, you need to understand C++ name mangling. A C++ compiler essentially converts all your method calls into C functions with the name mangled so that it resolves to the correct method.
