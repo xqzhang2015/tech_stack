@@ -280,3 +280,11 @@ Notes:
 ```
 nm -s libfoo.a
 ```
+
+# References
+
+[Shared Library Mini-Tutorial](http://ehuss.com/shared/)<br/>
+
+* In order to work with C++, you need to understand C++ name mangling. 
+
+
