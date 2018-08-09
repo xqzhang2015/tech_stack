@@ -19,12 +19,14 @@
 
 			[Driver Manager]
 				|
-	  +------------+--------+---------------------+-----------------------+
-[Driver]  |	       |	|	  	      |			      |
-      [PostgreSQL]    [MySQL] [MySQL ANSI Driver]  [MySQL Unicode Driver]   [...]
-          |
-	  |
-      [DataBase]
+		   [Driver conf: /etc/odbcinst.ini]
+				|
+	  +----------+----------+---------------------+-----------------------+
+ 	  |	     |  	|	  	      |			      |
+      [PostgreSQL] [MySQL] [MySQL ANSI Driver]   [MySQL Unicode Driver]     [...]
+          	     |
+          	     |
+     		 [DataBase]
 ```    
 
 [The unixODBC Project home page](http://www.unixodbc.org/)<br/>
