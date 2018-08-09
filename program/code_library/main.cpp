@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	std::cout << "Calling foo library" << std::endl;
+	printf("Calling foo library\n");
 	foo_a();
 	foo_b();
 	foo_c();

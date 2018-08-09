@@ -1,7 +1,7 @@
 #ifndef __DYNAMIC_H_
 #define __DYNAMIC_H_
 
-#include <iostream>
+#include <stdio.h>
 
 void foo_a();
 void foo_b();
