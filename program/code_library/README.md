@@ -176,11 +176,13 @@ NAME
 
 ### dynamic on-demand load shared library
 
-1. generate shared library: libfoo.so
+1. generate shared library: libfoo.so, better only with __gcc__.
 
 `gcc -shared -fPIC -o libfoo.so foo_a.c foo_b.c foo_c.c`
 
-2. gcc main_dlsym.c -ldl -o main_dlsym
+2. g++ or gcc is both ok.
+
+`gcc main_dlsym.c -ldl -o main_dlsym`
 
 ##### Making C++ Shared Libraries
 In order to work with C++, you need to understand C++ name mangling. A C++ compiler essentially converts all your method calls into C functions with the name mangled so that it resolves to the correct method.
