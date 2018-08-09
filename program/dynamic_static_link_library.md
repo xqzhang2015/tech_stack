@@ -84,7 +84,8 @@ tech_stack/program/code_library(master)$ readelf -s /lib64/libodbc.so.2.0.0 | gr
 
 ### References
 [cnblogs: C/C++ 静态链接库(.a) 与 动态链接库(.so)](https://www.cnblogs.com/52php/p/5681711.html)<br/>
-[]()<br/>
+[dev.mysql.com: MySQL Connectors(download)](https://dev.mysql.com/downloads/connector/)<br/>
+
 []()<br/>
 []()<br/>
 []()<br/>
