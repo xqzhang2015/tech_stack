@@ -174,7 +174,7 @@ NAME
        ldd - print shared library dependencies
 ```
 
-### dynamic on-demand load shared library
+### dynamic on-demand load shared library: dlopen and dlsym
 
 1. generate shared library: libfoo.so, better only with __gcc__.
 
