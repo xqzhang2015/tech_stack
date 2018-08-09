@@ -1,3 +1,17 @@
+Brief introduction
+
+* Shared library is .so(shared object)
+** gcc -c -Wall -Werror -fpic foo.c
+** g++ --shared -o libfoo.so foo.o
+** gcc -L/home/username/foo -Wall -o test main.c -lfoo
+** ldd main
+
+* Static library is .a(archive file).
+** g++ -c foo_a.cpp foo_b.cpp foo_c.cpp
+** ar -rc libfoo.a foo_a.o foo_b.o foo_c.o
+** g++ main.cpp -L. -lfoo -o main
+** nm -s main
+
 <!-- MarkdownTOC -->
 
 - [Compile foo library](#compile-foo-library)
@@ -89,7 +103,7 @@ $ ./test
 or In __Mac-OS__,
 
 ```
-export DYLD_LIBRARY_PATH=$HOME/Desktop/codes/tech_stack/program/code_library:$DYLD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=$(pwd):$DYLD_LIBRARY_PATH
 ```
 
 Last, `unset LD_LIBRARY_PATH`.
@@ -200,11 +214,9 @@ A number of modifiers (mod) may immediately follow the p keyletter, to specify v
 
 ```
 $:~/docker/tech_stack/program/code_library(master)$ g++ main.cpp -L. -lfoo -o main
-
-or
-
-g++ main.cpp -lstatic -L. -static -o main//这里的-static选项是告诉编译器,hello是静态库也可以用
 ```
+
+If lib is not found, `-static` could be append.
 
 Notes:
 
