@@ -2,9 +2,9 @@ Brief introduction
 
 * Shared library is .so(shared object)
 
-** gcc -c -Wall -Werror -fpic foo.c
-** g++ --shared -o libfoo.so foo.o
-** gcc -L/home/username/foo -Wall -o test main.c -lfoo
+** gcc -c -Wall -Werror -fpic foo.c <br/>
+** g++ --shared -o libfoo.so foo.o <br/>
+** gcc -L/home/username/foo -Wall -o test main.c -lfoo <br/>
 ** ldd main
 
 * Static library is .a(archive file).
