@@ -6,11 +6,10 @@ Brief introduction
 ** gcc -L/home/username/foo -Wall -o test main.c -lfoo <br/>
 ** ldd main
 
-* Static library is .a(archive file).
-
-** g++ -c foo_a.cpp foo_b.cpp foo_c.cpp
-** ar -rc libfoo.a foo_a.o foo_b.o foo_c.o
-** g++ main.cpp -L. -lfoo -o main
+* Static library is .a(archive file). <br/>
+** g++ -c foo_a.cpp foo_b.cpp foo_c.cpp <br/>
+** ar -rc libfoo.a foo_a.o foo_b.o foo_c.o <br/>
+** g++ main.cpp -L. -lfoo -o main <br/>
 ** nm -s main
 
 <!-- MarkdownTOC -->
