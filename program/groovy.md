@@ -60,9 +60,11 @@ println("Hello world")
 
 
 println("\n========Flow control: if========")
-def ss = "groovy"
+def ss = "groovy1"
 if (ss == "groovy") {
     println("I am ${ss}")
+} else if (ss == "groovy1") {
+    println("Hello ${ss}, how are you?")
 }
 
 println("\n========Flow control: for========")
@@ -93,6 +95,13 @@ switch (age) {
 }
 
 println("The rate is ${rate}\n")
+
+println("\n========Flow control: while========")
+int count = 0;
+while(count<5) {
+    println("While: It is ${count}")
+    count++
+}
 ```
 
 ### Groovy containers
@@ -122,6 +131,10 @@ println("List length: " + list.size())
 list[10] = 10.1
 list << 10.2
 println("${list}")
+
+["a", "b"].each {
+    println it
+}
 
 println("\n========Container: map========")
 def map = ['10': "value1"
@@ -222,7 +235,7 @@ fileHandler.eachFileRecurse {
 
 [CSDN: Groovy 使用完全解析](https://blog.csdn.net/zhaoyanjun6/article/details/70313790/)<br/>
 
-[]()<br/>
+[www.w3cschool.cn: Groovy 教程](https://www.w3cschool.cn/groovy/groovy_while_statement.html)<br/>
 
 []()<br/>
 
