@@ -4,7 +4,10 @@
 - [Groovy 数据类型](#groovy-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)
   - [Java 基本类型](#java-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B)
   - [Groovy 容器](#groovy-%E5%AE%B9%E5%99%A8)
-  - [codes](#codes)
+  - [Code examples](#code-examples)
+    - [Flow control](#flow-control)
+    - [Groovy containers](#groovy-containers)
+    - [Groovy closure](#groovy-closure)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -46,8 +49,10 @@ Map：键-值表，其底层对应Java中的LinkedHashMap。
 Range：范围，它其实是List的一种拓展。
 ```
 
-### codes
+### Code examples
 
+
+##### Flow control
 ```
 /* Hello World in Groovy */
 println("Hello world")
@@ -87,7 +92,11 @@ switch (age) {
 }
 
 println("The rate is ${rate}\n")
+```
 
+##### Groovy containers
+
+```
 /* Groovy 容器
 List：链表，其底层对应Java中的List接口，一般用ArrayList作为真正的实现类。 
 Map：键-值表，其底层对应Java中的LinkedHashMap。 
@@ -161,8 +170,11 @@ def range = 1..10
 println(range)
 println range.from
 println range.to
+```
 
+##### Groovy closure
 
+```
 println("\n========Closure========")
 def closure = { // closure is code segment, which should be included by 花括号
     String param1, double param2 -> // -> is critical, before it: params, after it: code
@@ -189,6 +201,9 @@ fun 4, "test", {
     println "I am in closure, ${i}, ${s}\n"
 }
 
+##### Groovy IO
+
+```
 println("\n========File operations========")
 def filePath = "."
 def fileHandler = new File(filePath)
