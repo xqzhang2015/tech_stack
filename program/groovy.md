@@ -4,11 +4,11 @@
 - [Groovy 数据类型](#groovy-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B)
   - [Java 基本类型](#java-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B)
   - [Groovy 容器](#groovy-%E5%AE%B9%E5%99%A8)
-  - [Code examples](#code-examples)
-    - [Flow control](#flow-control)
-    - [Groovy containers](#groovy-containers)
-    - [Groovy closure](#groovy-closure)
-    - [Groovy IO](#groovy-io)
+- [Code examples](#code-examples)
+  - [Flow control](#flow-control)
+  - [Groovy containers](#groovy-containers)
+  - [Groovy closure](#groovy-closure)
+  - [Groovy IO](#groovy-io)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -50,10 +50,10 @@ Map：键-值表，其底层对应Java中的LinkedHashMap。
 Range：范围，它其实是List的一种拓展。
 ```
 
-### Code examples
+# Code examples
 
 
-##### Flow control
+### Flow control
 ```
 /* Hello World in Groovy */
 println("Hello world")
@@ -95,7 +95,7 @@ switch (age) {
 println("The rate is ${rate}\n")
 ```
 
-##### Groovy containers
+### Groovy containers
 
 ```
 /* Groovy 容器
@@ -173,7 +173,7 @@ println range.from
 println range.to
 ```
 
-##### Groovy closure
+### Groovy closure
 
 ```
 println("\n========Closure========")
@@ -203,7 +203,7 @@ fun 4, "test", {
 }
 ```
 
-##### Groovy IO
+### Groovy IO
 
 ```
 println("\n========File operations========")
