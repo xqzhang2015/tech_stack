@@ -8,6 +8,7 @@
     - [Flow control](#flow-control)
     - [Groovy containers](#groovy-containers)
     - [Groovy closure](#groovy-closure)
+    - [Groovy IO](#groovy-io)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -200,6 +201,7 @@ fun 4, "test", {
     int i, String s ->
     println "I am in closure, ${i}, ${s}\n"
 }
+```
 
 ##### Groovy IO
 
