@@ -24,6 +24,8 @@ Some kind of memory leak maybe happen or some kind of traffic should be differen
 ![memory_1](../images/2018/memory_1.png)
 
 
+[Cheat sheet: understanding the pmap output](https://www.software-architect.net/blog/article/date/2015/07/03/cheat-sheet-understanding-the-pmap1-output.html)<br/>
+
 2. 启动gdb ./bin/broker并使用 attach {PID}命令加载现有进程
 例如上述进程号为24671，则使用：attach 24671；
 
