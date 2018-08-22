@@ -42,6 +42,21 @@ ref: refs/heads/ISP
 ![git_data_transport_command](../images/2018/Git-data-transport-commands.png)
 
 # Specific Commands
+### git config
+
+```
+➜  public git:(master) ✗ git config --local user.name "xqzhang2015"
+➜  public git:(master) ✗ git config --local user.email "xqzhang2015@gmail.com"
+➜  public git:(master) ✗ git config -l --local
+...
+remote.origin.url=git@github.com:xqzhang2015/xqzhang2015.github.io.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+user.email=xqzhang2015@gmail.com
+user.name=xqzhang2015
+```
+
 ### git commit
 * git commit --amend ...
 
