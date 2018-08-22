@@ -1,11 +1,56 @@
 <!-- MarkdownTOC -->
 
-- [Security: Security groups and ACLs](#security-security-groups-and-acls)
-- [References](#references)
+- [AWS CLI](#aws-cli)
+  - [aws ec2 describe-volumes](#aws-ec2-describe-volumes)
+  - [aws ec2 delete-volume](#aws-ec2-delete-volume)
+- [AWS Concept](#aws-concept)
+  - [Security: Security groups and ACLs](#security-security-groups-and-acls)
+  - [References](#references)
 
 <!-- /MarkdownTOC -->
 
 
+# AWS CLI
+
+### aws ec2 describe-volumes
+
+* status - The status of the volume (creating | available | in-use | deleting | deleted | error ).
+
+```
+[ ~]$ aws ec2 describe-volumes --filters Name=status,Values=in-use,available,deleted --query 'Volumes[*].{ID:VolumeId, Status:State}'
+```
+
+output
+
+```
+[
+    {
+        "Status": "in-use",
+        "ID": "vol-0899f757129ed827c"
+    },
+    {
+        "Status": "in-use",
+        "ID": "vol-07fa6b5f27710d17d"
+    },
+    {
+        "Status": "available",
+        "ID": "vol-0f343ce4d3ebdfc38"
+    },
+    {
+        "Status": "in-use",
+        "ID": "vol-061223ae9277fa73e"
+    }
+]
+```
+
+### aws ec2 delete-volume
+
+```
+[ec2-user@ip-10-206-29-116 cluster]$ aws ec2 delete-volume --volume-id vol-0f343ce4d3ebdfc38
+```
+
+
+# AWS Concept
 ### Security: Security groups and ACLs
 Amazon VPC provides features that you can use to increase and monitor the security for your VPC:
 
