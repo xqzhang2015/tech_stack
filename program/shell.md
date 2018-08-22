@@ -1,6 +1,7 @@
 <!-- MarkdownTOC -->
 
 - [Syntax](#syntax)
+  - [String 替换命令](#string-%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4)
 - [Examples](#examples)
   - [Get file/partent dir](#get-filepartent-dir)
 - [References](#references)
@@ -8,6 +9,18 @@
 <!-- /MarkdownTOC -->
 
 # Syntax
+
+### String 替换命令
+
+```
+${变量/查找/替换值}  一个'/'表示替换第一个'//'表示替换所有，当查找出中出现了："/"需要转移成"\/"
+```
+
+* Examples
+```
+${version//./-}
+${volume_id//\"/}
+```
 
 # Examples
 
