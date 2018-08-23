@@ -1,14 +1,91 @@
 <!-- MarkdownTOC -->
 
-- [how to check if a port is opened\(or ocuppied\)? And then kill?](#how-to-check-if-a-port-is-openedor-ocuppied-and-then-kill)
-- [traceroute](#traceroute)
-- [### Linux TCP/IP 网络工具对比：net-tools 和 iproute2](#-linux-tcpip-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94%EF%BC%9Anet-tools-%E5%92%8C-iproute2)
-- [### tee 命令](#-tee-%E5%91%BD%E4%BB%A4)
-- [### ethtool 命令](#-ethtool-%E5%91%BD%E4%BB%A4)
-- [References](#references)
+- [network tools](#network-tools)
+    - [](#)
+    - [ssh -p](#ssh--p)
+    - [how to check if a port is opened\(or ocuppied\)? And then kill?](#how-to-check-if-a-port-is-openedor-ocuppied-and-then-kill)
+    - [traceroute](#traceroute)
+  - [### Linux TCP/IP 网络工具对比：net-tools 和 iproute2](#-linux-tcpip-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94%EF%BC%9Anet-tools-%E5%92%8C-iproute2)
+  - [### tee 命令](#-tee-%E5%91%BD%E4%BB%A4)
+  - [### ethtool 命令](#-ethtool-%E5%91%BD%E4%BB%A4)
+    - [References](#references)
 
 <!-- /MarkdownTOC -->
 
+
+# network tools
+
+### 
+
+```
+Usage: nmap [Scan Type(s)] [Options] {target specification}
+
+TARGET SPECIFICATION:
+  Can pass hostnames, IP addresses, networks, etc.
+
+HOST DISCOVERY:
+  -Pn: Treat all hosts as online -- skip host discovery
+
+PORT SPECIFICATION AND SCAN ORDER:
+  -p <port ranges>: Only scan specified ports
+    Ex: -p22; -p1-65535; -p U:53,111,137,T:21-25,80,139,8080,S:9
+```
+
+Example
+
+```
+nmap -P0 smtp.bbb.ccc.net -p 25
+
+nmap -P0 smtp.bbb.ccc.net -p 25
+```
+
+Output
+
+```
+[root /]# nmap smtp.bbb.net -p 25
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2018-08-23 12:12 UTC
+Nmap scan report for smtp.bbb.net (10.0.2.3)
+Host is up (0.0095s latency).
+rDNS record for 10.0.10.37: ip-10-0-2-3.ec2.internal
+PORT   STATE SERVICE
+25/tcp open  smtp
+
+Nmap done: 1 IP address (1 host up) scanned in 0.13 seconds
+
+```
+
+```
+[root /]# nmap smtp.stg.bbb.net -p 25
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2018-08-23 12:13 UTC
+Nmap scan report for smtp.stg.bbb.net (10.1.2.3)
+Host is up (0.0095s latency).
+rDNS record for 10.2.2.42: ip-10-1-2-3.ec2.internal
+PORT   STATE    SERVICE
+25/tcp filtered smtp
+
+Nmap done: 1 IP address (1 host up) scanned in 0.32 seconds
+```
+
+### ssh -p
+```
+[root@ltr-latest-ads-646f9cbbdb-dnccd /]# ssh -v smtp.bbb.net -p 25
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 58: Applying options for *
+debug1: Connecting to smtp.bbb.net [10.0.2.3] port 25.
+debug1: Connection established.
+```
+
+```
+[root@ltr-latest-ads-646f9cbbdb-dnccd /]# ssh -v smtp.stg.bbb.net -p 25
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 58: Applying options for *
+debug1: Connecting to smtp.stg.bbb.net [10.1.2.3] port 25.
+
+```
 
 
 ### how to check if a port is opened(or ocuppied)? And then kill?
