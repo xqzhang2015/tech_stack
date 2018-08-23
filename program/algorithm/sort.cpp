@@ -51,11 +51,11 @@ void merge(T *data, T *outData, int left, int mid, int right)
 
 	if (lLoc <= mid) {
 		while (lLoc <= mid) {
-			outData[outLoc++] = data[lLoc];
+			outData[outLoc++] = data[lLoc++];
 		}
 	} else if (rLoc <= right) {
 		while (rLoc <= right) {
-			outData[outLoc++] = data[rLoc];
+			outData[outLoc++] = data[rLoc++];
 		}
 	}
 }
