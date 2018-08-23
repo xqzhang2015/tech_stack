@@ -86,7 +86,7 @@ int main(void)
 	int data[6] = {5, 3, 1, 9, 7, -1};
 
 	insertionSort<int>(data, sizeof(data) / sizeof(*data));
-	for (uint i = 0; i < sizeof(data) / sizeof(*data); i++) {
+	for (unsigned int i = 0; i < sizeof(data) / sizeof(*data); i++) {
 		cout << data[i] << " ";
 	}
 	cout << endl;
