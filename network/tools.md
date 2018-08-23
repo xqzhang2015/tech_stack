@@ -1,7 +1,7 @@
 <!-- MarkdownTOC -->
 
 - [network tools](#network-tools)
-    - [](#)
+    - [nmap -p](#nmap--p)
     - [ssh -p](#ssh--p)
     - [how to check if a port is opened\(or ocuppied\)? And then kill?](#how-to-check-if-a-port-is-openedor-ocuppied-and-then-kill)
     - [traceroute](#traceroute)
@@ -15,7 +15,7 @@
 
 # network tools
 
-### 
+### nmap -p
 
 ```
 Usage: nmap [Scan Type(s)] [Options] {target specification}
