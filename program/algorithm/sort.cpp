@@ -80,6 +80,58 @@ void mergeSort(T *data, int n)
 	delete [] outData;
 }
 
+template <typename T>
+void mergeSorti2(T *data, T *outData, int n, int step)
+{
+	for (int left = 0; left < n; left += 2 * step)
+	{
+		int mid = left + step;
+		if (mid >= n) {
+			mid = n - 1;
+		}
+
+		int right = left + 2 * step - 1;
+		if (right >= n) {
+			right = n - 1;
+		}
+		merge(data, outData, left, mid, right);
+	}
+}
+
+template <typename T>
+void mergeSort2(T *data, int n)
+{
+	T *outData = new T[n];
+	int step = 1;
+	while (step < n)
+	{
+		mergeSorti2(data, outData, n, step);
+		// TODO output inner result to debug
+		cout << "step = " << step << ", ";
+		for (int i = 0; i < n; i++)
+		{
+			cout << outData[i] << " ";
+		}
+		cout << endl;
+
+		step <<= 1;
+		if (step >= n) {
+			copy(outData, data, 0, n - 1); // copy back
+			break;
+		}
+
+		mergeSorti2(outData, data, n, step);
+		// TODO output inner result to debug
+		cout << "step = " << step << " ";
+		for (int i = 0; i < n; i++)
+		{
+			cout << data[i] << " ";
+		}
+		cout << endl;
+		step <<= 1;
+	}
+	delete [] outData;
+}
 
 int main(void)
 {
@@ -98,7 +150,8 @@ int main(void)
 		vT.push_back(i);
 	}
 	// insertionSort<int>(&vT[0], vT.size());
-	mergeSort<int>(&vT[0], vT.size());
+	// mergeSort<int>(&vT[0], vT.size());
+	mergeSort2<int>(&vT[0], vT.size());
 	for (std::vector<int>::iterator it = vT.begin(); it != vT.end(); it++) {
 		cout << *it << " ";
 	}
