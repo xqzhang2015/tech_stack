@@ -1,5 +1,8 @@
 <!-- MarkdownTOC -->
 
+- [Shell script](#shell-script)
+  - [Loops: for](#loops-for)
+  - [Loops: While](#loops-while)
 - [Syntax](#syntax)
   - [String 替换命令](#string-%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4)
 - [Examples](#examples)
@@ -7,6 +10,48 @@
 - [References](#references)
 
 <!-- /MarkdownTOC -->
+# Shell script
+
+### Loops: for
+
+```shell
+#!/bin/sh
+for i in 1 2 3 4 5
+do
+  echo "Looping ... number $i"
+done
+```
+
+```shell
+for runlevel in 0 1 2 3 4 5 6 S
+do
+  mkdir rc${runlevel}.d
+done
+```
+
+### Loops: While
+
+```shell
+#!/bin/sh
+INPUT_STRING=hello
+while [ "$INPUT_STRING" != "bye" ]
+do
+  echo "Please type something in (bye to quit)"
+  read INPUT_STRING
+  echo "You typed: $INPUT_STRING"
+done
+```
+
+```shell
+#!/bin/sh
+while :
+do
+  echo "Please type something in (^C to quit)"
+  read INPUT_STRING
+  echo "You typed: $INPUT_STRING"
+done
+```
+
 
 # Syntax
 
