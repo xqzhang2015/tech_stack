@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <stdio.h>
 
 using namespace std;
 
@@ -33,6 +34,7 @@ void copy(T *outData, T *data, int left, int right)
 	}
 }
 
+// mid is the end of left block
 template <typename T>
 void merge(T *data, T *outData, int left, int mid, int right)
 {
@@ -40,6 +42,7 @@ void merge(T *data, T *outData, int left, int mid, int right)
 	lLoc = left;
 	rLoc = mid + 1;
 	outLoc = left;
+	// printf("left: %d, mid: %d, right: %d\n", left, mid, right);
 
 	while(lLoc <= mid && rLoc <= right) {
 		if (data[lLoc] <= data[rLoc]) {
@@ -94,7 +97,7 @@ void mergeSorti2(T *data, T *outData, int n, int step)
 		if (right >= n) {
 			right = n - 1;
 		}
-		merge(data, outData, left, mid, right);
+		merge(data, outData, left, mid - 1, right);
 	}
 }
 
@@ -106,13 +109,15 @@ void mergeSort2(T *data, int n)
 	while (step < n)
 	{
 		mergeSorti2(data, outData, n, step);
-		// TODO output inner result to debug
+		// DEBUG
+		/*
 		cout << "step = " << step << ", ";
 		for (int i = 0; i < n; i++)
 		{
 			cout << outData[i] << " ";
 		}
 		cout << endl;
+		*/
 
 		step <<= 1;
 		if (step >= n) {
@@ -121,13 +126,15 @@ void mergeSort2(T *data, int n)
 		}
 
 		mergeSorti2(outData, data, n, step);
-		// TODO output inner result to debug
+		// DEBUG
+		/*
 		cout << "step = " << step << " ";
 		for (int i = 0; i < n; i++)
 		{
 			cout << data[i] << " ";
 		}
 		cout << endl;
+		*/
 		step <<= 1;
 	}
 	delete [] outData;
@@ -160,3 +167,9 @@ int main(void)
 	return 0;
 }
 
+/*
+ * (master)$ ./a.out
+-1 1 3 5 7 9
+-1 1 -3
+-3 -1 1
+*/
