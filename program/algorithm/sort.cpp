@@ -84,7 +84,7 @@ void mergeSort(T *data, int n)
 }
 
 template <typename T>
-void mergeSorti2(T *data, T *outData, int n, int step)
+void mergeSortBetteri(T *data, T *outData, int n, int step)
 {
 	for (int left = 0; left < n; left += 2 * step)
 	{
@@ -102,13 +102,13 @@ void mergeSorti2(T *data, T *outData, int n, int step)
 }
 
 template <typename T>
-void mergeSort2(T *data, int n)
+void mergeSortBetter(T *data, int n)
 {
 	T *outData = new T[n];
 	int step = 1;
 	while (step < n)
 	{
-		mergeSorti2(data, outData, n, step);
+		mergeSortBetteri(data, outData, n, step);
 		// DEBUG
 		/*
 		cout << "step = " << step << ", ";
@@ -125,7 +125,7 @@ void mergeSort2(T *data, int n)
 			break;
 		}
 
-		mergeSorti2(outData, data, n, step);
+		mergeSortBetteri(outData, data, n, step);
 		// DEBUG
 		/*
 		cout << "step = " << step << " ";
@@ -158,7 +158,7 @@ int main(void)
 	}
 	// insertionSort<int>(&vT[0], vT.size());
 	// mergeSort<int>(&vT[0], vT.size());
-	mergeSort2<int>(&vT[0], vT.size());
+	mergeSortBetter<int>(&vT[0], vT.size());
 	for (std::vector<int>::iterator it = vT.begin(); it != vT.end(); it++) {
 		cout << *it << " ";
 	}
