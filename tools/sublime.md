@@ -2,6 +2,7 @@
 
 - [Plugins](#plugins)
   - [Installation](#installation)
+  - [Markdown Preview](#markdown-preview)
   - [Configuration](#configuration)
   - [Usage](#usage)
   - [Sublime: Package control popular](#sublime-package-control-popular)
@@ -20,6 +21,18 @@ Select __expected package__ when the list appears.
 * [GitGutter](https://packagecontrol.io/packages/GitGutter)
 * [MarkdownTOC](https://packagecontrol.io/packages/MarkdownTOC)
 * 
+
+### Markdown Preview
+
+Preview and build your markdown files quickly in your web browser using Sublime Text 3.
+
+
+[PackageControl](https://github.com/facelessuser/MarkdownPreview), which means you just have to
+
+1. Open the command palette (`ctrl+shift+p`)
+2. Search for: `Package Control: Install Package`
+3. Search for: `MarkdownPreview`
+4. hit <kbd>enter</kbd>
 
 ### Configuration
 * Pick: Sublime Text > Preferences > Package Settings > MarkdownTOC > Settings - User
