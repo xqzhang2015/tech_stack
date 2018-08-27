@@ -3,6 +3,7 @@
 - [Shell script](#shell-script)
   - [Loops: for](#loops-for)
   - [Loops: While](#loops-while)
+  - [func args](#func-args)
 - [Syntax](#syntax)
   - [String 替换命令](#string-%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4)
 - [Examples](#examples)
@@ -52,6 +53,18 @@ do
 done
 ```
 
+### func args
+
+* $0 is shell script name
+* $1 is the 1st param
+
+```shell
+func test()
+{
+  local arg=${1:-"quick"}
+  # ...
+}
+```
 
 # Syntax
 
