@@ -4,6 +4,7 @@
   - [Loops: for](#loops-for)
   - [Loops: While](#loops-while)
   - [func args](#func-args)
+  - [string split](#string-split)
 - [Syntax](#syntax)
   - [String 替换命令](#string-%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4)
 - [Examples](#examples)
@@ -65,6 +66,47 @@ func test()
   # ...
 }
 ```
+
+### string split
+
+```shell
+[test ~]$ test=a,b,c
+[test ~]$ IFS=',' read -r -a array <<< "$test"
+```
+
+* To iterate over the elements:
+
+```shell
+[test ~]$ for element in ${array[@]}; do     echo ${element}; done
+a
+b
+c
+```
+
+* To get both the index and the value:
+
+```shell
+for index in ${!array[@]}
+do
+    echo "$index ${array[index]}"
+done
+```
+
+* or using __string replacement__
+
+```shell
+string="1:2:3:4:5"
+set -f                      # avoid globbing (expansion of *).
+array=(${string//:/ })
+for i in "${!array[@]}"
+do
+    echo "$i=>${array[i]}"
+done
+```
+
+The idea is using string replacement:
+
+${string//substring/replacement}
 
 # Syntax
 
