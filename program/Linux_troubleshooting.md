@@ -39,7 +39,7 @@ You can also start with both an executable program and a core file specified:
 You can, instead, specify a process ID as a second argument, if you want to debug a running process:
 
        gdb program 1234<br/>
-       __gdb -p 1234__
+       Pgdb -p 1234
 
 * cmds file example
 
