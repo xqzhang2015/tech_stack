@@ -42,4 +42,11 @@ mychart/templates/
 
 # References
 
-[]
+`Root doc`
+[docs.helm.sh: The Chart Template Developer’s Guide](https://docs.helm.sh/chart_template_guide)<br/>
+
+[]()<br/>
+
+[]()<br/>
+
+[]()<br/>
