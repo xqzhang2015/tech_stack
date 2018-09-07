@@ -1,6 +1,7 @@
 <!-- MarkdownTOC -->
 
 - [Shell script](#shell-script)
+  - [String: empty check](#string-empty-check)
   - [Loops: for](#loops-for)
   - [Loops: While](#loops-while)
   - [func args](#func-args)
@@ -13,6 +14,17 @@
 
 <!-- /MarkdownTOC -->
 # Shell script
+
+### String: empty check
+
+```shell
+if [ -z "$var" ]
+then
+      echo "\$var is empty"
+else
+      echo "\$var is NOT empty"
+fi
+```
 
 ### Loops: for
 
