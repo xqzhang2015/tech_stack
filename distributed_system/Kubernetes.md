@@ -8,6 +8,8 @@
   - [Node](#node)
   - [Kubernetes Master](#kubernetes-master)
   - [Pod](#pod)
+    - [What containers share in a pod?](#what-containers-share-in-a-pod)
+    - [Containers startup order](#containers-startup-order)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -87,10 +89,18 @@ API Server提供可以用来和集群交互的REST端点。master节点包括用
 
 ### Pod
 
-Containers in a Pod run on a “logical host”. They use 
+##### What containers share in a pod?
+Containers in a Pod run on a “logical host”. They use
+
 * the same network namespace (in other words, the same IP address and port space),
 * the same IPC namespace. 
 * They can also use shared volumes. 
+
+##### Containers startup order
+
+In a cloud native environment, it’s always better to plan for failures outside of your immediate control. 
+
+__To change the application to `wait` for another container in this pod__.
 
 # References
 [十分钟带你理解Kubernetes核心概念](http://www.dockone.io/article/932)<br/>
