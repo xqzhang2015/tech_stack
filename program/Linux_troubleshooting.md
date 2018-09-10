@@ -2,6 +2,7 @@
 
 - [Linux system](#linux-system)
   - [netstat -apn](#netstat--apn)
+    - [How to install netstat](#how-to-install-netstat)
   - [top -o %MEM](#top--o-%25mem)
 - [Linux process](#linux-process)
   - [gdb prog procID](#gdb-prog-procid)
@@ -14,6 +15,22 @@
 
 # Linux system
 ### netstat -apn
+
+##### How to install netstat
+
+* yum `whatprovides` netstat
+
+```
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.mirror.secureax.com
+ * extras: centos.mirror.secureax.com
+ * updates: centos.mirror.secureax.com
+net-tools-2.0-0.17.20131004git.el7.x86_64 : Basic networking tools
+```
+
+* yum install -y `net-tools`
+
 ### top -o %MEM
 
 # Linux process
