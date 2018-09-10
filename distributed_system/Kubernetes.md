@@ -7,7 +7,8 @@
   - [Service](#service)
   - [Node](#node)
   - [Kubernetes Master](#kubernetes-master)
-  - [References](#references)
+  - [Pod](#pod)
+- [References](#references)
 
 <!-- /MarkdownTOC -->
 
@@ -83,7 +84,15 @@ Service是定义一系列Pod以及访问这些Pod的策略的一层抽象。Serv
 
 API Server提供可以用来和集群交互的REST端点。master节点包括用来创建和复制Pod的Replication Controller。
 
-### References
+
+### Pod
+
+Containers in a Pod run on a “logical host”. They use 
+* the same network namespace (in other words, the same IP address and port space),
+* the same IPC namespace. 
+* They can also use shared volumes. 
+
+# References
 [十分钟带你理解Kubernetes核心概念](http://www.dockone.io/article/932)<br/>
 
 [《Kubernetes权威指南》——Kubelet运行机制与安全机制](https://www.cnblogs.com/suolu/p/6841848.html)<br/>
