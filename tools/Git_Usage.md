@@ -2,23 +2,31 @@
 
 - [Contents](#contents)
 - [Concepts](#concepts)
-    - [HEAD](#head)
-    - [Git Data Transport Commands](#git-data-transport-commands)
+  - [HEAD](#head)
+  - [Git Data Transport Commands](#git-data-transport-commands)
 - [Specific Commands](#specific-commands)
-    - [git commit](#git-commit)
-    - [git add](#git-add)
-    - [git diff](#git-diff)
-    - [git archive](#git-archive)
-    - [git log](#git-log)
-    - [git blame](#git-blame)
-    - [git reset](#git-reset)
-    - [git rebase](#git-rebase)
-  - [If auto-generated file is really generated automatically?](#if-auto-generated-file-is-really-generated-automatically)
-    - [Limitation: only check the latest commit for a specific file](#limitation-only-check-the-latest-commit-for-a-specific-file)
-    - [Approach](#approach)
-    - [Edge case](#edge-case)
+  - [git config](#git-config)
+  - [git commit](#git-commit)
+  - [git add](#git-add)
+  - [git diff](#git-diff)
+  - [git archive](#git-archive)
+  - [git log](#git-log)
+  - [git blame](#git-blame)
+  - [git reset](#git-reset)
+  - [git rebase](#git-rebase)
+- [git credential](#git-credential)
+  - [git-credential-cache](#git-credential-cache)
+  - [git-credential-store](#git-credential-store)
+- [If auto-generated file is really generated automatically?](#if-auto-generated-file-is-really-generated-automatically)
+  - [Limitation: only check the latest commit for a specific file](#limitation-only-check-the-latest-commit-for-a-specific-file)
+  - [Approach](#approach)
+  - [Edge case](#edge-case)
+- [Submodule](#submodule)
+  - [add module](#add-module)
+  - [update module](#update-module)
+  - [remove submodule](#remove-submodule)
 - [Reduce repository size](#reduce-repository-size)
-    - [Running filter-branch](#running-filter-branch)
+  - [Running filter-branch](#running-filter-branch)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -214,7 +222,73 @@ DESCRIPTION
                D---E---F---G master
 ```
 
-## If auto-generated file is really generated automatically? 
+# git credential
+
+Retrieve and store user credentials.
+
+```sh
+[xxx ~]$ man git-credential
+
+NAME
+  gitcredentials - providing usernames and passwords to Git
+SYNOPSIS
+  git config credential.https://example.com.username myusername
+  git config credential.helper "$helper $options"
+```
+
+### git-credential-cache
+
+```sh
+NAME
+       git-credential-cache - Helper to temporarily store passwords in memory
+
+SYNOPSIS
+       git config credential.helper 'cache [options]'
+
+DESCRIPTION
+       This command caches credentials in memory for use by future Git programs.
+```
+
+__Example__
+
+```sh
+git config --global credential.helper cache
+git config --global credential.helper "cache --timeout=3600"
+
+ ~ cat ~/.gitconfig
+[credential]
+  helper = cache --timeout=3600
+[credential "https://example.com"]
+  username = me
+```
+Note: This example drops the cache time to 3600 seconds.
+
+### git-credential-store
+
+```sh
+[xxx ~]$ man git-credential-store
+
+NAME
+       git-credential-store - Helper to store credentials on disk
+SYNOPSIS
+       git config credential.helper 'store [options]'
+DESCRIPTION
+       This command stores credentials indefinitely on disk for use by future Git programs.
+```
+
+__Example__
+
+```sh
+git config --global credential.helper store
+
+ ~ cat ~/.gitconfig
+[credential]
+  helper = store
+[credential "https://example.com"]
+  username = me
+```
+
+# If auto-generated file is really generated automatically? 
 ### Limitation: only check the latest commit for a specific file
 
 ### Approach
