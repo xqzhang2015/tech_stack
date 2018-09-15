@@ -18,16 +18,16 @@
   - [git-credential-cache](#git-credential-cache)
   - [git-credential-store](#git-credential-store)
   - [With Git versions before 1.7.9](#with-git-versions-before-179)
-- [If auto-generated file is really generated automatically?](#if-auto-generated-file-is-really-generated-automatically)
-  - [Limitation: only check the latest commit for a specific file](#limitation-only-check-the-latest-commit-for-a-specific-file)
-  - [Approach](#approach)
-  - [Edge case](#edge-case)
 - [Submodule](#submodule)
   - [add module](#add-module)
   - [update module](#update-module)
   - [remove submodule](#remove-submodule)
 - [Reduce repository size](#reduce-repository-size)
   - [Running filter-branch](#running-filter-branch)
+- [If auto-generated file is really generated automatically?](#if-auto-generated-file-is-really-generated-automatically)
+  - [Limitation: only check the latest commit for a specific file](#limitation-only-check-the-latest-commit-for-a-specific-file)
+  - [Approach](#approach)
+  - [Edge case](#edge-case)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -240,17 +240,17 @@ SYNOPSIS
 ### git-credential-cache
 
 ```sh
+[xxx ~]$ man git-credential-cache
+
 NAME
        git-credential-cache - Helper to temporarily store passwords in memory
-
 SYNOPSIS
        git config credential.helper 'cache [options]'
-
 DESCRIPTION
        This command caches credentials in memory for use by future Git programs.
 ```
 
-__Example__
+* Example
 
 ```sh
 git config --global credential.helper cache
@@ -277,7 +277,7 @@ DESCRIPTION
        This command stores credentials indefinitely on disk for use by future Git programs.
 ```
 
-__Example__
+* Example
 
 ```sh
 git config --global credential.helper store
@@ -296,27 +296,6 @@ Make sure that you use `https` and you should be aware that if you do this, your
 ```sh
 git config remote.origin.url https://you:password@github.com/you/example.git
 ```
-
-# If auto-generated file is really generated automatically? 
-### Limitation: only check the latest commit for a specific file
-
-### Approach
-```
-bool is_auto_generated():
-  1. git log -5 xxx/xxx.go
-  2. if this last commit is a [revert] commit, skip checking this file for this time. return true.
-  3. check if timestamp in file is after the 2nd-latest commit.
-  4. if NOT true, return false.
-  5. return true.
-```
-
-### Edge case
-```
-    Revert "Merge branch 'XXX' into 'YYY'"
-
-    This reverts merge request !1234
-```
-
 # Submodule
 ### add module
 ```
@@ -372,6 +351,29 @@ If all your large files are in different branches, you'll need to delete each fi
 
 
 [Confluence: Reduce repository size](https://confluence.atlassian.com/bitbucket/reduce-repository-size-321848262.html)<br/>
+
+
+# If auto-generated file is really generated automatically? 
+
+### Limitation: only check the latest commit for a specific file
+
+### Approach
+
+```
+bool is_auto_generated():
+  1. git log -5 xxx/xxx.go
+  2. if this last commit is a [revert] commit, skip checking this file for this time. return true.
+  3. check if timestamp in file is after the 2nd-latest commit.
+  4. if NOT true, return false.
+  5. return true.
+```
+
+### Edge case
+
+```
+    Revert "Merge branch 'XXX' into 'YYY'"
+    This reverts merge request !1234
+```
 
 # References
 [Git fetch + merge, Git fetch + rebase, Git pull](https://tapaswenipathak.wordpress.com/2016/02/15/git-fetch-merge-git-fetch-rebase-git-pull/)<br/>

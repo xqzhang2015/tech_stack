@@ -26,7 +26,7 @@ In order to keep things focused I’m going to split the post into three parts.
 
 ` In practical terms it means that all the containers in a pod can reach each other on localhost.`
 
-3. 
+3. The pod network
 
 ### Part-2 services: the abstraction layer that allows pods to be ephemeral
 
@@ -43,5 +43,7 @@ In order to keep things focused I’m going to split the post into three parts.
 [k8s networking](https://www.digitalocean.com/community/tutorials/an-introduction-to-networking-terminology-interfaces-and-protocols)<br/>
 
 [k8s IP address spaces](https://www.digitalocean.com/community/tutorials/understanding-ip-addresses-subnets-and-cidr-notation-for-networking)<br/>
+
+[wikipedia.org: IP routing table](https://en.wikipedia.org/wiki/Routing_table)<br/>
 
 [cnblogs.com: 一分钟看懂Docker的网络模式和跨主机通信](https://www.cnblogs.com/yy-cxd/p/6553624.html)<br/>
