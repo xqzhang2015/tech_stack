@@ -17,6 +17,7 @@
 - [git credential](#git-credential)
   - [git-credential-cache](#git-credential-cache)
   - [git-credential-store](#git-credential-store)
+  - [With Git versions before 1.7.9](#with-git-versions-before-179)
 - [If auto-generated file is really generated automatically?](#if-auto-generated-file-is-really-generated-automatically)
   - [Limitation: only check the latest commit for a specific file](#limitation-only-check-the-latest-commit-for-a-specific-file)
   - [Approach](#approach)
@@ -286,6 +287,14 @@ git config --global credential.helper store
   helper = store
 [credential "https://example.com"]
   username = me
+```
+
+### With Git versions before 1.7.9
+
+Make sure that you use `https` and you should be aware that if you do this, your GitHub password will be stored in plaintext in your `.git` directory, which is obviously undesirable.
+
+```sh
+git config remote.origin.url https://you:password@github.com/you/example.git
 ```
 
 # If auto-generated file is really generated automatically? 
