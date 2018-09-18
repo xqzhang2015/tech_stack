@@ -3,6 +3,7 @@
 - [AWS Concept](#aws-concept)
   - [Concepts comparison](#concepts-comparison)
   - [Security: Security groups and ACLs](#security-security-groups-and-acls)
+  - [Controlling Which Auto Scaling Instances Terminate](#controlling-which-auto-scaling-instances-terminate)
 - [AWS CLI](#aws-cli)
   - [aws ec2 describe-volumes](#aws-ec2-describe-volumes)
   - [aws ec2 delete-volume](#aws-ec2-delete-volume)
@@ -32,6 +33,11 @@ Amazon VPC provides features that you can use to increase and monitor the securi
 ![security-diagram](../images/2018/security-diagram.png)<br/>
 
 
+### Controlling Which Auto Scaling Instances Terminate
+
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
+
+https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
 
 # AWS CLI
 
