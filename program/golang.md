@@ -12,9 +12,7 @@
 
 ## 协程同步的几种方式：goroutine synchronization
 
-执行下面代码很可能看不到输出。 We have the following possible approaches.
-
-
+执行下面代码很可能看不到输出。
 
 ```golang
 package main
@@ -33,6 +31,8 @@ func main() {
     }()
 }
 ```
+
+We have the following possible approaches.
 
 ### time.Sleep
 
