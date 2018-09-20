@@ -5,6 +5,7 @@
     - [time.Sleep](#timesleep)
     - [channel: 管道](#channel-%E7%AE%A1%E9%81%93)
     - [sync.WaitGroup](#syncwaitgroup)
+- [RPC example in go](#rpc-example-in-go)
 
 <!-- /MarkdownTOC -->
 
@@ -132,4 +133,11 @@ func main() {
     wg.Wait() // 等待，直到计数为0
 }
 ```
+
+# [RPC example in go](https://ops.tips/gists/example-go-rpc-client-and-server/)
+
+
+
+
+
 
