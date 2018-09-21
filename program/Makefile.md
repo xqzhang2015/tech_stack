@@ -2,6 +2,7 @@
 
 - [Makefile syntax](#makefile-syntax)
 - [Makefile autogenerate](#makefile-autogenerate)
+  - [Makefile 流程图](#makefile-%E6%B5%81%E7%A8%8B%E5%9B%BE)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -9,6 +10,10 @@
 # Makefile syntax
 
 # Makefile autogenerate
+
+### Makefile 流程图
+
+![Makefile workflow](../images/2018/makefile_workflow.gif)
 
 
 # References
