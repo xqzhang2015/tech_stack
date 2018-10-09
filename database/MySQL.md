@@ -4,6 +4,7 @@
   - [简介](#%E7%AE%80%E4%BB%8B)
   - [GTID Limits](#gtid-limits)
 - [ODBC Driver and Data Source](#odbc-driver-and-data-source)
+- [Connect timeout](#connect-timeout)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -83,6 +84,21 @@ SQLLEN Size........: 8
 SQLSETPOSIROW Size.: 8
 ```
 
+# Connect timeout
+
+* SQL_ATTR_CONNECTION_TIMEOUT (ODBC 3.0)	
+
+```
+An SQLUINTEGER value corresponding to the number of seconds to wait for any request on the connection to complete before returning to the application. The driver should return SQLSTATE HYT00 (Timeout expired) anytime that it is possible to time out in a situation not associated with query execution or login.
+
+If ValuePtr is equal to 0 (the default), there is no timeout.
+```
+
+```
++       rc = SQLSetConnectAttr(hdbc_, SQL_ATTR_CONNECTION_TIMEOUT, (SQLPOINTER)10, 0);
+```
+
+https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlsetconnectattr-function?view=sql-server-2017
 
 # References
 [CSDN: LINUX安装ODBC驱动](https://blog.csdn.net/dongweizu33/article/details/54616258)<br/>
