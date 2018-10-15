@@ -5,7 +5,7 @@
     - [pid namespace](#pid-namespace)
     - [mnt namespace](#mnt-namespace)
     - [net namespace](#net-namespace)
-      - [knowledge](#knowledge)
+      - [knowledge: veth pair](#knowledge-veth-pair)
     - [uts namespace](#uts-namespace)
     - [ipc namespace](#ipc-namespace)
     - [user namespace](#user-namespace)
@@ -76,7 +76,7 @@
 
 参考文档：[Introduction to Linux namespaces – Part 5: NET](https://blog.yadutaf.fr/2014/01/19/introduction-to-linux-namespaces-part-5-net/)
 
-##### knowledge
+##### knowledge: veth pair
 
 [csdn: Linux虚拟网络基础——veth pair](https://blog.csdn.net/chengqiuming/article/details/80113659)<br/>
 
