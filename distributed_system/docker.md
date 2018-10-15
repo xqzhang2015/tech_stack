@@ -93,6 +93,8 @@ Link:
 
 [docker networking namespace not visible in ip netns list](https://stackoverflow.com/questions/31265993/docker-networking-namespace-not-visible-in-ip-netns-list)<br/>
 
+[Kubernetes with Flannel — Understanding the Networking — Part 2](https://medium.com/@anilkreddyr/kubernetes-with-flannel-understanding-the-networking-part-2-78b53e5364c7)<br/>
+
 ```sh
 !28 $ sudo yum install -y bridge-utils
 
