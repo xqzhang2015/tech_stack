@@ -5,6 +5,7 @@
     - [pid namespace](#pid-namespace)
     - [mnt namespace](#mnt-namespace)
     - [net namespace](#net-namespace)
+      - [knowledge](#knowledge)
     - [uts namespace](#uts-namespace)
     - [ipc namespace](#ipc-namespace)
     - [user namespace](#user-namespace)
@@ -14,23 +15,23 @@
     - [blkio](#blkio)
     - [devices](#devices)
 - [Container: docker run](#container-docker-run)
-  - [运行交互式的容器](#%E8%BF%90%E8%A1%8C%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%9A%84%E5%AE%B9%E5%99%A8)
-  - [运行一个web应用: port mapping](#%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AAweb%E5%BA%94%E7%94%A8-port-mapping)
-  - [Docker container start/stop/rm](#docker-container-startstoprm)
-  - [Docker daemon start/stop](#docker-daemon-startstop)
+    - [运行交互式的容器](#%E8%BF%90%E8%A1%8C%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%9A%84%E5%AE%B9%E5%99%A8)
+    - [运行一个web应用: port mapping](#%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AAweb%E5%BA%94%E7%94%A8-port-mapping)
+    - [Docker container start/stop/rm](#docker-container-startstoprm)
+    - [Docker daemon start/stop](#docker-daemon-startstop)
 - [Image: docker build](#image-docker-build)
-  - [commands](#commands)
-  - [构建镜像](#%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F)
-  - [docker tag](#docker-tag)
-  - [docker image size](#docker-image-size)
-    - [Minimize Layers: Group commands in ONE instruction when possible](#minimize-layers-group-commands-in-one-instruction-when-possible)
-    - [Do not install packages recommendations \(-–no-install-recommends\) when installing packages](#do-not-install-packages-recommendations--%E2%80%93no-install-recommends-when-installing-packages)
-    - [Removing no longer needed packages or files](#removing-no-longer-needed-packages-or-files)
-    - [Clean apt-cache after packages installs](#clean-apt-cache-after-packages-installs)
-    - [Final Example](#final-example)
-    - [Don’t use a single layer image](#don%E2%80%99t-use-a-single-layer-image)
-    - [Don’t create images from running containers](#don%E2%80%99t-create-images-from-running-containers)
-    - [References](#references)
+    - [commands](#commands)
+    - [构建镜像](#%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F)
+    - [docker tag](#docker-tag)
+    - [docker image size](#docker-image-size)
+      - [Minimize Layers: Group commands in ONE instruction when possible](#minimize-layers-group-commands-in-one-instruction-when-possible)
+      - [Do not install packages recommendations \(-–no-install-recommends\) when installing packages](#do-not-install-packages-recommendations--%E2%80%93no-install-recommends-when-installing-packages)
+      - [Removing no longer needed packages or files](#removing-no-longer-needed-packages-or-files)
+      - [Clean apt-cache after packages installs](#clean-apt-cache-after-packages-installs)
+      - [Final Example](#final-example)
+      - [Don’t use a single layer image](#don%E2%80%99t-use-a-single-layer-image)
+      - [Don’t create images from running containers](#don%E2%80%99t-create-images-from-running-containers)
+      - [References](#references)
 - [Manage Docker as a non-root user](#manage-docker-as-a-non-root-user)
 - [References](#references-1)
 
@@ -50,10 +51,10 @@
 
 ![docker_architecture](../images/2018/docker_architecture.png)<br/>
 
-### 命名空间 Namespaces
+## 命名空间 Namespaces
 
 ---
-##### pid namespace
+### pid namespace
 不同用户的进程就是通过 pid namespace 隔离开的，且不同 namespace 中可以有相同 PID。具有以下特征:
 
 * 每个 namespace 中的 pid 是有自己的 pid=1 的进程(类似 /sbin/init 进程)
@@ -63,43 +64,54 @@
 
 参考文档：[Introduction to Linux namespaces – Part 3: PID](https://blog.yadutaf.fr/2014/01/05/introduction-to-linux-namespaces-part-3-pid/)
 
-##### mnt namespace
+### mnt namespace
 类似 chroot，将一个进程放到一个特定的目录执行。mnt namespace 允许不同 namespace 的进程看到的文件结构不同，这样每个 namespace 中的进程所看到的文件目录就被隔离开了。
 
 同 chroot 不同，每个 namespace 中的 Container 在 /proc/mounts 的信息只包含所在 namespace 的 mount point。
 
-##### net namespace
+### net namespace
 网络隔离是通过 net namespace 实现的， 每个 net namespace 有独立的 network devices, IP addresses, IP routing tables, /proc/net 目录。
 
 这样每个 container 的网络就能隔离开来。 docker 默认采用 veth 的方式将 container 中的虚拟网卡同 host 上的一个 docker bridge 连接在一起。
 
 参考文档：[Introduction to Linux namespaces – Part 5: NET](https://blog.yadutaf.fr/2014/01/19/introduction-to-linux-namespaces-part-5-net/)
 
-##### uts namespace
+##### knowledge
+
+[csdn: Linux虚拟网络基础——veth pair](https://blog.csdn.net/chengqiuming/article/details/80113659)<br/>
+
+[]()<br/>
+
+[]()<br/>
+
+[]()<br/>
+
+
+### uts namespace
 UTS ("UNIX Time-sharing System") namespace 允许每个 container 拥有独立的 hostname 和 domain name, 使其在网络上可以被视作一个独立的节点而非 Host 上的一个进程。
 
-##### ipc namespace
+### ipc namespace
 container 中进程交互还是采用 Linux 常见的进程间交互方法 (interprocess communication - IPC), 包括常见的信号量、消息队列和共享内存。
 
-##### user namespace
+### user namespace
 每个 container 可以有不同的 user 和 group id, 也就是说可以以 container 内部的用户在 container 内部执行程序而非 Host 上的用户。
 
 <br/>
 有了以上 6 种 namespace 从进程、网络、IPC、文件系统、UTS 和用户角度的隔离，一个 container 就可以对外展现出一个独立计算机的能力，并且不同 container 从 OS 层面实现了隔离。 然而不同 namespace 之间资源还是相互竞争的，仍然需要类似 ulimit 来管理每个 container 所能使用的资源 - cgroup。<br/>
 
-### 资源配额 cgroups
+## 资源配额 cgroups
 
 ---
-##### Memory
+### Memory
 内存相关的限制
 
-##### CPU
+### CPU
 在 cgroup 中，并不能像硬件虚拟化方案一样能够定义 CPU 能力，但是能够定义 CPU 轮转的优先级，因此具有较高 CPU 优先级的进程会更可能得到 CPU 运算。 通过将参数写入 cpu.shares ,即可定义改 cgroup 的 CPU 优先级 - 这里是一个相对权重，而非绝对值
 
-##### blkio
+### blkio
 block IO 相关的统计和限制，byte/operation 统计和限制 (IOPS 等)，读写速度限制等，但是这里主要统计的都是同步 IO
 
-##### devices
+### devices
 设备权限限制
 
 # Container: docker run
