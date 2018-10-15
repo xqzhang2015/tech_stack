@@ -6,6 +6,7 @@
     - [mnt namespace](#mnt-namespace)
     - [net namespace](#net-namespace)
       - [knowledge: veth pair](#knowledge-veth-pair)
+      - [veth pair in physical](#veth-pair-in-physical)
     - [uts namespace](#uts-namespace)
     - [ipc namespace](#ipc-namespace)
     - [user namespace](#user-namespace)
@@ -86,6 +87,101 @@
 
 []()<br/>
 
+##### veth pair in physical
+
+Link:
+
+[docker networking namespace not visible in ip netns list](https://stackoverflow.com/questions/31265993/docker-networking-namespace-not-visible-in-ip-netns-list)<br/>
+
+```sh
+!28 $ sudo yum install -y bridge-utils
+
+!29 $ brctl show
+bridge name bridge id   STP enabled interfaces
+cni0    8000.0a5864607501 no    veth301b7b1d
+                    veth964e8abb
+docker0   8000.024252639fcf no
+```
+
+```sh
+!33 $ ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP qlen 1000
+    link/ether 02:d4:48:7b:4f:74 brd ff:ff:ff:ff:ff:ff
+    inet 10.206.153.65/20 brd 10.206.159.255 scope global dynamic eth0
+       valid_lft 3547sec preferred_lft 3547sec
+    inet6 fe80::d4:48ff:fe7b:4f74/64 scope link
+       valid_lft forever preferred_lft forever
+3: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN
+    link/ether 02:42:52:63:9f:cf brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 scope global docker0
+       valid_lft forever preferred_lft forever
+4: flannel.1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 8951 qdisc noqueue state UNKNOWN
+    link/ether 0e:0b:21:7c:0f:40 brd ff:ff:ff:ff:ff:ff
+    inet 100.96.117.0/32 scope global flannel.1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::c0b:21ff:fe7c:f40/64 scope link
+       valid_lft forever preferred_lft forever
+5: cni0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 8951 qdisc noqueue state UP qlen 1000
+    link/ether 0a:58:64:60:75:01 brd ff:ff:ff:ff:ff:ff
+    inet 100.96.117.1/24 scope global cni0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::ac9d:dbff:fed6:5a3e/64 scope link
+       valid_lft forever preferred_lft forever
+6: veth964e8abb@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 8951 qdisc noqueue master cni0 state UP
+    link/ether b6:f6:77:f6:d3:47 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::b4f6:77ff:fef6:d347/64 scope link
+       valid_lft forever preferred_lft forever
+15: veth301b7b1d@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 8951 qdisc noqueue master cni0 state UP
+    link/ether 86:d0:0a:f7:c2:ac brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::84d0:aff:fef7:c2ac/64 scope link
+       valid_lft forever preferred_lft forever
+```
+
+Prepare
+
+```sh
+!35 $ container_id=ce7d6a0d713f
+
+!36 $ pid=`sudo docker inspect --format '{{.State.Pid}}' ${container_id}`
+
+!37 $ echo $pid
+34575
+
+!38 $ sudo ln -sfT /proc/$pid/ns/net /var/run/netns/$container_id
+```
+
+```sh
+!44 $ sudo nsenter -t 34575 -n ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+3: eth0@if15: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 8951 qdisc noqueue state UP
+    link/ether 0a:58:64:60:75:0b brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 100.96.117.11/24 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::e06c:24ff:fe05:129e/64 scope link tentative dadfailed
+       valid_lft forever preferred_lft forever
+
+!45 $ sudo nsenter -t 34575 -n ethtool -S eth0
+NIC statistics:
+     peer_ifindex: 15
+```
+
+```
+bridge:                 virtual-eth       veth-pair         eth-in-container             container-name
+                                              |
+cni0                    6:  veth964e8abb    <-|->           3: eth0(100.96.117.2/24)     pause:dockerd-status
+(100.96.117.1/24)       15: veth301b7b1d    <-|->           3: eth0(100.96.117.11/24)    pause:core
+```
 
 ### uts namespace
 UTS ("UNIX Time-sharing System") namespace 允许每个 container 拥有独立的 hostname 和 domain name, 使其在网络上可以被视作一个独立的节点而非 Host 上的一个进程。
