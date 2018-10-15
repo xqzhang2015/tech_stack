@@ -121,12 +121,10 @@ NIC statistics:
 ```
 
 ```
-bridge:					virtual-eth  	  veth-pair			eth-in-container			container-name
-											  |
-cni0					6:  veth964e8abb	<-|->			3: eth0(100.96.117.2/24)     pause:dockerd-status
-(100.96.117.1/24)		15: veth301b7b1d	<-|->			3: eth0(100.96.117.11/24)    pause:core
-
-
+bridge:                 virtual-eth       veth-pair         eth-in-container             container-name
+                                              |
+cni0                    6:  veth964e8abb    <-|->           3: eth0(100.96.117.2/24)     pause:dockerd-status
+(100.96.117.1/24)       15: veth301b7b1d    <-|->           3: eth0(100.96.117.11/24)    pause:core
 ```
 
 # Linux process
