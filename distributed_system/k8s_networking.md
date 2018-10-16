@@ -4,6 +4,8 @@
   - [Part-1 containers and pods](#part-1-containers-and-pods)
   - [Part-2 services: the abstraction layer that allows pods to be ephemeral](#part-2-services-the-abstraction-layer-that-allows-pods-to-be-ephemeral)
   - [Part-3 ingress: getting traffic to your pods from outside the cluster](#part-3-ingress-getting-traffic-to-your-pods-from-outside-the-cluster)
+- [Network: flannel](#network-flannel)
+  - [vxlan: Virtual eXtensible Local Area Network](#vxlan-virtual-extensible-local-area-network)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -31,6 +33,14 @@ In order to keep things focused I’m going to split the post into three parts.
 ### Part-2 services: the abstraction layer that allows pods to be ephemeral
 
 ### Part-3 ingress: getting traffic to your pods from outside the cluster
+
+# Network: flannel
+
+### vxlan: Virtual eXtensible Local Area Network
+
+外层是宿主机的IP和mac，内层IP是容器的IP，但源mac和目的mac分别是宿主机上面flannel.1（vtep设备的）的mac，这点一定要注意。
+
+
 
 # References
 
