@@ -68,15 +68,69 @@ done
 
 ### func args
 
-* $0 is shell script name
-* $1 is the 1st param
+* All function parameters or arguments can be accessed via $1, $2, $3,..., $N.
+  * $0 is shell script name
+  * $1 is the 1st param
+* $* or $@ holds all parameters or arguments passed to the function.
+* $# holds the number of positional parameters passed to the function.
 
-```shell
+
+
+```sh
 func test()
 {
   local arg=${1:-"quick"}
   # ...
 }
+```
+
+example
+
+```sh
+#!/bin/bash
+ 
+# write a function
+fresh(){
+   # t stores $1 argument passed to fresh()
+   t=$1
+   echo "fresh(): \$0 is $0"
+   echo "fresh(): \$1 is $1"
+   echo "fresh(): \$t is $t"
+   echo "fresh(): total args passed to me $#"
+   echo "fresh(): all args (\$@) passed to me -\"$@\""
+   echo "fresh(): all args (\$*) passed to me -\"$*\""
+}
+ 
+# invoke the function with "Tomato" argument
+echo "**** calling fresh() 1st time ****"
+fresh Tomato
+ 
+# invoke the function with total 3 arguments
+echo "**** calling fresh() 2nd time ****"
+fresh Tomato Onion Paneer
+```
+
+`chmod +x fresh.sh`
+
+
+output
+
+```sh
+**** calling fresh() 1st time ****
+fresh(): $0 is ./fresh.sh
+fresh(): $1 is Tomato
+fresh(): $t is Tomato
+fresh(): total args passed to me 1
+fresh(): all args ($@) passed to me -"Tomato"
+fresh(): all args ($*) passed to me -"Tomato"
+**** calling fresh() 2nd time ****
+fresh(): $0 is ./fresh.sh
+fresh(): $1 is Tomato
+fresh(): $t is Tomato
+fresh(): total args passed to me 3
+fresh(): all args ($@) passed to me -"Tomato Onion Paneer"
+fresh(): all args ($*) passed to me -"Tomato Onion Paneer"
+
 ```
 
 ### string split
