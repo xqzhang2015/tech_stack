@@ -141,9 +141,14 @@ git log -3 --pretty=format:%h
 ```
 [pretty-formats](https://git-scm.com/docs/pretty-formats)
 * '%h': abbreviated commit hash
-* '%ae': author email
-* '%p': abbreviated parent hashes
+* '%ce': committer email
 * '%ci': committer date, ISO 8601-like format
+* '%s': subject
+* '%p': abbreviated parent hashes
+
+Example:
+
+`git log -3 --pretty=format:"%h | %ci | %ce | %s"`
 
 Example: check if anyone commits without ticket no. In ~/.zshrc:
 ```
