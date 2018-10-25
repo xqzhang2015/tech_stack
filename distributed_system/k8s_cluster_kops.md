@@ -4,6 +4,8 @@
   - [Change the instance type in an instance group](#change-the-instance-type-in-an-instance-group)
   - [Resize an instance group](#resize-an-instance-group)
   - [Changing the root volume size or type](#changing-the-root-volume-size-or-type)
+- [Kubectl](#kubectl)
+  - [Copy directories and files to and from Kubernetes Container](#copy-directories-and-files-to-and-from-kubernetes-container)
 
 <!-- /MarkdownTOC -->
 
@@ -120,4 +122,24 @@ spec:
   rootVolumeSize: 200
   rootVolumeType: gp2
 ```
+
+# Kubectl
+
+### Copy directories and files to and from Kubernetes Container
+
+`kubectl cp <file-spec-src> <file-spec-dest>`
+
+Copy /tmp/foo local file to /tmp/bar in a remote pod in namespace
+
+```
+kubectl cp /tmp/foo <some-namespace>/<some-pod>:tmp/bar
+```
+
+Copy /tmp/foo from a remote pod to /tmp/bar locally
+```
+kubectl cp <some-namespace>/<some-pod>:tmp/foo /tmp/bar
+```
+
+Note: _no leading / for the file path in pod_
+
 
