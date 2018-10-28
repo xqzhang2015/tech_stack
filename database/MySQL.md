@@ -1,10 +1,19 @@
 <!-- MarkdownTOC -->
 
 - [GTID\(Global Transaction IDentifier\)](#gtidglobal-transaction-identifier)
-  - [简介](#%E7%AE%80%E4%BB%8B)
-  - [GTID Limits](#gtid-limits)
+    - [简介](#%E7%AE%80%E4%BB%8B)
+    - [GTID Limits](#gtid-limits)
 - [ODBC Driver and Data Source](#odbc-driver-and-data-source)
 - [Connect timeout](#connect-timeout)
+- [Globalization: timezone switch](#globalization-timezone-switch)
+  - [concepts](#concepts)
+    - [夏令时: daylight-saving time\(DST\) or summer time](#%E5%A4%8F%E4%BB%A4%E6%97%B6-daylight-saving-timedst-or-summer-time)
+    - [冬令时: winter time](#%E5%86%AC%E4%BB%A4%E6%97%B6-winter-time)
+    - [Example: Daylight Saving Time Changes 2018 in New York, New York, USA](#example-daylight-saving-time-changes-2018-in-new-york-new-york-usa)
+  - [Approach of calculating local timezone: MySQL loading zoneinfo database](#approach-of-calculating-local-timezone-mysql-loading-zoneinfo-database)
+    - [Populating the Time Zone Tables](#populating-the-time-zone-tables)
+    - [Get shifting seconds for a timezone: 时间差](#get-shifting-seconds-for-a-timezone-%E6%97%B6%E9%97%B4%E5%B7%AE)
+    - [Issue trouble shooting: CONVERT_TZ\(\) returns null](#issue-trouble-shooting-convert_tz-returns-null)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -99,6 +108,74 @@ If ValuePtr is equal to 0 (the default), there is no timeout.
 ```
 
 https://docs.microsoft.com/en-us/sql/odbc/reference/syntax/sqlsetconnectattr-function?view=sql-server-2017
+
+# Globalization: timezone switch
+
+## concepts
+The primary reason that Daylight Saving Time is a part of many societies is simply because people like to enjoy long summer evenings.
+In summer, sunrise is earlier. 
+
+Starting in 2007, DST begins in the United States on __the second Sunday in March__, when people move their clocks forward an hour at 2 a.m. local standard time (so at 2 a.m. on that day, the clocks will then read 3 a.m. local daylight time). Daylight saving time ends on __the first Sunday in November__, when clocks are moved back an hour at 2 a.m. local daylight time (so they will then read 1 a.m. local standard time).
+
+### 夏令时: daylight-saving time(DST) or summer time
+### 冬令时: winter time
+### Example: Daylight Saving Time Changes 2018 in New York, New York, USA
+
+|| Year ||	DST Start (Clock Forward) || DST End (Clock Backward) ||
+| 2017 | Sunday, March 12, 2:00 am | Sunday, November 5, 2:00 am |
+| 2018 | Sunday, March 11, 2:00 am | Sunday, November 4, 2:00 am |
+| 2019 | Sunday, March 10, 2:00 am | Sunday, November 3, 2:00 am |
+
+## Approach of calculating local timezone: MySQL loading zoneinfo database
+
+If your system has its own zoneinfo database (the set of files describing time zones), you should use the __mysql_tzinfo_to_sql__ program for filling __the time zone tables__. Examples of such systems are Linux, FreeBSD, Solaris, and macOS. One likely location for these files is the __/usr/share/zoneinfo__ directory.
+
+### Populating the Time Zone Tables
+
+The __mysql_tzinfo_to_sql__ program is used to load the time zone tables. On the command line, pass the zoneinfo directory path name to __mysql_tzinfo_to_sql__ and send the output into the mysql program. For example:
+
+```
+shell> mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root mysql
+```
+
+If not, download the package from MySQL Developer Zone:
+https://dev.mysql.com/downloads/timezones.html
+
+
+* Checking if one MySQL DB contains the zoneinfo data:
+
+```
+select CONVERT_TZ(NOW(),'SYSTEM','GMT');
+2018-10-28 16:12:01
+
+select CONVERT_TZ(NOW(),'SYSTEM','Asia/Chongqing');
+2018-10-29 00:12:01
+
+select UNIX_TIMESTAMP(CONVERT_TZ(NOW(),'SYSTEM', 'Asia/Chongqing'))
+-
+UNIX_TIMESTAMP(CONVERT_TZ(NOW(),'SYSTEM','GMT'));
+
+28800
+```
+
+28800 = 8 * 60 * 60 (seconds)
+
+### Get shifting seconds for a timezone: 时间差
+Given a timezone name, like Pacific/Honolulu(US/Hawaii), America/Chicago, Asia/Chongqing, 
+```
+UNIX_TIMESTAMP(CONVERT_TZ(NOW(),'SYSTEM',tz_name))
+-
+UNIX_TIMESTAMP(CONVERT_TZ(NOW(),'SYSTEM','GMT'))
+```
+
+### Issue trouble shooting: CONVERT_TZ() returns null
+
+This will happen if you haven't loaded the time zone table into mysql.
+
+```
+mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p mysql
+```
+
 
 # References
 [CSDN: LINUX安装ODBC驱动](https://blog.csdn.net/dongweizu33/article/details/54616258)<br/>
