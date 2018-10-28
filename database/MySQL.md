@@ -179,7 +179,7 @@ mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -p mysql
 
 # References
 [CSDN: LINUX安装ODBC驱动](https://blog.csdn.net/dongweizu33/article/details/54616258)<br/>
-[]()<br/>
+[dev.mysql.com: MySQL Server Time Zone Support](https://dev.mysql.com/doc/refman/8.0/en/time-zone-support.html)<br/>
 []()<br/>
 []()<br/>
 []()<br/>
