@@ -49,6 +49,8 @@ In order to keep things focused I’m going to split the post into three parts.
 * 即便是vxlan也有30%左右的损耗，
 * 如果允许的话host-gw是个很好的选择，它也是通过路由的方式，类似于calico
 
+[Flannel vs Calico : A battle of L2 vs L3 based networking](https://medium.com/@jain.sm/flannel-vs-calico-a-battle-of-l2-vs-l3-based-networking-5a30cd0a3ebd)<br/>
+
 
 # References
 
