@@ -121,7 +121,8 @@ Starting in 2007, DST begins in the United States on __the second Sunday in Marc
 ### 冬令时: winter time
 ### Example: Daylight Saving Time Changes 2018 in New York, New York, USA
 
-|| Year ||	DST Start (Clock Forward) || DST End (Clock Backward) ||
+| Year |	DST Start (Clock Forward) | DST End (Clock Backward) |
+|:-:|:-:|:-:|
 | 2017 | Sunday, March 12, 2:00 am | Sunday, November 5, 2:00 am |
 | 2018 | Sunday, March 11, 2:00 am | Sunday, November 4, 2:00 am |
 | 2019 | Sunday, March 10, 2:00 am | Sunday, November 3, 2:00 am |
