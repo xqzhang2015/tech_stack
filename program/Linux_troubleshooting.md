@@ -7,6 +7,7 @@
   - [brctl show](#brctl-show)
 - [Linux process](#linux-process)
   - [gdb prog procID](#gdb-prog-procid)
+    - [gdb output string limit](#gdb-output-string-limit)
   - [ldd](#ldd)
   - [pmap -x pid](#pmap--x-pid)
   - [pstack pid](#pstack-pid)
@@ -165,6 +166,14 @@ b test.cpp:100
 b ClassA::test
 
 set print element 0
+```
+##### gdb output string limit
+
+```shell
+(gdb) show print elements
+Limit on string chars or array elements to print is 200.
+
+(gdb) set print elements 30000
 ```
 
 ### ldd
