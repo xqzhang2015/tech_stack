@@ -4,6 +4,7 @@
   - [Change the instance type in an instance group](#change-the-instance-type-in-an-instance-group)
   - [Resize an instance group](#resize-an-instance-group)
   - [Changing the root volume size or type](#changing-the-root-volume-size-or-type)
+  - [kops: InternetGateway not found](#kops-internetgateway-not-found)
 - [Kubectl](#kubectl)
   - [Copy directories and files to and from Kubernetes Container](#copy-directories-and-files-to-and-from-kubernetes-container)
 
@@ -79,7 +80,7 @@ Global Flags:
       --log_dir string                   If non-empty, write log files in this directory
       --logtostderr                      log to standard error instead of files (default false)
       --name string                      Name of cluster
-      --state string                     Location of state storage (default "s3://adsk8s.replay.ads.aws.fwmrm.net")
+      --state string                     Location of state storage (default "s3://xxx.yyy.zzz")
       --stderrthreshold severity         logs at or above this threshold go to stderr (default 2)
   -v, --v Level                          log level for V logs
       --vmodule moduleSpec               comma-separated list of pattern=N settings for file-filtered logging
@@ -121,6 +122,18 @@ spec:
   role: Node
   rootVolumeSize: 200
   rootVolumeType: gp2
+```
+
+
+### kops: InternetGateway not found
+
+```
+W1102 12:23:08.777158    2344 executor.go:130] error running task "InternetGateway/xxx.yyy.zzz" (7m54s remaining to succeed): InternetGateway for shared VPC was not found
+I1102 12:23:08.777252    2344 executor.go:145] No progress made, sleeping before retrying 1 failed task(s)
+```
+
+```
+kops update cluster --yes --lifecycle-overrides InternetGateway=Ignore
 ```
 
 # Kubectl
