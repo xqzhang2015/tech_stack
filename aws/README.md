@@ -7,6 +7,7 @@
 - [AWS CLI](#aws-cli)
   - [aws ec2 describe-volumes](#aws-ec2-describe-volumes)
   - [aws ec2 delete-volume](#aws-ec2-delete-volume)
+  - [aws ec2 ENA: 弹性网卡](#aws-ec2-ena-%E5%BC%B9%E6%80%A7%E7%BD%91%E5%8D%A1)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -77,7 +78,18 @@ output
 ```
 [ec2-user@ip-10-206-29-116 cluster]$ aws ec2 delete-volume --volume-id vol-0f343ce4d3ebdfc38
 ```
+### aws ec2 ENA: 弹性网卡
 
+```shell
+$ aws ec2 describe-instances --instance-ids i-0581ce753ff50988e --query 'Reservations[].Instances[].EnaSupport'
+[
+    false
+]
+
+$ aws ec2 modify-instance-attribute --instance-id i-0babb55ceaf00274f --ena-support
+```
+
+Access ModifyInstanceAttribute is necessary.
 
 # References
 [VPC Security](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Security.html)<br/>
