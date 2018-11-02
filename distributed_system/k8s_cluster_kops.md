@@ -5,6 +5,7 @@
   - [Resize an instance group](#resize-an-instance-group)
   - [Changing the root volume size or type](#changing-the-root-volume-size-or-type)
   - [kops: InternetGateway not found](#kops-internetgateway-not-found)
+  - [kops: install or new](#kops-install-or-new)
 - [Kubectl](#kubectl)
   - [Copy directories and files to and from Kubernetes Container](#copy-directories-and-files-to-and-from-kubernetes-container)
 
@@ -134,6 +135,14 @@ I1102 12:23:08.777252    2344 executor.go:145] No progress made, sleeping before
 
 ```
 kops update cluster --yes --lifecycle-overrides InternetGateway=Ignore
+```
+
+### [kops: install or new](https://github.com/kubernetes/kops/blob/master/docs/install.md)
+
+```
+wget -O kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+chmod +x ./kops
+sudo mv ./kops /usr/local/bin/
 ```
 
 # Kubectl
