@@ -3,13 +3,15 @@
 - [Failing to communication between pods on same host, if kube-dns is also on this host](#failing-to-communication-between-pods-on-same-host-if-kube-dns-is-also-on-this-host)
   - [Solution](#solution)
   - [Checking system env](#checking-system-env)
+- [Kubernetes stuck on ContainerCreating](#kubernetes-stuck-on-containercreating)
+  - [kubectl describe pods](#kubectl-describe-pods)
 
 <!-- /MarkdownTOC -->
 
 
-### Failing to communication between pods on same host, if kube-dns is also on this host
+## Failing to communication between pods on same host, if kube-dns is also on this host
 
-##### Solution
+### Solution
 1. load kernel module __br_netfilter__ when booting
 ```shell
 centos@ip-xxx.ec2.internal:~ ·
@@ -26,7 +28,7 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 ```
 
-##### Checking system env
+### Checking system env
 
 * Checking if a module is loaded
 ```shell
@@ -57,3 +59,11 @@ centos@ip-10-xxx-21-111.ec2.internal:~ · 05:31 AM Tue Aug 28 ·
 1
 1
 ```
+
+## Kubernetes stuck on ContainerCreating
+
+`kubectl logs` doesn't seem to work since the container needs to be in a `non-pending` state.
+
+### kubectl describe pods
+
+`kubectl describe pods` will list all the events associated with the pod, including pulling of images, starting of containers. 
