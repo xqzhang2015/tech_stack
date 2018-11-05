@@ -12,6 +12,8 @@
   - [pmap -x pid](#pmap--x-pid)
   - [pstack pid](#pstack-pid)
   - [nm objfile...](#nm-objfile)
+  - [lsblk and fdisk](#lsblk-and-fdisk)
+  - [iftop](#iftop)
 
 <!-- /MarkdownTOC -->
 
@@ -257,3 +259,54 @@ lrwxrwxrwx. 1 root root 6 Jun  7  2016 /usr/bin/pstack -> gstack
 0000000000401200 W _Z10mergeSort2IiEvPT_i
 0000000000401787 W _Z11mergeSorti2IiEvPT_S1_ii
 ```
+
+### lsblk and fdisk
+
+```sh
+centos@ip-10-206-63-100.ec2.internal:~ · 07:32 AM Mon Nov 05 ·
+!10 $ sudo fdisk -l
+
+Disk /dev/nvme0n1: 32.2 GB, 32212254720 bytes, 62914560 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000ae09f
+
+        Device Boot      Start         End      Blocks   Id  System
+/dev/nvme0n1p1   *        2048    62914526    31456239+  83  Linux
+WARNING: fdisk GPT support is currently new, and therefore in an experimental phase. Use at your own discretion.
+
+Disk /dev/nvme1n1: 10.7 GB, 10737418240 bytes, 20971520 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: gpt
+Disk identifier: 8523AD60-8641-4E59-B066-CC42AA57953D
+
+
+#         Start          End    Size  Type            Name
+ 1         2048     20969471     10G  Microsoft basic primary
+```
+
+```sh
+centos@ip-10-206-63-100.ec2.internal:~ · 07:32 AM Mon Nov 05 ·
+!11 $ lsblk
+NAME        MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+nvme0n1     259:0    0  30G  0 disk
+`-nvme0n1p1 259:1    0  30G  0 part /
+nvme1n1     259:2    0  10G  0 disk
+`-nvme1n1p1 259:3    0  10G  0 part
+```
+
+```sh
+centos@ip-10-206-63-100.ec2.internal:~ · 07:33 AM Mon Nov 05 ·
+!13 $ sudo file -s /dev/nvme0n1p1
+/dev/nvme0n1p1: SGI XFS filesystem data (blksz 4096, inosz 512, v2 dirs)
+
+centos@ip-10-206-63-100.ec2.internal:~ · 07:33 AM Mon Nov 05 ·
+!14 $ sudo file -s /dev/nvme1n1p1
+/dev/nvme1n1p1: SGI XFS filesystem data (blksz 4096, inosz 512, v2 dirs)
+```
+
+### iftop
