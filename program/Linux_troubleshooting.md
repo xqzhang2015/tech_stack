@@ -19,7 +19,7 @@
 <!-- /MarkdownTOC -->
 
 # Linux system
-### ab: Apache Bench
+### ab: Apache Bench 
 
 ```
 # yum search httpd-tools
@@ -43,6 +43,7 @@ Options are:
     -v verbosity    How much troubleshooting info to print
     -k              Use HTTP KeepAlive feature
 ```
+* Example
 
 ```
 ab -n 100 -c 5 "https://serverfault.com/questions"
