@@ -182,6 +182,8 @@ sudo iptables -D 3
 
 Could not connect to the endpoint URL: "https://s3.amazonaws.com/"
 
+[AWS IP ranges API](https://ip-ranges.amazonaws.com/ip-ranges.json)<br/>
+
 # References
 
 [major.io: Best practices: iptables](https://major.io/2010/04/12/best-practices-iptables/)<br/>
