@@ -190,3 +190,4 @@ Could not connect to the endpoint URL: "https://s3.amazonaws.com/"
 
 [www.linode.com: Control Network Traffic with iptables](https://www.linode.com/docs/security/firewalls/control-network-traffic-with-iptables/)<br/>
 
+[www.quickstepapps.com: How to Configure iptables on an AWS Instance](http://www.quickstepapps.com/?p=92)<br/>
