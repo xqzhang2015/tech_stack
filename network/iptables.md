@@ -9,8 +9,8 @@
     - [comment](#comment)
     - [List rules: -L](#list-rules--l)
     - [save persistence](#save-persistence)
-    - [more examples about adding rules](#more-examples-about-adding-rules)
-    - [### more examples about deleting rules](#-more-examples-about-deleting-rules)
+    - [more examples: adding rules](#more-examples-adding-rules)
+    - [more examples: deleting rules](#more-examples-deleting-rules)
     - [Notes](#notes)
 - [References](#references)
 
@@ -142,7 +142,7 @@ Centos:
 
 This executes the iptables init script, which runs the __/sbin/iptables-save__ program and writes the current iptables configuration to __/etc/sysconfig/iptables__. The existing __/etc/sysconfig/iptables__ file is saved as __/etc/sysconfig/iptables.save__.
 
-### more examples about adding rules
+### more examples: adding rules
 
 ```sh
 sudo iptables -I OUTPUT -d 0.0.0.0/8 -j ACCEPT
@@ -163,7 +163,7 @@ sudo iptables -I OUTPUT -d 52.216.0.0/15 -j ACCEPT -m comment --comment "AWS S3"
 sudo iptables -A OUTPUT -d 0.0.0.0/0 -j REJECT -m comment --comment "limit Internet access"
 ```
 
-### ### more examples about deleting rules
+### more examples: deleting rules
 
 ```
 	-D, --delete chain rule-specification
