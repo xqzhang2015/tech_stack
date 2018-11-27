@@ -175,7 +175,7 @@ sudo iptables -D OUTPUT -d 54.231.0.0/17 -j ACCEPT -m comment --comment "AWS S3"
 sudo iptables -D OUTPUT -d 52.92.16.0/20 -j ACCEPT -m comment --comment "AWS S3"
 sudo iptables -D OUTPUT -d 52.216.0.0/15 -j ACCEPT -m comment --comment "AWS S3"
 
-sudo iptables -D OUTPUT -
+sudo iptables -D 3
 ```
 
 ### Notes
