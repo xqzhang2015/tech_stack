@@ -12,6 +12,20 @@
     - [more examples: adding rules](#more-examples-adding-rules)
     - [more examples: deleting rules](#more-examples-deleting-rules)
     - [Notes](#notes)
+- [netfilter](#netfilter)
+  - [Netfilter Hooks](#netfilter-hooks)
+    - [NF_IP_PRE_ROUTING](#nf_ip_pre_routing)
+    - [NF_IP_LOCAL_IN](#nf_ip_local_in)
+    - [NF_IP_FORWARD](#nf_ip_forward)
+    - [NF_IP_LOCAL_OUT](#nf_ip_local_out)
+    - [NF_IP_POST_ROUTING](#nf_ip_post_routing)
+  - [IPTables Tables and Chains](#iptables-tables-and-chains)
+  - [Which Tables are Available](#which-tables-are-available)
+    - [The Filter Table](#the-filter-table)
+    - [The NAT Table](#the-nat-table)
+    - [The Mangle Table](#the-mangle-table)
+    - [The Raw Table](#the-raw-table)
+    - [The Security Table](#the-security-table)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -30,6 +44,9 @@ NAME
 __iptables__ is an application that allows users to configure specific rules that will be enforced by the kernel’s netfilter framework.
 
 It acts as a packet filter and firewall that examines and directs traffic based on port, protocol and other criteria.
+
+* chain
+* rules or rule-num
 
 ## install on centos
 
@@ -184,7 +201,73 @@ Could not connect to the endpoint URL: "https://s3.amazonaws.com/"
 
 [AWS IP ranges API](https://ip-ranges.amazonaws.com/ip-ranges.json)<br/>
 
+# netfilter
+
+In the Linux ecosystem, __iptables__ is a widely used __firewall tool__ that interfaces with the kernel's __netfilter__ packet filtering framework. 
+
+## Netfilter Hooks
+
+There are five __netfilter__ hooks that programs can register with. These kernel hooks are known as the __netfilter__ framework.
+
+The hooks that a packet will trigger depends on:
+* whether the packet is incoming or outgoing,
+* the packet's destination,
+* and whether the packet was dropped or rejected at a previous point.
+
+
+The following hooks represent various well-defined points in the networking stack:
+
+### NF_IP_PRE_ROUTING
+
+This hook will be triggered by any incoming traffic very soon after entering the network stack. This hook is processed before any routing decisions have been made regarding where to send the packet.
+
+### NF_IP_LOCAL_IN
+
+This hook is triggered after an incoming packet has been routed if the packet is destined for the local system.
+
+### NF_IP_FORWARD
+
+This hook is triggered after an incoming packet has been routed if the packet is to be forwarded to another host.
+
+### NF_IP_LOCAL_OUT
+
+This hook is triggered by any locally created outbound traffic as soon it hits the network stack.
+
+### NF_IP_POST_ROUTING
+
+This hook is triggered by any outgoing or forwarded traffic after routing has taken place and just before being put out on the wire.
+
+## IPTables Tables and Chains
+
+The __iptables__ firewall uses tables to organize its rules. These tables classify rules according to the type of decisions they are used to make.
+
+For instance,
+* if a rule deals with __network address translation__, it will be put into the __nat__ table.
+* if the rule is used to decide __whether to allow the packet to continue to its destination__, it would probably be added to the __filter__ table.
+
+Within each iptables table, rules are further organized within separate __"chains"__.
+
+## Which Tables are Available
+
+### The Filter Table
+
+The __filter__ table is one of the most widely used tables in iptables.
+
+The filter table is used to make decisions about whether to let a packet continue to its intended destination or to deny its request.
+
+### The NAT Table
+
+The __nat__ table is used to implement network address translation rules.
+
+### The Mangle Table
+
+### The Raw Table
+
+### The Security Table
+
 # References
+
+[www.digitalocean.com: A Deep Dive into Iptables and Netfilter Architecture](https://www.digitalocean.com/community/tutorials/a-deep-dive-into-iptables-and-netfilter-architecture)<br/>
 
 [major.io: Best practices: iptables](https://major.io/2010/04/12/best-practices-iptables/)<br/>
 
