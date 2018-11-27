@@ -31,8 +31,6 @@ __iptables__ is an application that allows users to configure specific rules tha
 
 It acts as a packet filter and firewall that examines and directs traffic based on port, protocol and other criteria.
 
-* 
-
 ## install on centos
 
 `yum install -y iptables`
