@@ -2,6 +2,7 @@
 
 - [configmap](#configmap)
   - [configmap key-value: value is not pretty\(multiple line\)](#configmap-key-value-value-is-not-prettymultiple-line)
+  - [toYaml for configmap: cann't use integer](#toyaml-for-configmap-cannt-use-integer)
 - [Failing to communication between pods on same host, if kube-dns is also on this host](#failing-to-communication-between-pods-on-same-host-if-kube-dns-is-also-on-this-host)
   - [Solution](#solution)
   - [Checking system env](#checking-system-env)
@@ -37,6 +38,14 @@ metadata:
   resourceVersion: "27648074"
   selfLink: /api/v1/namespaces/default/configmaps/game-config
   uid: 6010d450-fdbe-11e8-80e8-02b5f4111f4a
+```
+
+### toYaml for configmap: cann't use integer
+
+using: `helm install --set-string key=num`, instead of `--set`, which is to force string values.
+
+```
+Error: release ltr-xqzhang-master-replayer failed: ConfigMap in version "v1" cannot be handled as a ConfigMap: v1.ConfigMap.ObjectMeta: v1.ObjectMeta.TypeMeta: Kind: Data: ReadString: expects " or n, but found 2, error found in #10 byte of ...|ficDate":2,"trafficH|..., bigger context ...|tMetadata":"","testMode":"default","trafficDate":2,"trafficHost":"xxx","trafficLoop":"no","tr|...
 ```
 
 ## Failing to communication between pods on same host, if kube-dns is also on this host
