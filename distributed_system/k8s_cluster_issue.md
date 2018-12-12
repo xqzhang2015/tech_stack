@@ -1,5 +1,7 @@
 <!-- MarkdownTOC -->
 
+- [configmap](#configmap)
+  - [configmap key-value: value is not pretty\(multiple line\)](#configmap-key-value-value-is-not-prettymultiple-line)
 - [Failing to communication between pods on same host, if kube-dns is also on this host](#failing-to-communication-between-pods-on-same-host-if-kube-dns-is-also-on-this-host)
   - [Solution](#solution)
   - [Checking system env](#checking-system-env)
@@ -8,6 +10,34 @@
 
 <!-- /MarkdownTOC -->
 
+## configmap
+
+### configmap key-value: value is not pretty(multiple line)
+
+The file for value cann't contain `tab`, but blank space is okay.
+
+* issue example
+
+```sh
+kubectl get configmap game-config  -o yaml
+apiVersion: v1
+data:
+  game.properties: "enemies=aliens\nlives=3\nenemies.cheat=true\nenemies.cheat.level=noGoodRotten\nsecret.code.passphrase=UUDDLRLRBABAS\nsecret.code.allowed=true\n\tsecret.code.lives=30\n"
+  ui.properties: |+
+    color.good=purple
+    color.bad=yellow
+    allow.textmode=true
+    how.nice.to.look=fairlyNice
+
+kind: ConfigMap
+metadata:
+  creationTimestamp: 2018-12-12T03:31:13Z
+  name: game-config
+  namespace: default
+  resourceVersion: "27648074"
+  selfLink: /api/v1/namespaces/default/configmaps/game-config
+  uid: 6010d450-fdbe-11e8-80e8-02b5f4111f4a
+```
 
 ## Failing to communication between pods on same host, if kube-dns is also on this host
 
