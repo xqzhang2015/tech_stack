@@ -9,6 +9,7 @@
   - [tee 命令](#tee-%E5%91%BD%E4%BB%A4)
   - [ethtool 命令](#ethtool-%E5%91%BD%E4%BB%A4)
   - [iftop: like top](#iftop-like-top)
+  - [dig www.baidu.com +trace](#dig-wwwbaiducom-trace)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -188,6 +189,97 @@ sudo iftop
    -o source            Sort by source address
    -o destination       Sort by destination address
 ```
+
+### dig www.baidu.com +trace
+
+`dig (domain information groper)` is a flexible tool for interrogating DNS name servers.
+
+```
+NAME
+       dig - DNS lookup utility
+
+SYNOPSIS
+       dig [@server] [-b address] [-c class] [-f filename] [-k filename] [-m] [-p port#] [-q name] [-t type] [-x addr] [-y [hmac:]name:key] [-4] [-6] [name] [type] [class] [queryopt...]
+
+       dig [-h]
+
+       dig [global-queryopt...] [query...]
+
+SIMPLE USAGE
+       A typical invocation of dig looks like:
+
+            dig @server name type
+
+QUERY OPTIONS
+       +[no]trace
+           Toggle tracing of the delegation path from the root name servers for the name being looked up. Tracing is disabled by default. When tracing is enabled, dig makes iterative queries to resolve
+           the name being looked up. It will follow referrals from the root servers, showing the answer from each server that was used to resolve the lookup.
+```
+
+
+* Example
+
+For the 1st DNS server providing DNS query, its IP is configured as the `nameserver` in `/etc/resolv.conf`.
+
+```
+[xqzhang@PEKdev032 ~]$ dig www.baidu.com +trace
+
+; <<>> DiG 9.9.4-RedHat-9.9.4-18.el7_1.1 <<>> www.baidu.com +trace
+;; global options: +cmd
+.     164163  IN  NS  h.root-servers.net.
+.     164163  IN  NS  l.root-servers.net.
+.     164163  IN  NS  e.root-servers.net.
+.     164163  IN  NS  a.root-servers.net.
+.     164163  IN  NS  j.root-servers.net.
+.     164163  IN  NS  c.root-servers.net.
+.     164163  IN  NS  d.root-servers.net.
+.     164163  IN  NS  k.root-servers.net.
+.     164163  IN  NS  f.root-servers.net.
+.     164163  IN  NS  g.root-servers.net.
+.     164163  IN  NS  i.root-servers.net.
+.     164163  IN  NS  m.root-servers.net.
+.     164163  IN  NS  b.root-servers.net.
+.     489147  IN  RRSIG NS 8 0 518400 20181230210000 20181217200000 2134 . jOPrjdmM0tr9h1mIOpqx+pVQdxE0bj/DzR+Rskh04lwVsgGjaY4Lsl1M faRzDkA0F8i1IwoO/2pT2OjwfLCw7XmlOb6oeCU39PBf5T+wIEJnJlf6 3NEEx1MWSwh2A37ombwRXRQ7Ta5zEi/gI5zKk8SRZ57AgzoqZNA6wAAW woqeI1pYloDMQlt+vdZumzyh1Su9cp+nI/zTRbKRGufPpQzA9cyuOywv poWhr89m5iir0UdnUg/kSIu7tAZYK+Lv5tDIgjULZpbkg7lAGDb4XTr6 r9HQChC8QieilpM6bYPVirnGpLne1S5JMb7I3JRckA2WLQMwXwp6a+J3 y6sAYw==
+;; Received 1097 bytes from 192.168.14.21#53(192.168.14.21) in 356 ms
+
+com.      172800  IN  NS  a.gtld-servers.net.
+com.      172800  IN  NS  b.gtld-servers.net.
+  1 domain  dev.fwmrm.net
+com.      172800  IN  NS  c.gtld-servers.net.
+com.      172800  IN  NS  d.gtld-servers.net.
+com.      172800  IN  NS  e.gtld-servers.net.
+com.      172800  IN  NS  f.gtld-servers.net.
+com.      172800  IN  NS  g.gtld-servers.net.
+com.      172800  IN  NS  h.gtld-servers.net.
+com.      172800  IN  NS  i.gtld-servers.net.
+com.      172800  IN  NS  j.gtld-servers.net.
+com.      172800  IN  NS  k.gtld-servers.net.
+com.      172800  IN  NS  l.gtld-servers.net.
+com.      172800  IN  NS  m.gtld-servers.net.
+com.      86400 IN  DS  30909 8 2 E2D3C916F6DEEAC73294E8268FB5885044A833FC5459588F4A9184CF C41A5766
+com.      86400 IN  RRSIG DS 8 1 86400 20181231050000 20181218040000 2134 . GHLMCyfe6yOuBON0nmb0XR2cV7WbwMbwgyF2UQQn9n/EL7KRyUEqlPg/ Af9Fm+O0Qulhw4AJ02CSftIkJ+X57BrwTiFDUrCGz+337H1RLlV6eL9f fV7/+nkbsa4YwgGxd/Yu2c+3/qgYk7fUJRmmfXnuHVaQc4rg71/TFwjR lnKL4pgGV/yFxUm73Zc/aaaXh3goOfqw9TifBDPP3NU5INhb3g+9AopM 0ZFVizT1QTCiIPHdGBBY7nweAFFnC8rsrGnSJhNP6sMmDpFgwjpcgpHk oyzFwRScDCgezUb7iTDzZBFskghvCh81K+ehCNJ9eMmbyiyQDd+ax6yk DCoZxA==
+;; Received 1173 bytes from 192.58.128.30#53(j.root-servers.net) in 496 ms
+
+baidu.com.    172800  IN  NS  dns.baidu.com.
+baidu.com.    172800  IN  NS  ns2.baidu.com.
+baidu.com.    172800  IN  NS  ns3.baidu.com.
+baidu.com.    172800  IN  NS  ns4.baidu.com.
+baidu.com.    172800  IN  NS  ns7.baidu.com.
+CK0POJMG874LJREF7EFN8430QVIT8BSM.com. 86400 IN NSEC3 1 1 0 - CK0Q1GIN43N1ARRC9OSM6QPQR81H5M9A NS SOA RRSIG DNSKEY NSEC3PARAM
+CK0POJMG874LJREF7EFN8430QVIT8BSM.com. 86400 IN RRSIG NSEC3 8 2 86400 20181222054127 20181215043127 37490 com. fg2Am2hnZ5MK3yDC1WGq/qEgn/B3kE0WMFgRloIpu1JhSaOCMVMnmJBr 15XeWn3OhX6TDYd92m5aLouBr+D2bFCaBfKZWEAx/gzzU+wM/fpkgSMp nlCb5TkI+TVIpij8B3O/1fv2T8mZk0UoyX3kkU5WXto5s/DXGIDBX522 oIY=
+HPVV2B5N85O7HJJRB7690IB5UVF9O9UA.com. 86400 IN NSEC3 1 1 0 - HPVVN3Q5E5GOQP2QFE2LEM4SVB9C0SJ6 NS DS RRSIG
+HPVV2B5N85O7HJJRB7690IB5UVF9O9UA.com. 86400 IN RRSIG NSEC3 8 2 86400 20181224060830 20181217045830 37490 com. cSrPdt4z2mvL14K3s148YmXf53ymFCD5lv5FK4+7S1yJzUlgZlclIrJT xMe1VcDzxxQkUDJRwlR7fcitDfmEDmvzcdyF/oA5cLUODSympGcA12fr KdbZ3Q1shMxRbeleVwXSCz/13YsgKUHTEenak6swOMPIK8SsK5T+Awlk wVY=
+;; Received 697 bytes from 192.26.92.30#53(c.gtld-servers.net) in 207 ms
+
+www.baidu.com.    1200  IN  CNAME www.a.shifen.com.
+a.shifen.com.   1200  IN  NS  ns2.a.shifen.com.
+a.shifen.com.   1200  IN  NS  ns3.a.shifen.com.
+a.shifen.com.   1200  IN  NS  ns4.a.shifen.com.
+a.shifen.com.   1200  IN  NS  ns1.a.shifen.com.
+a.shifen.com.   1200  IN  NS  ns5.a.shifen.com.
+;; Received 239 bytes from 180.76.76.92#53(ns7.baidu.com) in 2 ms
+```
+
 
 # References
 [Linux TCP/IP 网络工具对比：net-tools 和 iproute2](http://blog.jobbole.com/97270/)<br/>
