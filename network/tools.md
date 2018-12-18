@@ -164,15 +164,29 @@ Settings for eth0:
 
 ### iftop: like top
 
+iftop does for network usage what top(1) does for CPU usage.
+
 ```
 NAME
        iftop - display bandwidth usage on an interface by host
+
+Synopsis: iftop -h | [-npblNBP] [-i interface] [-f filter code]
+                               [-F net/mask] [-G net6/mask6]
 ```
 
 ```
 sudo yum install -y iftop
 
 sudo iftop
+```
+
+```
+   Sorting orders:
+   -o 2s                Sort by first column (2s traffic average)
+   -o 10s               Sort by second column (10s traffic average) [default]
+   -o 40s               Sort by third column (40s traffic average)
+   -o source            Sort by source address
+   -o destination       Sort by destination address
 ```
 
 # References
