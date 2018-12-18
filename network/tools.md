@@ -1,14 +1,14 @@
 <!-- MarkdownTOC -->
 
 - [network tools](#network-tools)
-    - [nmap -p](#nmap--p)
-    - [ssh -p](#ssh--p)
-    - [how to check if a port is opened\(or ocuppied\)? And then kill?](#how-to-check-if-a-port-is-openedor-ocuppied-and-then-kill)
-    - [traceroute](#traceroute)
-  - [### Linux TCP/IP 网络工具对比：net-tools 和 iproute2](#-linux-tcpip-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94%EF%BC%9Anet-tools-%E5%92%8C-iproute2)
-  - [### tee 命令](#-tee-%E5%91%BD%E4%BB%A4)
-  - [### ethtool 命令](#-ethtool-%E5%91%BD%E4%BB%A4)
-    - [iftop: like top](#iftop-like-top)
+  - [nmap -p](#nmap--p)
+  - [ssh -p](#ssh--p)
+  - [how to check if a port is opened\(or ocuppied\)? And then kill?](#how-to-check-if-a-port-is-openedor-ocuppied-and-then-kill)
+  - [traceroute](#traceroute)
+  - [Linux TCP/IP 网络工具对比：net-tools 和 iproute2](#linux-tcpip-%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7%E5%AF%B9%E6%AF%94%EF%BC%9Anet-tools-%E5%92%8C-iproute2)
+  - [tee 命令](#tee-%E5%91%BD%E4%BB%A4)
+  - [ethtool 命令](#ethtool-%E5%91%BD%E4%BB%A4)
+  - [iftop: like top](#iftop-like-top)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -115,7 +115,7 @@ In computing, traceroute is a computer network diagnostic tool for
 
 
 ### Linux TCP/IP 网络工具对比：net-tools 和 iproute2
----
+
 net-tools
 * ifconfig
 * netstat
@@ -138,7 +138,7 @@ $ ip addr show dev eth0
 * ip route show
 
 ### [tee 命令](http://man.linuxde.net/tee)
----
+
 * NAME<br/>
        tee - read from standard input and write to __standard output and files__
 * SYNOPSIS<br/>
@@ -147,7 +147,7 @@ $ ip addr show dev eth0
 ![linux_tee](../images/2018/linux_tee.png)<br/>
 
 ### [ethtool 命令](http://man.linuxde.net/ethtool)
----
+
 ```
 NAME
        ethtool - query or control network driver and hardware settings
