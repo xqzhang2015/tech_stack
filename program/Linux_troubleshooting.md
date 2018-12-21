@@ -27,7 +27,33 @@
 
 ## Linux CPU
 
+```sh
+$ lscpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                2
+On-line CPU(s) list:   0,1
+Thread(s) per core:    2
+...
+```
+
 ## Linux memory
+
+```
+!16 $ free -h
+              total        used        free      shared  buff/cache   available
+Mem:           7.5G        186M        6.4G        268M        997M        6.8G
+Swap:            0B          0B          0B
+
+!17 $ cat /proc/meminfo
+MemTotal:        7906032 kB
+MemFree:         6694120 kB
+MemAvailable:    7171352 kB
+Buffers:            2068 kB
+Cached:           948968 kB
+SwapCached:            0 kB
+```
 
 ## Linux disk
 
