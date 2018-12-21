@@ -1,98 +1,73 @@
 <!-- MarkdownTOC -->
 
 - [Linux system](#linux-system)
-  - [ab: Apache Bench](#ab-apache-bench)
-  - [netstat -apn](#netstat--apn)
-    - [How to install netstat](#how-to-install-netstat)
-  - [top -o %MEM](#top--o-%25mem)
-  - [brctl show](#brctl-show)
+  - [Linux CPU](#linux-cpu)
+  - [Linux memory](#linux-memory)
+  - [Linux disk](#linux-disk)
+    - [fio and iostat\(systat\)](#fio-and-iostatsystat)
+  - [Linux network](#linux-network)
+    - [netstat -apn](#netstat--apn)
+      - [How to install netstat](#how-to-install-netstat)
+    - [top -o %MEM](#top--o-%25mem)
+    - [brctl show](#brctl-show)
 - [Linux process](#linux-process)
-  - [gdb prog procID](#gdb-prog-procid)
-    - [gdb output string limit](#gdb-output-string-limit)
-  - [ldd](#ldd)
-  - [pmap -x pid](#pmap--x-pid)
-  - [pstack pid](#pstack-pid)
-  - [nm objfile...](#nm-objfile)
-  - [lsblk and fdisk](#lsblk-and-fdisk)
-  - [iftop](#iftop)
+    - [ab: Apache Bench](#ab-apache-bench)
+    - [gdb prog procID](#gdb-prog-procid)
+      - [gdb output string limit](#gdb-output-string-limit)
+    - [ldd](#ldd)
+    - [pmap -x pid](#pmap--x-pid)
+    - [pstack pid](#pstack-pid)
+    - [nm objfile...](#nm-objfile)
+    - [lsblk and fdisk](#lsblk-and-fdisk)
+    - [iftop](#iftop)
 
 <!-- /MarkdownTOC -->
 
 # Linux system
-### ab: Apache Bench 
+
+## Linux CPU
+
+## Linux memory
+
+## Linux disk
+
+### fio and iostat(systat)
+
+使用 fio(or dd) 进行存储性能测试(IOPS). fio support `multi-threads`.
 
 ```
-# yum search httpd-tools
+NAME
+       fio - flexible I/O tester
 
-======================================= N/S matched: httpd-tools ========================================
-httpd-tools.x86_64 : Tools for use with the Apache HTTP Server
+DESCRIPTION
+       fio is a tool that will spawn a number of threads or processes doing a particular type of I/O action as specified by the user.
+```
 
-# yum install -y httpd-tools
+* Install
+
+```
+sudo yum install -y fio
+sudo yum install -y sysstat
 ```
 
 * Usage
 
-```sh
-ab -h
-Usage: ab [options] [http[s]://]hostname[:port]/path
-Options are:
-    -n requests     Number of requests to perform
-    -c concurrency  Number of multiple requests to make
-    -t timelimit    Seconds to max. wait for responses
-
-    -v verbosity    How much troubleshooting info to print
-    -k              Use HTTP KeepAlive feature
 ```
-* Example
+nohup sudo fio --filename=/dev/nvme1n1p1 --rw=read --bs=128k --iodepth=32 --ioengine=libaio --direct=1 --name=volume-initialize --numjobs=4 &
+```
+
+`iostat -x 3` or `iostat -d 3`
+
 
 ```
-ab -n 100 -c 5 "https://serverfault.com/questions"
-This is ApacheBench, Version 2.3 <$Revision: 655654 $>
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
+NAME
+       iostat - Report Central Processing Unit (CPU) statistics and input/output statistics for devices and partitions.
 
-Benchmarking serverfault.com (be patient).....done
-
-
-Server Software:
-Server Hostname:        serverfault.com
-Server Port:            443
-SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,2048,128
-
-Document Path:          /questions
-Document Length:        208360 bytes
-
-Concurrency Level:      5
-Time taken for tests:   4.905 seconds
-Complete requests:      100
-Failed requests:        99
-   (Connect: 0, Receive: 0, Length: 99, Exceptions: 0)
-Write errors:           0
-Total transferred:      20906113 bytes
-HTML transferred:       20837746 bytes
-Requests per second:    20.39 [#/sec] (mean)
-Time per request:       245.238 [ms] (mean)
-Time per request:       49.048 [ms] (mean, across all concurrent requests)
-Transfer rate:          4162.52 [Kbytes/sec] received
-
-Connection Times (ms)
-              min  mean[+/-sd] median   max
-Connect:        4    6   2.9      6      25
-Processing:    30  230 173.8    252    1019
-Waiting:       22   68  49.2     46     214
-Total:         35  236 174.2    257    1025
-
-Percentage of the requests served within a certain time (ms)
-  50%    257
-  66%    345
-  75%    363
-  80%    376
-  90%    421
-  95%    447
-  98%    574
-  99%   1025
- 100%   1025 (longest request)
+SYNOPSIS
+       iostat  [ -c ] [ -d ] [ -h ] [ -k | -m ] [ -N ] [ -t ] [ -V ] [ -x ] [ -y ] [ -z ] [...] [ interval [ count ] ]
 ```
+
+## Linux network
 
 ### netstat -apn
 
@@ -207,6 +182,82 @@ cni0                    6:  veth964e8abb    <-|->           3: eth0(100.96.117.2
 ```
 
 # Linux process
+
+### ab: Apache Bench 
+
+```
+# yum search httpd-tools
+
+======================================= N/S matched: httpd-tools ========================================
+httpd-tools.x86_64 : Tools for use with the Apache HTTP Server
+
+# yum install -y httpd-tools
+```
+
+* Usage
+
+```sh
+ab -h
+Usage: ab [options] [http[s]://]hostname[:port]/path
+Options are:
+    -n requests     Number of requests to perform
+    -c concurrency  Number of multiple requests to make
+    -t timelimit    Seconds to max. wait for responses
+
+    -v verbosity    How much troubleshooting info to print
+    -k              Use HTTP KeepAlive feature
+```
+* Example
+
+```
+ab -n 100 -c 5 "https://serverfault.com/questions"
+This is ApacheBench, Version 2.3 <$Revision: 655654 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking serverfault.com (be patient).....done
+
+
+Server Software:
+Server Hostname:        serverfault.com
+Server Port:            443
+SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,2048,128
+
+Document Path:          /questions
+Document Length:        208360 bytes
+
+Concurrency Level:      5
+Time taken for tests:   4.905 seconds
+Complete requests:      100
+Failed requests:        99
+   (Connect: 0, Receive: 0, Length: 99, Exceptions: 0)
+Write errors:           0
+Total transferred:      20906113 bytes
+HTML transferred:       20837746 bytes
+Requests per second:    20.39 [#/sec] (mean)
+Time per request:       245.238 [ms] (mean)
+Time per request:       49.048 [ms] (mean, across all concurrent requests)
+Transfer rate:          4162.52 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        4    6   2.9      6      25
+Processing:    30  230 173.8    252    1019
+Waiting:       22   68  49.2     46     214
+Total:         35  236 174.2    257    1025
+
+Percentage of the requests served within a certain time (ms)
+  50%    257
+  66%    345
+  75%    363
+  80%    376
+  90%    421
+  95%    447
+  98%    574
+  99%   1025
+ 100%   1025 (longest request)
+```
+
 ### gdb prog procID
 
 * NAME<br/>
