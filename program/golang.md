@@ -21,6 +21,10 @@ __$GOPATH__ is called as the __workspace directory__ for Go programs.
 
 * Go source-code, belongs to you and to others lives here.
 * So, when you use import, Go looks inside this directory’s __src directory__ to find the packages it searches for
+* $GOPATH could contain more than one separated with `colons`, like /path/1:/path/2
+
+
+* See __all of the environment variables Go uses__ by typing: `go env` in your CLI.
 
 # Go 并发
 
