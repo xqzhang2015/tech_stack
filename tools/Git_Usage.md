@@ -25,7 +25,7 @@
 - [Reduce repository size](#reduce-repository-size)
   - [Running filter-branch](#running-filter-branch)
   - [How to completely remove a file from a Git repository](#how-to-completely-remove-a-file-from-a-git-repository)
-    - [BFG Repo-Cleaner](#bfg-repo-cleaner)
+    - [BFG Repo-Cleaner: an alternative to git-filter-branch](#bfg-repo-cleaner-an-alternative-to-git-filter-branch)
 - [If auto-generated file is really generated automatically?](#if-auto-generated-file-is-really-generated-automatically)
     - [Limitation: only check the latest commit for a specific file](#limitation-only-check-the-latest-commit-for-a-specific-file)
     - [Approach](#approach)
@@ -361,7 +361,18 @@ If all your large files are in different branches, you'll need to delete each fi
 
 ## [How to completely remove a file from a Git repository](https://itextpdf.com/blog/how-completely-remove-file-git-repository)
 
-### BFG Repo-Cleaner
+### BFG Repo-Cleaner: an alternative to git-filter-branch
+
+The BFG is a simpler, faster alternative to git-filter-branch for cleansing bad data out of your Git repository history:
+
+* Removing Crazy Big Files
+* Removing Passwords, Credentials & other Private data
+
+The `git-filter-branch` command is enormously powerful and can do things that the BFG can't - but the BFG is much better for the tasks above, because:
+
+* Faster : 10 - 720x faster
+* Simpler : The BFG isn't particularily clever, but is focused on making the above tasks easy
+* Beautiful : If you need to, you can use the beautiful Scala language to customise the BFG. Which has got to be better than Bash scripting at least some of the time.
 
 For scenario: the file is further down in the history and you have not yet pushed
 
