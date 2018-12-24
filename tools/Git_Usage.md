@@ -2,32 +2,34 @@
 
 - [Contents](#contents)
 - [Concepts](#concepts)
-  - [HEAD](#head)
-  - [Git Data Transport Commands](#git-data-transport-commands)
+    - [HEAD](#head)
+    - [Git Data Transport Commands](#git-data-transport-commands)
 - [Specific Commands](#specific-commands)
-  - [git config](#git-config)
-  - [git commit](#git-commit)
-  - [git add](#git-add)
-  - [git diff](#git-diff)
-  - [git archive](#git-archive)
-  - [git log](#git-log)
-  - [git blame](#git-blame)
-  - [git reset](#git-reset)
-  - [git rebase](#git-rebase)
+    - [git config](#git-config)
+    - [git commit](#git-commit)
+    - [git add](#git-add)
+    - [git diff](#git-diff)
+    - [git archive](#git-archive)
+    - [git log](#git-log)
+    - [git blame](#git-blame)
+    - [git reset](#git-reset)
+    - [git rebase](#git-rebase)
 - [git credential](#git-credential)
-  - [git-credential-cache](#git-credential-cache)
-  - [git-credential-store](#git-credential-store)
-  - [With Git versions before 1.7.9](#with-git-versions-before-179)
+    - [git-credential-cache](#git-credential-cache)
+    - [git-credential-store](#git-credential-store)
+    - [With Git versions before 1.7.9](#with-git-versions-before-179)
 - [Submodule](#submodule)
-  - [add module](#add-module)
-  - [update module](#update-module)
-  - [remove submodule](#remove-submodule)
+    - [add module](#add-module)
+    - [update module](#update-module)
+    - [remove submodule](#remove-submodule)
 - [Reduce repository size](#reduce-repository-size)
   - [Running filter-branch](#running-filter-branch)
+  - [How to completely remove a file from a Git repository](#how-to-completely-remove-a-file-from-a-git-repository)
+    - [BFG Repo-Cleaner](#bfg-repo-cleaner)
 - [If auto-generated file is really generated automatically?](#if-auto-generated-file-is-really-generated-automatically)
-  - [Limitation: only check the latest commit for a specific file](#limitation-only-check-the-latest-commit-for-a-specific-file)
-  - [Approach](#approach)
-  - [Edge case](#edge-case)
+    - [Limitation: only check the latest commit for a specific file](#limitation-only-check-the-latest-commit-for-a-specific-file)
+    - [Approach](#approach)
+    - [Edge case](#edge-case)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -339,7 +341,7 @@ $ du -hs .git/objects
 45M	.git/objects 
 ```
 
-### Running filter-branch
+## Running filter-branch
 The filter-branch command can contain task specific filters for rewriting the Git index.  For example, a filter can remove a file from every indexed commit.  The syntax for this is the following:<br/>
 ```
 git filter-branch --index-filter 'git rm --cached --ignore-unmatch pathname' commitHASH
@@ -357,6 +359,17 @@ If all your large files are in different branches, you'll need to delete each fi
 
 [Confluence: Reduce repository size](https://confluence.atlassian.com/bitbucket/reduce-repository-size-321848262.html)<br/>
 
+## [How to completely remove a file from a Git repository](https://itextpdf.com/blog/how-completely-remove-file-git-repository)
+
+### BFG Repo-Cleaner
+
+For scenario: the file is further down in the history and you have not yet pushed
+
+```sh
+java -jar bfg.jar --delete-files $FILE --no-blob-protection .
+rm $FILE
+git reflog expire --expire=now --all && git gc --prune=now --aggressive
+```
 
 # If auto-generated file is really generated automatically? 
 
