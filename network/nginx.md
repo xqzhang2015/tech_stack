@@ -7,6 +7,14 @@
     - [nginx conf for forward proxy](#nginx-conf-for-forward-proxy)
     - [test: curl --proxy](#test-curl---proxy)
   - [Reverse proxy](#reverse-proxy)
+    - [reverse proxy: basic directives](#reverse-proxy-basic-directives)
+      - [proxy_pass: if proxy_pass URL contains URI](#proxy_pass-if-proxy_pass-url-contains-uri)
+      - [reverse proxy: other basic directives](#reverse-proxy-other-basic-directives)
+    - [proxy buffer directives](#proxy-buffer-directives)
+      - [proxy_buffering](#proxy_buffering)
+      - [proxy_buffers](#proxy_buffers)
+      - [proxy_buffer_size](#proxy_buffer_size)
+      - [...](#)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -107,6 +115,83 @@ With server, to form a LAN.
 * Application fire wall
 * Caching: Reduce load on its origin servers by caching static content,
 
+* Example
+
+```sh
+upstream proxy_srvs
+{
+    server http://192.168.0.1:8001/uri/;
+    server http://192.168.0.2:8001/uri/;
+    server http://192.168.0.3:8001/uri/;
+}
+
+server
+{
+    listen 8888;
+    server_name www.example.com;
+
+    location /
+    {
+        proxy_pass proxy_srvs; # using the name of servers group
+    }
+}
+```
+
+### reverse proxy: basic directives
+
+#### proxy_pass: if proxy_pass URL contains URI
+
+* If URL doesn't contain URI, Nginx 不会改变 the source URI
+
+```sh
+server
+{
+    location /server/
+    {
+        ...
+        proxy_pass http://192.168.0.1;
+    }
+
+}
+```
+
+`http://www.example.com/server` will be forwarded to `http://192.168.0.1/server`.
+
+
+* If URL contains URI, Nginx 用新的URI替代 the source URI
+
+```sh
+server
+{
+    location /server/
+    {
+        ...
+        proxy_pass http://192.168.0.1/loc/;
+    }
+}
+```
+
+`http://www.example.com/server` will be forwarded to `http://192.168.0.1/loc`.
+
+`http://www.example.com/server/index.html` will be forwarded to `http://192.168.0.1/loc/index.html`.
+
+
+* `192.168.0.1` vs `192.168.0.1/`: 1st is URL not containing URI, 2nd is URL containing URI.
+
+
+#### reverse proxy: other basic directives
+* proxy_hide_header field;
+* proxy_pass_header field;
+* proxy_pass_request_body on | off; # on by default
+* proxy_pass_request_headers on | off; # on by default
+* ...
+
+### proxy buffer directives
+
+#### proxy_buffering
+#### proxy_buffers
+#### proxy_buffer_size
+#### ...
 
 # References
 [docs.nginx.com: admin-guide](https://docs.nginx.com/nginx/admin-guide/)<br/>
