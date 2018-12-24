@@ -2,7 +2,7 @@
 
 - [Normal proxy: forward proxy](#normal-proxy-forward-proxy)
   - [nginx conf for forward proxy](#nginx-conf-for-forward-proxy)
-  - [curl to test: curl --proxy](#curl-to-test-curl---proxy)
+  - [test: curl --proxy](#test-curl---proxy)
 - [Reverse proxy](#reverse-proxy)
 
 <!-- /MarkdownTOC -->
@@ -31,7 +31,7 @@ http {
 }
 ```
 
-## curl to test: curl --proxy
+## test: curl --proxy
 
 Connecting to proxy first and then proxy server parsing the host and forward out.
 
