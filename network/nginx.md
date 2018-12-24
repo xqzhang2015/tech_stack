@@ -70,6 +70,29 @@ curl -v --proxy 127.0.0.1:8888 http://github.com/xqzhang2015/tech_stack/blob/mas
 
 ![proxy](../images/2018/proxy_tcpdump.png)
 
+* Comparing, here is a direct http request:
+
+```sh
+Hypertext Transfer Protocol
+    GET / HTTP/1.1\r\n
+        [Expert Info (Chat/Sequence): GET / HTTP/1.1\r\n]
+        Request Method: GET
+        Request URI: /
+        Request Version: HTTP/1.1
+    Host: 61.135.169.121\r\n
+    Connection: keep-alive\r\n
+    Cache-Control: max-age=0\r\n
+    Upgrade-Insecure-Requests: 1\r\n
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36\r\n
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8\r\n
+    Accept-Encoding: gzip, deflate\r\n
+    Accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7\r\n
+    Cookie: BD_HOME=0; BD_UPN=123253\r\n
+    \r\n
+    [Full request URI: http://61.135.169.121/]
+    [HTTP request 1/1]
+```
+
 ## Reverse proxy
 With server, to form a LAN.
 * Load balance
