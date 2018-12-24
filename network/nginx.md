@@ -73,6 +73,13 @@ curl -v --proxy 127.0.0.1:8888 http://github.com/xqzhang2015/tech_stack/blob/mas
 * Comparing, here is a direct http request:
 
 ```sh
+Internet Protocol Version 4, Src: 172.24.48.160, Dst: 61.135.169.121
+    ...
+    Time to live: 64
+    Protocol: TCP (6)
+    Source: 172.24.48.160
+    Destination: 61.135.169.121
+
 Hypertext Transfer Protocol
     GET / HTTP/1.1\r\n
         [Expert Info (Chat/Sequence): GET / HTTP/1.1\r\n]
