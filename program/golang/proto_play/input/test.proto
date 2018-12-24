@@ -1,0 +1,18 @@
+syntax = "proto2";
+package input;
+
+enum FOO { X = 17; };
+
+message Test {
+	enum FOO2 { Y = 17; };
+
+	required string label = 1;
+	optional int32 type = 2 [default=77];
+	repeated int64 reps = 3;
+	optional string first_name = 4;
+
+	oneof union {
+		int32 number = 5;
+		string name = 6;
+	}
+}
