@@ -1,5 +1,11 @@
 <!-- MarkdownTOC -->
 
+- [protobuf](#protobuf)
+  - [Installing protoc](#installing-protoc)
+    - [Mac OS X](#mac-os-x)
+    - [Linux](#linux)
+- [Getting started: go env](#getting-started-go-env)
+  - [GOROOT and GOPATH](#goroot-and-gopath)
 - [Go 并发](#go-%E5%B9%B6%E5%8F%91)
   - [协程同步的几种方式：goroutine synchronization](#%E5%8D%8F%E7%A8%8B%E5%90%8C%E6%AD%A5%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9Agoroutine-synchronization)
     - [time.Sleep](#timesleep)
@@ -8,6 +14,50 @@
 - [RPC example in go](#rpc-example-in-go)
 
 <!-- /MarkdownTOC -->
+
+# protobuf
+
+## Installing protoc
+
+### Mac OS X
+
+```sh
+brew install protobuf
+```
+
+Alternately, run the following commands:
+```sh
+PROTOC_ZIP=protoc-3.3.0-osx-x86_64.zip
+curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/$PROTOC_ZIP
+sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+rm -f $PROTOC_ZIP
+```
+
+
+### Linux
+
+```sh
+PROTOC_ZIP=protoc-3.3.0-linux-x86_64.zip
+curl -OL https://github.com/google/protobuf/releases/download/v3.3.0/$PROTOC_ZIP
+sudo unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
+rm -f $PROTOC_ZIP
+```
+
+
+# Getting started: go env
+
+## GOROOT and GOPATH
+
+When importing, Go tools searches for the packages inside $GOROOT and $GOPATH/src directories.
+
+__$GOPATH__ is called as the __workspace directory__ for Go programs.
+
+* Go source-code, belongs to you and to others lives here.
+* So, when you use import, Go looks inside this directory’s __src directory__ to find the packages it searches for
+* $GOPATH could contain more than one separated with `colons`, like /path/1:/path/2
+
+
+* See __all of the environment variables Go uses__ by typing: `go env` in your CLI.
 
 # Go 并发
 
@@ -135,9 +185,3 @@ func main() {
 ```
 
 # [RPC example in go](https://ops.tips/gists/example-go-rpc-client-and-server/)
-
-
-
-
-
-
