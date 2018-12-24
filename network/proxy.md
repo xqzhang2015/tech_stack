@@ -47,7 +47,7 @@ curl -v --proxy 127.0.0.1:8888 http://github.com/xqzhang2015/tech_stack/blob/mas
 > Proxy-Connection: Keep-Alive
 ```
 
-* tcpdump proxy server result
+* tcpdump: proxy server
 
 `sudo tcpdump -i lo0 -w test.pcap "port 8888"`
 
