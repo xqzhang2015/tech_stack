@@ -36,19 +36,20 @@ http {
 Connecting to proxy first and then proxy server parsing the host and forward out.
 
 ```sh
-curl -v -I --proxy 127.0.0.1:8888 www.baidu.com
-* Rebuilt URL to: www.baidu.com/
+curl -v --proxy 127.0.0.1:8888 http://github.com/xqzhang2015/tech_stack/blob/master/network/proxy.md
 *   Trying 127.0.0.1...
 * TCP_NODELAY set
 * Connected to 127.0.0.1 (127.0.0.1) port 8888 (#0)
-> HEAD http://www.baidu.com/ HTTP/1.1
-> Host: www.baidu.com
+> GET http://github.com/xqzhang2015/tech_stack/blob/master/network/proxy.md HTTP/1.1
+> Host: github.com
 > User-Agent: curl/7.54.0
 > Accept: */*
 > Proxy-Connection: Keep-Alive
 ```
 
 * tcpdump proxy server result
+
+`sudo tcpdump -i lo0 -w test.pcap "port 8888"`
 
 ![proxy](../images/2018/proxy_tcpdump.png)
 
