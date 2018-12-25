@@ -6,15 +6,16 @@
   - [Normal proxy: forward proxy](#normal-proxy-forward-proxy)
     - [nginx conf for forward proxy](#nginx-conf-for-forward-proxy)
     - [test: curl --proxy](#test-curl---proxy)
-  - [Reverse proxy](#reverse-proxy)
-    - [reverse proxy: basic directives](#reverse-proxy-basic-directives)
+  - [7.3 Reverse proxy](#73-reverse-proxy)
+    - [7.3.1 reverse proxy: basic directives](#731-reverse-proxy-basic-directives)
       - [proxy_pass: if proxy_pass URL contains URI](#proxy_pass-if-proxy_pass-url-contains-uri)
       - [reverse proxy: other basic directives](#reverse-proxy-other-basic-directives)
-    - [proxy buffer directives](#proxy-buffer-directives)
-      - [proxy_buffering](#proxy_buffering)
-      - [proxy_buffers](#proxy_buffers)
-      - [proxy_buffer_size](#proxy_buffer_size)
-      - [...](#)
+    - [7.3.2 Proxy Buffer directives](#732-proxy-buffer-directives)
+      - [proxy_buffers number size;](#proxy_buffers-number-size)
+      - [proxy_buffer_size size;](#proxy_buffer_size-size)
+      - [proxy_busy_buffers_size size;](#proxy_busy_buffers_size-size)
+      - [Other directives: for temp files](#other-directives-for-temp-files)
+    - [7.3.3 Proxy Cache directives](#733-proxy-cache-directives)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -108,7 +109,7 @@ Hypertext Transfer Protocol
     [HTTP request 1/1]
 ```
 
-## Reverse proxy
+## 7.3 Reverse proxy
 With server, to form a LAN.
 * Load balance
 * Hide the existence and characteristics of an origin server or servers
@@ -137,7 +138,7 @@ server
 }
 ```
 
-### reverse proxy: basic directives
+### 7.3.1 reverse proxy: basic directives
 
 #### proxy_pass: if proxy_pass URL contains URI
 
@@ -186,12 +187,41 @@ server
 * proxy_pass_request_headers on | off; # on by default
 * ...
 
-### proxy buffer directives
+### 7.3.2 Proxy Buffer directives
 
-#### proxy_buffering
-#### proxy_buffers
-#### proxy_buffer_size
-#### ...
+* 作用域: 对每一个请求 起作用，不是 global. 每个请求有自己的 buffer.
+* Proxy Buffer 启用后， Nginx __异步地__ 将被代理服务器的响应数据 传递给客户端.
+* 每个Proxy Buffer装满数据后，从开始发送data 直到全部传输给客户端，buffer is alway in __BUSY__ status.
+
+`proxy_buffering on|off;` # on by default
+
+#### proxy_buffers number size;
+
+* 该指令用于配置 接收一次被代理服务器 响应数据的 Proxy-Buffer 个数和每个Buffer大小。总大小 = number * size.
+
+By default, `proxy_buffers 8 4k|8k;`
+
+#### proxy_buffer_size size;
+
+* 从被代理服务器获取的 __第一部分__ 响应数据的大小，一般包含HTTP header.
+
+size is 4KB or 8KB by default, usually keeping same with the `size` of `proxy_buffering`.
+
+#### proxy_busy_buffers_size size;
+
+* size 为处于 BUSY状态的缓存区总大小。
+
+By default, 8KB or 16KB.
+
+#### Other directives: for temp files
+
+* proxy_temp_path   /tmp/proxy_temp_dir;
+* proxy_max_temp_file_size size; # By default, 1024MB. 所有临时文件的总体积大小.
+* proxy_temp_file_write_size size; # By default, 8KB or 16KB. 同时写入临时文件的数据量的总大小.
+
+Note: proxy_temp_path和proxy_cache_path指定的路径必须在同一分区
+
+### 7.3.3 Proxy Cache directives
 
 # References
 [docs.nginx.com: admin-guide](https://docs.nginx.com/nginx/admin-guide/)<br/>
