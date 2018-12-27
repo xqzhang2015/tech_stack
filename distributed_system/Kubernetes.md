@@ -6,11 +6,12 @@
   - [Replication Controller](#replication-controller)
   - [Service](#service)
   - [kube-proxy](#kube-proxy)
+    - [kube-proxy mode: iptables](#kube-proxy-mode-iptables)
   - [Node](#node)
   - [Kubernetes Master](#kubernetes-master)
   - [Pod](#pod)
-    - [What containers share in a pod?](#what-containers-share-in-a-pod)
-    - [Containers startup order](#containers-startup-order)
+      - [What containers share in a pod?](#what-containers-share-in-a-pod)
+      - [Containers startup order](#containers-startup-order)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -98,7 +99,68 @@ spec:
     name: kube-proxy
 ```
 
+#### kube-proxy mode: iptables
 
+
+
+e.g. `sudo iptables -nvL --line-numbers -t nat`
+
+
+* DNAT rule is physically configured in Chain __PREROUTING__ and __OUTPUT__.
+
+```sh
+Chain PREROUTING (policy ACCEPT 967 packets, 78624 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+1     848K   69M KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes service portals */
+
+Chain INPUT (policy ACCEPT 401 packets, 44664 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 545 packets, 57994 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+1     455K   48M KUBE-SERVICES  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes service portals */
+
+Chain POSTROUTING (policy ACCEPT 1116 packets, 92482 bytes)
+num   pkts bytes target     prot opt in     out     source               destination
+1     958K   79M KUBE-POSTROUTING  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes postrouting rules */
+2     501K   30M RETURN     all  --  *      *       100.64.0.0/10        100.64.0.0/10
+3      466 27960 MASQUERADE  all  --  *      *       100.64.0.0/10       !224.0.0.0/4
+4        0     0 RETURN     all  --  *      *      !100.64.0.0/10        100.100.44.0/24
+5        0     0 MASQUERADE  all  --  *      *      !100.64.0.0/10        100.64.0.0/10
+```
+
+* Chain KUBE-MARK-MASQ  (71 references)
+```sh
+num   pkts bytes target     prot opt in     out     source               destination
+1        6   360 MARK       all  --  *      *       0.0.0.0/0            0.0.0.0/0            MARK or 0x4000
+```
+
+* Chain KUBE-SERVICES (2 references)
+```sh
+num   pkts bytes target     prot opt in     out     source               destination
+1        0     0 KUBE-MARK-MASQ  tcp  --  *      *      !100.96.0.0/11        100.64.0.1           /* default/kubernetes:https cluster IP */ tcp dpt:443
+2        0     0 KUBE-SVC-NPX46M4PTMTKRN6Y  tcp  --  *      *       0.0.0.0/0            100.64.0.1           /* default/kubernetes:https cluster IP */ tcp dpt:443
+3        0     0 KUBE-MARK-MASQ  tcp  --  *      *      !100.96.0.0/11        100.70.48.69         /* monitoring/prometheus-service-test: cluster IP */ tcp dpt:9090
+4        0     0 KUBE-SVC-QPT2TG7II3OPDVX2  tcp  --  *      *       0.0.0.0/0            100.70.48.69         /* monitoring/prometheus-service-test: cluster IP */ tcp dpt:9090
+
+...
+
+15       0     0 KUBE-MARK-MASQ  tcp  --  *      *      !100.96.0.0/11        100.69.14.216        /* ltr-timer/ltr-mem-aerospike:access cluster IP */ tcp dpt:3000
+16       0     0 KUBE-SVC-6AREQSOXFQ7P4D6N  tcp  --  *      *       0.0.0.0/0            100.69.14.216        /* ltr-timer/ltr-mem-aerospike:access cluster IP */ tcp dpt:3000
+```
+
+* Chain KUBE-SVC-6AREQSOXFQ7P4D6N (2 references)
+```sh
+num   pkts bytes target     prot opt in     out     source               destination
+1        0     0 KUBE-SEP-674TPCA5HHRYAKOV  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* ltr-timer/ltr-mem-aerospike:access */
+```
+
+* Chain KUBE-SEP-674TPCA5HHRYAKOV (1 references)
+```sh
+num   pkts bytes target     prot opt in     out     source               destination
+1        0     0 KUBE-MARK-MASQ  all  --  *      *       100.100.41.4         0.0.0.0/0            /* ltr-timer/ltr-mem-aerospike:access */
+2        0     0 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            /* ltr-timer/ltr-mem-aerospike:access */ tcp to:100.100.41.4:3000
+```
 
 ### Node
 
