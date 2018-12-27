@@ -145,21 +145,21 @@ num   pkts bytes target     prot opt in     out     source               destina
 
 ...
 
-15       0     0 KUBE-MARK-MASQ  tcp  --  *      *      !100.96.0.0/11        100.69.14.216        /* ltr-timer/ltr-mem-aerospike:access cluster IP */ tcp dpt:3000
-16       0     0 KUBE-SVC-6AREQSOXFQ7P4D6N  tcp  --  *      *       0.0.0.0/0            100.69.14.216        /* ltr-timer/ltr-mem-aerospike:access cluster IP */ tcp dpt:3000
+15       0     0 KUBE-MARK-MASQ  tcp  --  *      *      !100.96.0.0/11        100.69.14.216        /* test-timer/test-aerospike:access cluster IP */ tcp dpt:3000
+16       0     0 KUBE-SVC-6AREQSOXFQ7P4D6N  tcp  --  *      *       0.0.0.0/0            100.69.14.216        /* test-timer/test-aerospike:access cluster IP */ tcp dpt:3000
 ```
 
 * Chain KUBE-SVC-6AREQSOXFQ7P4D6N (2 references)
 ```sh
 num   pkts bytes target     prot opt in     out     source               destination
-1        0     0 KUBE-SEP-674TPCA5HHRYAKOV  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* ltr-timer/ltr-mem-aerospike:access */
+1        0     0 KUBE-SEP-674TPCA5HHRYAKOV  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* test-timer/test-aerospike:access */
 ```
 
 * Chain KUBE-SEP-674TPCA5HHRYAKOV (1 references)
 ```sh
 num   pkts bytes target     prot opt in     out     source               destination
-1        0     0 KUBE-MARK-MASQ  all  --  *      *       100.100.41.4         0.0.0.0/0            /* ltr-timer/ltr-mem-aerospike:access */
-2        0     0 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            /* ltr-timer/ltr-mem-aerospike:access */ tcp to:100.100.41.4:3000
+1        0     0 KUBE-MARK-MASQ  all  --  *      *       100.100.41.4         0.0.0.0/0            /* test-timer/test-aerospike:access */
+2        0     0 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            /* test-timer/test-aerospike:access */ tcp to:100.100.41.4:3000
 ```
 
 ### Node
