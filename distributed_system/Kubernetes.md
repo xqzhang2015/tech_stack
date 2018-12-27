@@ -149,10 +149,17 @@ num   pkts bytes target     prot opt in     out     source               destina
 16       0     0 KUBE-SVC-6AREQSOXFQ7P4D6N  tcp  --  *      *       0.0.0.0/0            100.69.14.216        /* test-timer/test-aerospike:access cluster IP */ tcp dpt:3000
 ```
 
-* Chain KUBE-SVC-6AREQSOXFQ7P4D6N (2 references)
+* Chain KUBE-SVC-6AREQSOXFQ7P4D6N (2 references): __1 pod in the aerospike service__
 ```sh
 num   pkts bytes target     prot opt in     out     source               destination
 1        0     0 KUBE-SEP-674TPCA5HHRYAKOV  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* test-timer/test-aerospike:access */
+```
+==> __2 pods in the aeropsike service__
+
+```
+num   pkts bytes target     prot opt in     out     source               destination
+1        0     0 KUBE-SEP-NHWO3IZRB7L4XFBG  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* test-timer/test-aerospike:access */ statistic mode random probability 0.50000000000
+2        0     0 KUBE-SEP-7PGDGKTUS3BMZPYH  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* test-timer/test-aerospike:access */
 ```
 
 * Chain KUBE-SEP-674TPCA5HHRYAKOV (1 references)
