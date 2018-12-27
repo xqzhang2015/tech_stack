@@ -5,6 +5,7 @@
 - [集群](#%E9%9B%86%E7%BE%A4)
   - [Replication Controller](#replication-controller)
   - [Service](#service)
+  - [kube-proxy](#kube-proxy)
   - [Node](#node)
   - [Kubernetes Master](#kubernetes-master)
   - [Pod](#pod)
@@ -70,6 +71,33 @@ Service是定义一系列Pod以及访问这些Pod的策略的一层抽象。Serv
 ![kubernetes archtecture](../images/2018/k8s-3.gif)
 
 有一个特别类型的Kubernetes Service，称为'LoadBalancer'，作为外部负载均衡器使用，在一定数量的Pod之间均衡流量。比如，对于负载均衡Web流量很有用。
+
+### [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)
+
+`kube-proxy [flags]`, core args:
+
+* `--cluster-cidr=100.96.0.0/11`
+* `--proxy-mode ProxyMode` Which proxy mode to use: `userspace` (older) or `iptables` (faster) or `ipvs` (experimental).
+* `--conntrack-max-per-core int32` Default: 32768. Maximum number of NAT connections to track per CPU core.
+* `--master string` The address of the Kubernetes API server (overrides any value in kubeconfig)
+* `--oom-score-adj int32` Default: -999. The oom-score-adj value for kube-proxy process. Values must be within the range [-1000, 1000]
+
+e.g. `kubectl -n kube-system get pod/kube-proxy-ip-10-206-145-25.ec2.internal -o yaml`
+```
+spec:
+  containers:
+  - command:
+    - /bin/sh
+    - -c
+    - mkfifo /tmp/pipe; (tee -a /var/log/kube-proxy.log < /tmp/pipe & ) ; exec /usr/local/bin/kube-proxy
+      --cluster-cidr=100.96.0.0/11 --conntrack-max-per-core=131072 --hostname-override=ip-10-206-145-25.ec2.internal
+      --kubeconfig=/var/lib/kube-proxy/kubeconfig --master=https://api.internal.adsk8s.replay.ads.aws.fwmrm.net
+      --oom-score-adj=-998 --resource-container="" --v=2 > /tmp/pipe 2>&1
+    image: k8s.gcr.io/kube-proxy:v1.10.6
+    imagePullPolicy: IfNotPresent
+    name: kube-proxy
+```
+
 
 
 ### Node
