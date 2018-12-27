@@ -154,7 +154,7 @@ num   pkts bytes target     prot opt in     out     source               destina
 num   pkts bytes target     prot opt in     out     source               destination
 1        0     0 KUBE-SEP-674TPCA5HHRYAKOV  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* test-timer/test-aerospike:access */
 ```
-==> __2 pods in the aeropsike service__
+==> __2 pods in the aeropsike service__: rr(round robin)
 
 ```
 num   pkts bytes target     prot opt in     out     source               destination
