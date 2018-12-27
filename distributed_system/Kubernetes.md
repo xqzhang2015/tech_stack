@@ -10,8 +10,8 @@
   - [Node](#node)
   - [Kubernetes Master](#kubernetes-master)
   - [Pod](#pod)
-      - [What containers share in a pod?](#what-containers-share-in-a-pod)
-      - [Containers startup order](#containers-startup-order)
+    - [What containers share in a pod?](#what-containers-share-in-a-pod)
+    - [Containers startup order](#containers-startup-order)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -179,14 +179,14 @@ API Server提供可以用来和集群交互的REST端点。master节点包括用
 
 ### Pod
 
-##### What containers share in a pod?
+#### What containers share in a pod?
 Containers in a Pod run on a “logical host”. They use
 
 * the same network namespace (in other words, the same IP address and port space),
 * the same IPC namespace. 
 * They can also use shared volumes. 
 
-##### Containers startup order
+#### Containers startup order
 
 In a cloud native environment, it’s always better to plan for failures outside of your immediate control. 
 
