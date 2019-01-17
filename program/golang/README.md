@@ -4,6 +4,7 @@
   - [Expressions](#expressions)
     - [Type assertions](#type-assertions)
       - [s := x.\(string\) VS s, ok := x.\(string\)](#s--xstring-vs-s-ok--xstring)
+    - [Variadic params: Passing arguments to ... parameters](#variadic-params-passing-arguments-to--parameters)
 - [protobuf](#protobuf)
   - [Installing protoc](#installing-protoc)
     - [Mac OS X](#mac-os-x)
@@ -38,7 +39,7 @@ asserts that x is not nil and that the value stored in x is of type T. The notat
 * s, ok := x.(string) may lead to `zero value` and `false ok`.
 
 * E.g.
-```
+```golang
 package main
 
 import (
@@ -54,6 +55,50 @@ func main() {
     fmt.Printf("s: %v, ok: %v\n", s, ok) // s: , ok: false
 }
 
+```
+
+### Variadic params: Passing arguments to ... parameters
+
+If f is variadic with a final parameter p of type ...T, then within f the type of p is equivalent to type []T
+
+Given the function and calls
+```golang
+func Greeting(prefix string, who ...string)
+Greeting("nobody") // who is nil
+Greeting("hello:", "Joe", "Anna", "Eileen") // who is []string{"Joe", "Anna", "Eileen"}
+```
+
+Given the slice s and call
+```golang
+s := []string{"James", "Jasmine"}
+Greeting("goodbye:", s...)
+```
+
+* E.g.
+```golang
+package main
+
+import (
+    "fmt"
+)
+
+func Greeting(prefix string, who ...string) {
+    fmt.Printf("========== %v ==========\n", prefix)
+    if who == nil {
+        return
+    }
+
+    for _, person := range who {
+        fmt.Printf("%v: %v\n", prefix, person)
+    }
+}
+
+func main() {
+    Greeting("nobody") // who is nil
+    Greeting("hello", "Joe", "Anna", "Eileen") // who is []string{"Joe", "Anna", "Eileen"}
+    s := []string{"James", "Jasmine"}
+    Greeting("goodbye", s...)
+}
 ```
 
 # protobuf
