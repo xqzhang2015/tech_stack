@@ -1,5 +1,9 @@
 <!-- MarkdownTOC -->
 
+- [Golang spec](#golang-spec)
+  - [Expressions](#expressions)
+    - [Type assertions](#type-assertions)
+      - [s := x.\(string\) VS s, ok := x.\(string\)](#s--xstring-vs-s-ok--xstring)
 - [protobuf](#protobuf)
   - [Installing protoc](#installing-protoc)
     - [Mac OS X](#mac-os-x)
@@ -14,6 +18,43 @@
 - [RPC example in go](#rpc-example-in-go)
 
 <!-- /MarkdownTOC -->
+
+# Golang spec
+
+## Expressions
+An expression specifies the computation of a value by applying __operators__ and __functions__ to operands.
+
+### [Type assertions](https://golang.org/ref/spec#Type_assertions)
+
+For an expression x of __interface type__ and a type T, the primary expression
+```
+x.(T)
+```
+asserts that x is not nil and that the value stored in x is of type T. The notation x.(T) is called a __type assertion__.
+
+#### s := x.(string) VS s, ok := x.(string)
+
+* s := x.(string) may lead to panic
+* s, ok := x.(string) may lead to `zero value` and `false ok`.
+
+* E.g.
+```
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    var x interface{} = 7          // x has dynamic type int and value 7
+    i := x.(int)                   // i has type int and value 7
+    fmt.Printf("i: %v\n", i)
+    // s := x.(string)                // panic: interface conversion: interface {} is int, not string
+    s, ok := x.(string)
+    fmt.Printf("s: %v, ok: %v\n", s, ok) // s: , ok: false
+}
+
+```
 
 # protobuf
 
