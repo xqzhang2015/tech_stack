@@ -11,6 +11,8 @@
     - [Linux](#linux)
 - [Getting started: go env](#getting-started-go-env)
   - [GOROOT and GOPATH](#goroot-and-gopath)
+  - [GO build](#go-build)
+    - [link arguments: for app version](#link-arguments-for-app-version)
 - [Go 并发](#go-%E5%B9%B6%E5%8F%91)
   - [协程同步的几种方式：goroutine synchronization](#%E5%8D%8F%E7%A8%8B%E5%90%8C%E6%AD%A5%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9Agoroutine-synchronization)
     - [time.Sleep](#timesleep)
@@ -144,6 +146,52 @@ __$GOPATH__ is called as the __workspace directory__ for Go programs.
 
 
 * See __all of the environment variables Go uses__ by typing: `go env` in your CLI.
+
+## GO build
+
+### [link arguments](https://golang.org/cmd/link/): for app version
+
+* -ldflags
+```
+-X importpath.name=value
+    Set the value of the string variable in importpath named name to value.
+```
+
+* E.g.
+```sh
+export GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) \
+    GIT_COMMIT=$(git rev-parse HEAD) \
+    BUILD_TIME=`date -u '+%Y-%m-%d_%H:%M:%S_%Z'` && \
+    go build -ldflags "-X main.GitBranch=$GIT_BRANCH -X main.GitCommit=$GIT_COMMIT -X main.BuildTime=$BUILD_TIME"
+```
+
+```golang
+// version.go
+package main
+
+import (
+    "github.com/golang/glog"
+)
+
+var (
+    AppVersion   = "0.1.0"
+    GitBranch = "No git branch provided"
+    GitCommit = "No git commit provided"
+    BuildTime = "No build time provided"
+)
+
+func version() {
+    if len(GitCommit) > 7 {
+        GitCommit = GitCommit[:7]
+    }
+
+    glog.V(0).Infof("App XXX %v, Git Branch: %v, Git Commit: %v, Build Time: %v",
+        AppVersion,
+        GitBranch,
+        GitCommit,
+        BuildTime)
+}
+```
 
 # Go 并发
 
