@@ -5,6 +5,7 @@
     - [Type assertions](#type-assertions)
       - [s := x.\(string\) VS s, ok := x.\(string\)](#s--xstring-vs-s-ok--xstring)
     - [Variadic params: Passing arguments to ... parameters](#variadic-params-passing-arguments-to--parameters)
+    - [reflection](#reflection)
 - [golang ORM: db-first vs code-first](#golang-orm-db-first-vs-code-first)
   - [db-first: sqlboiler](#db-first-sqlboiler)
   - [code-first: gorm](#code-first-gorm)
@@ -107,6 +108,28 @@ func main() {
 }
 ```
 
+### reflection
+
+* example
+
+```golang
+import (
+    "reflect"
+)
+
+func (s *SuperAgent) Query(content interface{}) *SuperAgent {
+    switch v := reflect.ValueOf(content); v.Kind() {
+    case reflect.String:
+        s.queryString(v.String())
+    case reflect.Struct:
+        s.queryStruct(v.Interface())
+    case reflect.Map:
+        s.queryMap(v.Interface())
+    default:
+    }
+    return s
+}
+```
 
 # golang ORM: db-first vs code-first
 
