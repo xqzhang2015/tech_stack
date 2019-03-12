@@ -3,6 +3,7 @@
 - [Plugins](#plugins)
   - [Installation](#installation)
   - [Markdown Preview](#markdown-preview)
+  - [Compare Side-By-Side](#compare-side-by-side)
   - [Configuration](#configuration)
   - [Usage](#usage)
   - [Sublime: Package control popular](#sublime-package-control-popular)
@@ -33,6 +34,25 @@ Preview and build your markdown files quickly in your web browser using Sublime 
 2. Search for: `Package Control: Install Package`
 3. Search for: `MarkdownPreview`
 4. hit <kbd>enter</kbd>
+
+### Compare Side-By-Side
+Side-by-side file comparison & difference tool for ST2/3
+
+Installation Options
+1. Search for and install using Package Control (ctrl+shift+P, “Install Package”)
+2. Search for: `side-by-side`
+
+
+* Usage Options
+1. Right click on a tab and select “Compare with…”
+2. Right click somewhere in the active view and select “Compare with…”
+3. Right click on a tab and select “Compare with active tab”
+4. Highlight text, right click -> “Mark selection for comparison”
+5. Mark a second selection, then right click -> “Compare selections”
+6. Create two selections by holding CTRL, then “Compare selections”
+7. From the command line: see README_COMMANDS.md
+8. Jump to next: Alt+N, Jump to previous: Alt+P
+
 
 ### Configuration
 * Pick: Sublime Text > Preferences > Package Settings > MarkdownTOC > Settings - User
