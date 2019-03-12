@@ -5,6 +5,10 @@
     - [Type assertions](#type-assertions)
       - [s := x.\(string\) VS s, ok := x.\(string\)](#s--xstring-vs-s-ok--xstring)
     - [Variadic params: Passing arguments to ... parameters](#variadic-params-passing-arguments-to--parameters)
+- [golang ORM: db-first vs code-first](#golang-orm-db-first-vs-code-first)
+  - [db-first: sqlboiler](#db-first-sqlboiler)
+  - [code-first: gorm](#code-first-gorm)
+- [golang GC](#golang-gc)
 - [protobuf](#protobuf)
   - [Installing protoc](#installing-protoc)
     - [Mac OS X](#mac-os-x)
@@ -102,6 +106,16 @@ func main() {
     Greeting("goodbye", s...)
 }
 ```
+
+
+# golang ORM: db-first vs code-first
+
+## db-first: [sqlboiler](https://github.com/volatiletech/sqlboiler)
+## code-first: [gorm](https://github.com/jinzhu/gorm)
+
+# golang GC
+
+[Getting to Go: The Journey of Go's Garbage Collector](https://blog.golang.org/ismmkeynote)
 
 # protobuf
 
