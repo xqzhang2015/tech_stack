@@ -9,6 +9,7 @@
   - [Groovy containers](#groovy-containers)
   - [Groovy closure](#groovy-closure)
   - [Groovy IO](#groovy-io)
+  - [Groovy exception handling -- manually aborting job](#groovy-exception-handling----manually-aborting-job)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -226,6 +227,37 @@ def fileHandler = new File(filePath)
 fileHandler.eachFileRecurse {
     println it.path
 }
+```
+
+### Groovy exception handling -- manually aborting job
+
+```groovy
+import org.jenkinsci.plugins.workflow.steps.FlowInterruptedException
+
+class Handler {
+  string name
+  Handler(name) {
+    this.name = name
+  }
+
+  void testException() {
+    try {
+      // do something
+    } catch (FlowInterruptedException ex) {
+      println("Catching the flow interrupted exception")
+    } catch (Exception ex) {
+      println("Catching the exception")
+    } finally {
+      println("The final block")
+    }
+  }
+}
+
+```
+* Output if FlowInterruptedException triggered
+```shell
+Catching the flow interrupted exception
+The final block
 ```
 
 # References
