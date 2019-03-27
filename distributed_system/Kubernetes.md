@@ -10,8 +10,9 @@
       - [kube-proxy mode: iptables](#kube-proxy-mode-iptables)
     - [Node](#node)
     - [Kubernetes Master](#kubernetes-master)
-    - [Pod](#pod)
+    - [k8s Pod](#k8s-pod)
       - [What containers share in a pod?](#what-containers-share-in-a-pod)
+    - [readiness and liveness](#readiness-and-liveness)
       - [Containers startup order](#containers-startup-order)
 - [k8s container/pod/service dependencies](#k8s-containerpodservice-dependencies)
   - [Inspecting Dependencies in an Application](#inspecting-dependencies-in-an-application)
@@ -192,7 +193,7 @@ num   pkts bytes target     prot opt in     out     source               destina
 API Server提供可以用来和集群交互的REST端点。master节点包括用来创建和复制Pod的Replication Controller。
 
 
-### Pod
+### k8s Pod
 
 #### What containers share in a pod?
 Containers in a Pod run on a “logical host”. They use
@@ -200,6 +201,39 @@ Containers in a Pod run on a “logical host”. They use
 * the same network namespace (in other words, the same IP address and port space),
 * the same IPC namespace. 
 * They can also use shared volumes. 
+
+### readiness and liveness
+
+* readiness: if pod is ready to accept traffic
+
+
+* liveness: if pod is healthy and needs to restart
+
+* example
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: goproxy
+  labels:
+    app: goproxy
+spec:
+  containers:
+  - name: goproxy
+    image: k8s.gcr.io/goproxy:0.1
+    ports:
+    - containerPort: 8080
+    readinessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 5
+      periodSeconds: 10
+    livenessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 15
+      periodSeconds: 20
+```
 
 #### Containers startup order
 
