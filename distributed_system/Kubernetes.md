@@ -1,17 +1,23 @@
 <!-- MarkdownTOC -->
 
 - [Cluster concepts](#cluster-concepts)
-  - [Namespaces](#namespaces)
+    - [Namespaces](#namespaces)
 - [集群](#%E9%9B%86%E7%BE%A4)
-  - [Replication Controller](#replication-controller)
-  - [Service](#service)
-  - [kube-proxy](#kube-proxy)
-    - [kube-proxy mode: iptables](#kube-proxy-mode-iptables)
-  - [Node](#node)
-  - [Kubernetes Master](#kubernetes-master)
-  - [Pod](#pod)
-    - [What containers share in a pod?](#what-containers-share-in-a-pod)
-    - [Containers startup order](#containers-startup-order)
+    - [Replication Controller](#replication-controller)
+    - [Service](#service)
+    - [API server:](#api-server)
+    - [kube-proxy](#kube-proxy)
+      - [kube-proxy mode: iptables](#kube-proxy-mode-iptables)
+    - [Node](#node)
+    - [Kubernetes Master](#kubernetes-master)
+    - [Pod](#pod)
+      - [What containers share in a pod?](#what-containers-share-in-a-pod)
+      - [Containers startup order](#containers-startup-order)
+- [k8s container/pod/service dependencies](#k8s-containerpodservice-dependencies)
+  - [Inspecting Dependencies in an Application](#inspecting-dependencies-in-an-application)
+  - [Control in a pod entry.sh](#control-in-a-pod-entrysh)
+  - [Using init containers](#using-init-containers)
+    - [Base: kubenetes pod life](#base-kubenetes-pod-life)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -72,6 +78,8 @@ Service是定义一系列Pod以及访问这些Pod的策略的一层抽象。Serv
 ![kubernetes archtecture](../images/2018/k8s-3.gif)
 
 有一个特别类型的Kubernetes Service，称为'LoadBalancer'，作为外部负载均衡器使用，在一定数量的Pod之间均衡流量。比如，对于负载均衡Web流量很有用。
+
+### API server: 
 
 ### [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/)
 
@@ -198,6 +206,104 @@ Containers in a Pod run on a “logical host”. They use
 In a cloud native environment, it’s always better to plan for failures outside of your immediate control. 
 
 __To change the application to `wait` for another container in this pod__.
+
+# k8s container/pod/service dependencies
+
+Refences: [Kubernetes: Solving Service Dependencies](https://www.alibabacloud.com/blog/kubernetes-demystified-solving-service-dependencies_594110)
+
+## Inspecting Dependencies in an Application
+
+* Example: A dependency between a Golang application and MySQL:
+
+```golang
+// ...
+// Connect to database.
+hostPort := net.JoinHostPort(config.Host, config.Port)
+log.Println("Connecting to database at", hostPort)
+dsn := fmt.Sprintf("%s:%s@tcp(%s)/%s?timeout=30s",
+    config.Username, config.Password, hostPort, config.Database)
+
+db, err = sql.Open("mysql", dsn)
+if err != nil {
+    log.Println(err)
+}
+
+var dbError error
+maxAttempts := 20
+for attempts := 1; attempts <= maxAttempts; attempts++ {
+    dbError = db.Ping()
+    if dbError == nil {
+        break
+    }
+    log.Println(dbError)
+    time.Sleep(time.Duration(attempts) * time.Second)
+}
+if dbError != nil {
+    log.Fatal(dbError)
+}
+
+log.Println("Application started successfully.")
+// ...
+```
+## Control in a pod entry.sh
+1. self-writing by util ...; do ...; done
+
+```sh
+until curl localhost:3306 2>/dev/null
+do
+  echo "[`date`] waiting for mysql"
+  sleep 10
+done
+echo "[`date`] mysql is ready"
+```
+
+2. using tool such as [wait-for-it](https://github.com/vishnubob/wait-for-it)
+
+## Using init containers
+
+* Example: initContainers
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+      - name: wordpress
+        image: wordpress:4
+        ports:
+        - containerPort: 80
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mysql
+        - name: WORDPRESS_DB_PASSWORD
+          value: ""
+      initContainers:
+      - name: init-mysql
+        image: busybox
+        command: ['sh', '-c', 'until nslookup mysql; do echo waiting for mysql; sleep 2; done;']
+```
+
+### Base: kubenetes pod life
+
+![kubenetes pod life](../images/2019/k8s_pod_life.png)
+
+Pods contain three types of containers:
+
+* Infra container: This is the famous `pause` container.
+* Init container: This is an [initialization container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/?spm=a2c65.11461447.0.0.3b554f4eyEesyQ), generally used to initialize and prepare applications. The application container can start up only after waiting for all initialization containers to finish running.
+* Main container: This is an application container.
+
+
 
 # References
 [十分钟带你理解Kubernetes核心概念](http://www.dockone.io/article/932)<br/>
