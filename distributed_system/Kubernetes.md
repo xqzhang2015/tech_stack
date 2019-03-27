@@ -15,7 +15,7 @@
       - [Containers startup order](#containers-startup-order)
 - [k8s container/pod/service dependencies](#k8s-containerpodservice-dependencies)
   - [Inspecting Dependencies in an Application](#inspecting-dependencies-in-an-application)
-  - [Control in a pod entry.sh](#control-in-a-pod-entrysh)
+  - [Inspecting Dependencies in pod entry.sh](#inspecting-dependencies-in-pod-entrysh)
   - [Using init containers](#using-init-containers)
     - [Base: kubenetes pod life](#base-kubenetes-pod-life)
 - [References](#references)
@@ -245,7 +245,7 @@ if dbError != nil {
 log.Println("Application started successfully.")
 // ...
 ```
-## Control in a pod entry.sh
+## Inspecting Dependencies in pod entry.sh
 1. self-writing by util ...; do ...; done
 
 ```sh
