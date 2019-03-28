@@ -24,6 +24,11 @@
     - [channel: 管道](#channel-%E7%AE%A1%E9%81%93)
     - [sync.WaitGroup](#syncwaitgroup)
 - [RPC example in go](#rpc-example-in-go)
+- [Package management](#package-management)
+  - [glide vs dep](#glide-vs-dep)
+  - [glide plugin](#glide-plugin)
+    - [Existing Plugins](#existing-plugins)
+    - [How Plugins Work](#how-plugins-work)
 
 <!-- /MarkdownTOC -->
 
@@ -357,3 +362,33 @@ func main() {
 ```
 
 # [RPC example in go](https://ops.tips/gists/example-go-rpc-client-and-server/)
+
+# Package management
+
+## glide vs dep
+## [glide plugin](https://glide.readthedocs.io/en/latest/plugins/)
+
+
+Glide supports a simple plugin system similar to Git.
+
+### Existing Plugins
+Some plugins exist today for Glide including:
+
+* [glide-vc](https://github.com/sgotti/glide-vc) - The vendor cleaner allows you to strip files not needed for building your application from the `vendor/` directory.
+* [glide-cleanup](https://github.com/ngdinhtoan/glide-cleanup) - Removing unused packages from the `glide.yaml` file.
+* ...
+
+### How Plugins Work
+
+```sh
+$ glide install # We know this command, so we execute it
+$ glide foo     # We don't know this command, so we look for a suitable
+                # plugin.
+```
+
+In the example above, when glide receives the command `foo`, which it does not know, it will do the following:
+
+1. Transform the name from `foo` to `glide-foo`
+2. Look on the system `$PATH` for `glide-foo`. If it finds a program by that name, execute it...
+3. Or else, look at the current project's root for `glide-foo`. (That is, look in the same directory as `glide.yaml`). If found, execute it.
+4. If no suitable command is found, exit with an error.
