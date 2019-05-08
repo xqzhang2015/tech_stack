@@ -233,9 +233,14 @@ Options are:
     -v verbosity    How much troubleshooting info to print
     -k              Use HTTP KeepAlive feature
 ```
-* Example
+* Example-1: using Apache Bench (ab) to POST JSON to an API
 
 ```
+ab -p post_loc.txt -T application/json -H 'Authorization: Token abcd1234' -c 10 -n 2000 http://example.com/api/v1/locations/
+```
+
+* Example-2
+```sh
 ab -n 100 -c 5 "https://serverfault.com/questions"
 This is ApacheBench, Version 2.3 <$Revision: 655654 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
