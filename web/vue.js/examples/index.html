@@ -10,7 +10,9 @@
 </head>
 <body>
 	<div id="app">
-		{{msg}}
+		{{msg}}<br/>
+		{{message}}<br/>
+		<span v-bind:title="message" >鼠标悬停几秒钟查看此处动态绑定的提示信息！</span>
 		<div>
 			<input type="text" name="" v-model="info">
 			<button @click="handlerClick">添加</button>
@@ -23,32 +25,132 @@
 		</ul>
 
 		<ul>
-			<todo-item v-for="item in list" v-bind:item="item"> </todo-item>
+			<todo-item v-for="item1 in list" v-bind:item2="item1" v-bind:key="item1.id"> </todo-item>
 		</ul>
+	</div>
+
+	<div id="app3">
+		<p v-if="seen" > You could see me now </p>
+	</div>
+
+	<div id="app4" >
+		<ol>
+			<li v-for="todo in todos" >
+				{{todo.text}}
+			</li>
+		</ol>
+	</div>
+
+	<div id="app5">
+		<h3>为了让用户和你的应用进行交互，我们可以用 v-on 指令添加一个事件监听器:</h3>
+		<p>{{message}}</p>
+		<button v-on:click="reverseMessage">逆转消息</button>
+	</div>
+
+	<div id="app6">
+		<h3>Vue 还提供了 v-model 指令，它能轻松实现表单输入和应用状态之间的双向绑定:</h3>
+		<p>{{message}} </p>
+		<input v-model="message" type="" name="">
+	</div>
+
+	<div id="app7">
+		<h3>组件化应用构建 -- define component:</h3>
+		<ol>
+			<todo-item2 v-for="item in myList" v-bind:todo="item" v-bind:key="item.id" >
+			</todo-item2>
+		</ol>
+		<h4>One example: </h4>
+<!-- <div id="app">
+  <app-nav></app-nav>
+  <app-view>
+    <app-sidebar></app-sidebar>
+    <app-content></app-content>
+  </app-view>
+</div> -->
 	</div>
 
 
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 	<script type="text/javascript">
 		Vue.component('todo-item', {
-			props: ['item'],
-			template: '<li class="item">{{item}}</li>'
+			props: ['item2'],
+			template: '<li class="item">{{item2}}</li>'
 		})
-		new Vue({
+		var app = new Vue({
 			el: '#app',
+			data: {
+				message: 'Hello Vue'
+			},
 			data() {
 				return {
 					msg: 'hellow geektime',
 					info: '',
 					list: [],
+					message: 'Hello Vue ' + new Date().toLocaleString()
 				}
 			},
 			methods: {
 				handlerClick() {
 					console.log(this.info)
-					this.list.push(this.info)
+					this.list.push({key: 1, value: this.info})
 				} 
 			},
+		})
+
+		var app3 = new Vue({
+			el: '#app3',
+			data: {
+				seen: true
+			}
+		})
+
+		var app4 = new Vue({
+			el: '#app4',
+			data: {
+				todos: [
+					{text: 'Learn JavaScript'},
+					{text: 'Learn Vue'},
+					{text: 'Learn full great project'},
+				]
+			}
+		})
+
+		var app5 = new Vue({
+			el: '#app5',
+			data: {
+				message: "hello vue.js 是吗"
+			},
+			methods: {
+				reverseMessage: function (argument) {
+					this.message = this.message.split('').reverse().join('')
+				}
+			}
+		})
+
+		var app6 = new Vue({
+			el: '#app6',
+			data: {
+				message: 'Hello Vue!'
+			}
+		})
+
+		Vue.component('todo-item2', {
+			props: ['todo'],
+			template: '<li>{{todo.text}}</li>'
+		} )
+
+		var app7 = new Vue({
+			el: '#app7',
+			data: {
+				myList: [
+					{id: 0, text: '蔬菜'},
+					{id: 1, text: '奶酪'},
+					{id: 2, text: '随便其它什么人吃的东西'}
+				]
+			},
+			created: function (){
+				console.log("myList is: " + this.myList)
+			}
 		})
 	</script>
 </body>
