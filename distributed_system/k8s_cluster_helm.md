@@ -4,7 +4,7 @@
 - [The Chart Template Developer’s Guide](#the-chart-template-developer%E2%80%99s-guide)
   - [CHARTS](#charts)
   - [helm create mychart](#helm-create-mychart)
-  - [test](#test)
+  - [examples](#examples)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -38,7 +38,24 @@ mychart/templates/
 * `\_helpers.tpl`: A place to put template helpers that you can re-use throughout the chart
 
 
-### test
+### examples
+
+* Delete all helm releases
+
+```sh
+helm list | grep release-X | awk '{print $1}' | xargs helm delete --purge
+```
+
+* Cluster update: modify yaml, then
+
+```sh
+kops replace -f xxx.yml
+kops update cluster $CLUSTER_NAME --yes
+kops rolling-update cluster --fail-on-validate-error="false" --force --yes
+
+kops rolling-update cluster --fail-on-validate-error="false" --force --yes --instance-group aerospike-node-group-latest
+kops rolling-update cluster --fail-on-validate-error="false" --force --yes --instance-group aerospike-node-group-prod
+```
 
 # References
 
