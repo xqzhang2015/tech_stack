@@ -26,7 +26,7 @@ Here is the homepage of cache
 
 ## 缓存穿透
 
-Note: 重点在__透__上，DB中__不存在的data__。
+Note: 重点在 __透__ 上，DB中 __不存在的data__ 。
 
 ### Introduction
 
@@ -42,7 +42,7 @@ Note: 重点在__透__上，DB中__不存在的data__。
 
 ## 缓存击穿
 
-Note: 重点在__穿__上，DB中__存在的data__，一个高频访问的key过期了。
+Note: 重点在 __穿__ 上，DB中 __存在的data__ ，一个高频访问的key过期了。
 
 ### Introduction
 
@@ -63,7 +63,7 @@ Note: 重点在__穿__上，DB中__存在的data__，一个高频访问的key过
 
 ## 缓存雪崩解
 
-Note: 重点在__穿__上，DB中__存在的data__，所有key 同时过期了。
+Note: 重点在 __穿__ 上，DB中 __存在的data__ ，所有key 同时过期了。
 
 ### Introduction
 
