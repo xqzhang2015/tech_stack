@@ -23,6 +23,8 @@
 
 # cluster-autoscaler
 
+https://github.com/kubernetes/autoscaler
+
 ## AWS IAM policy
 
 ```json
@@ -161,6 +163,9 @@ By default, scale-up is considered up to `10 seconds` after pod is marked as uns
 
 # HPA vs CA
 
+* [kubernetes: Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+* [kubernetes: Horizontal Pod Autoscaler Walkthrough](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
 ## How does Horizontal Pod Autoscaler work with Cluster Autoscaler?
 
 Horizontal Pod Autoscaler changes the deployment's or replicaset's number of replicas based on the current CPU load. If the load increases, HPA will create new replicas, for which there may or may not be enough space in the cluster.
@@ -180,11 +185,11 @@ When HPA is combined with CA, the total time from increased load to new pods run
 
 # References
 
-[github.com/kubernetes: How does scale-up work?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-up-work)<br/>
+[github.com/kubernetes: CA - How does scale-up work?](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-up-work)<br/>
 
-[github.com/kubernetes: How does scale-down work](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-down-work)<br/>
+[github.com/kubernetes: CA - How does scale-down work](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-does-scale-down-work)<br/>
 
-[github.com/kubernetes: Frequently Asked Questions](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md)<br/>
+[github.com/kubernetes: CA - Frequently Asked Questions](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md)<br/>
 
 []()<br/>
 
