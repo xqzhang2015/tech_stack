@@ -13,7 +13,7 @@
 
 # Encrption
 
-[encrption](../images/2019/encrption.png)
+![encrption](../images/2019/encrption.png)
 
 ## 对称加密(symmetric encrption)
 
@@ -26,18 +26,18 @@
 
 * 非对称加密
 
-[https_ca-public-and-private-key](../images/2019/https_ca-public-and-private-key.png)
+![https_ca-public-and-private-key](../images/2019/https_ca-public-and-private-key.png)
 
 ## HTTPS: CA
 
-[https_ca-server](../images/2019/https_ca-server.png)
+![https_ca-server](../images/2019/https_ca-server.png)
 
 
-[https_ca-client](../images/2019/https_ca-client.png)
+![https_ca-client](../images/2019/https_ca-client.png)
 
 ## HTTPS: self-signed certificate
 
-[https_self-signed-certificate](../images/2019/https_self-signed-certificate.png)
+![https_self-signed-certificate](../images/2019/https_self-signed-certificate.png)
 
 # Example: etcd security
 
