@@ -2,7 +2,7 @@
 
 - [Encrption](#encrption)
   - [对称加密\(symmetric encrption\)](#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86symmetric-encrption)
-  - [对称加密\(asymmetric encrption\)](#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86asymmetric-encrption)
+  - [非对称加密\(asymmetric encrption\)](#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86asymmetric-encrption)
 - [How does HTTPS work?](#how-does-https-work)
   - [public key and private key](#public-key-and-private-key)
   - [HTTPS: CA](#https-ca)
@@ -17,7 +17,7 @@
 
 ## 对称加密(symmetric encrption)
 
-## 对称加密(asymmetric encrption)
+## 非对称加密(asymmetric encrption)
 * RSA 算法
 
 # How does HTTPS work?
