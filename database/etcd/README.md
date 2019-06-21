@@ -26,8 +26,8 @@
 # 节点间 数据类型和通道类型
 有各种不同message，通过 __google protocol buffer__ 传输，size 各不相同:
 
-|    Message Type         | 通道类型  | 通道类型           |
-| ----------------------- | -------- |----------------- |
+| Message Type | 通道类型  | 通道类型 |
+| ------------ | ------- |-------- |
 | SNAPSHOT: even over 1GB | Stream   | 点到点1个HTTP长连接 |
 | heartbeat: 几十 bytes    | Pipeline | 短连接传输，用完即关闭; 避免阻塞心跳包 |
 
