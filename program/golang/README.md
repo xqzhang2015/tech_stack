@@ -1,6 +1,13 @@
 <!-- MarkdownTOC -->
 
 - [Golang spec](#golang-spec)
+  - [Initialization](#initialization)
+    - [Package initialization](#package-initialization)
+      - [Properties](#properties)
+      - [When to use init function](#when-to-use-init-function)
+    - [Initialization dependenciess](#initialization-dependenciess)
+      - [Example](#example)
+      - [Note](#note)
   - [Expressions](#expressions)
     - [Type assertions](#type-assertions)
       - [s := x.\(string\) VS s, ok := x.\(string\)](#s--xstring-vs-s-ok--xstring)
@@ -33,6 +40,149 @@
 <!-- /MarkdownTOC -->
 
 # Golang spec
+
+## Initialization
+
+
+### Package initialization
+
+To use a imported package it needs to be initialized first. It’s done by Golang’s runtime system and consists of (order matters):
+
+1. initialization of imported packages (recursive definition)
+2. computing and assigning initial values for variables declared in a package block
+3. executing __init functions__ inside the package
+
+#### Properties
+* Many init functions can be defined in the same package or file.
+* __init function__ doesn’t take arguments neither returns any value.
+* In contrast to main, identifier init is not declared so cannot be referenced:
+
+* This example gives `undefined: init` error while compilation
+
+```golang
+package main
+
+import "fmt"
+
+func init() {
+    fmt.Println("init")
+}
+
+func main() {
+    init()
+}
+```
+
+#### When to use init function
+
+* variables initialization if cannot be done in initialization expression
+
+```golang
+var precomputed = [20]float64{}
+func init() {
+    var current float64 = 1
+    precomputed[0] = current
+    for i := 1; i < len(precomputed); i++ {
+        precomputed[i] = precomputed[i-1] * 1.2
+    }
+}
+```
+
+* registering & running one-time computations
+
+Example: Importing a package only for its side effects.
+
+Go is very strict when it goes to unused imports.
+
+```golang
+import _ "image/png"
+```
+
+### Initialization dependenciess
+
+* Initialization dependency machinery work at package level.
+* Package initialization is done only once even if package is imported many times.
+
+#### Example
+* Example: p1.go
+
+```golang
+package main
+
+import (
+    "fmt"
+)
+
+var (
+    a int = c - 1
+    b int = 2
+)
+
+func main() {
+    fmt.Printf("a = %d\n", a)
+    fmt.Printf("b = %d\n", b)
+    fmt.Printf("c = %d\n", c)
+}
+```
+
+* Example: p2.go
+
+```golang
+package main
+
+var c int = f()
+
+func f() int {
+    return b + 1
+}
+```
+
+* Result output
+
+```sh
+go run p1.go p2.go
+a = 2
+b = 2
+c = 3
+```
+#### Note
+
+* Initialization loop(error)
+
+```golang
+package main
+
+import "fmt"
+
+var (
+    a = b
+    b = c
+    c = f()
+)
+
+func f() int {
+    return a
+}
+
+func main() {
+    fmt.Printf("a: %d, b: %d, c: %d\n", a, b, c)
+}
+```
+
+* This example, in main func, produces only compile-time error “undefined: b” at line 7.
+
+```golang
+package main
+import "fmt"
+func main() {
+    var (
+        a int = b + 1
+        b int = 1
+    )
+    fmt.Println(a)
+    fmt.Println(b)
+}
+```
 
 ## Expressions
 An expression specifies the computation of a value by applying __operators__ and __functions__ to operands.
