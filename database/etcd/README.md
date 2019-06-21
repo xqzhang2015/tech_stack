@@ -9,7 +9,7 @@
 
 # etcd arch
 
-![etcd arch](../images/2019/etcd_arch.png)
+![etcd arch](../../images/2019/etcd_arch.png)
 
 # 节点间数据传输 网络拓扑
 
