@@ -5,6 +5,7 @@
 - [节点间 数据类型和通道类型](#%E8%8A%82%E7%82%B9%E9%97%B4-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E9%80%9A%E9%81%93%E7%B1%BB%E5%9E%8B)
 - [Study notes](#study-notes)
   - [NoFreelistSync](#nofreelistsync)
+  - [mmap flag: syscall.MAP_POPULATE](#mmap-flag-syscallmap_populate)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -49,6 +50,11 @@ https://coreos.com/blog/announcing-etcd-3.3
 However, the free list sync demands more disk space and incurs extra latencies.
 
 In one user's case, where there were lots of free pages due to frequent snapshots with read transactions, the database size quickly grew from 16 MiB to 4 GiB as a result of large freelist syncs.
+
+## mmap flag: syscall.MAP_POPULATE
+
+https://www.jianshu.com/p/1cb00b599079
+
 
 # References
 
