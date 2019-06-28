@@ -9,6 +9,9 @@
       - [Example](#example)
       - [Note](#note)
   - [Expressions](#expressions)
+    - [Slice expressions](#slice-expressions)
+      - [Simple slice expression](#simple-slice-expression)
+      - [Full slice expression](#full-slice-expression)
     - [Type assertions](#type-assertions)
       - [s := x.\(string\) VS s, ok := x.\(string\)](#s--xstring-vs-s-ok--xstring)
     - [Variadic params: Passing arguments to ... parameters](#variadic-params-passing-arguments-to--parameters)
@@ -186,6 +189,45 @@ func main() {
 
 ## Expressions
 An expression specifies the computation of a value by applying __operators__ and __functions__ to operands.
+
+### [Slice expressions](https://golang.org/ref/spec#Slice_expressions)
+
+#### Simple slice expression
+
+* `a[low : high]`
+
+
+After slicing the array a
+
+```golang
+a := [5]int{1, 2, 3, 4, 5}
+s := a[1:4]
+```
+
+the slice s has type []int, length 3, capacity 4, and elements
+
+```golang
+s[0] == 2
+s[1] == 3
+s[2] == 4
+```
+
+#### Full slice expression
+
+* `a[low : high : max]`
+
+After slicing the array a
+
+```golang
+a := [5]int{1, 2, 3, 4, 5}
+t := a[1:3:5]
+```
+
+the slice t has type []int, length 2, capacity 4, and elements
+```golang
+t[0] == 2
+t[1] == 3
+```
 
 ### [Type assertions](https://golang.org/ref/spec#Type_assertions)
 
