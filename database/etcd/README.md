@@ -31,8 +31,8 @@
 
 | Message Type | 通道类型  | 通道类型 |
 | ------------ | ------- |-------- |
-| SNAPSHOT: even over 1GB | Stream   | 点到点1个HTTP长连接 |
-| heartbeat: 几十 bytes    | Pipeline | 短连接传输，用完即关闭; 避免阻塞心跳包 |
+| heartbeat: 几十 bytes | Stream   | 短连接传输，用完即关闭; 避免阻塞心跳包 |
+| SNAPSHOT: even over 1GB | Pipeline | 点到点1个HTTP长连接 |
 
 # Study notes
 
