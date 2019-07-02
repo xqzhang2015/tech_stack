@@ -7,6 +7,7 @@
   - [public key and private key](#public-key-and-private-key)
   - [HTTPS: CA](#https-ca)
   - [HTTPS: self-signed certificate](#https-self-signed-certificate)
+  - [openssl cmd](#openssl-cmd)
 - [Example: etcd security](#example-etcd-security)
 - [Reference](#reference)
 
@@ -40,6 +41,19 @@
 
 ![https_self-signed-certificate](../images/2019/https_self-signed-certificate.png)
 
+## openssl cmd
+
+[online: certificate-decoder](https://www.sslshopper.com/certificate-decoder.html)<br/>
+
+[online: RSA Encryption Decryption](https://8gwifi.org/RSAFunctionality?keysize=2048)<br/>
+
+
+* Use this Certificate Decoder to decode your PEM encoded SSL certificate
+
+```sh
+openssl x509 -in certificate.crt -text -noout
+```
+
 * Here is one-liner to verify a certificate chain:
 
 ```sh
@@ -55,10 +69,6 @@ openssl verify -verbose -x509_strict -CAfile ca.pem -CApath nosuchdir cert_chain
 [An Overview of How Digital Certificates Work](https://www.jscape.com/blog/an-overview-of-how-digital-certificates-work)<br/>
 
 [stack overflow: How are ssl certificates verified?](https://stackoverflow.com/questions/188266/how-are-ssl-certificates-verified)<br/>
-
-[online: certificate-decoder](https://www.sslshopper.com/certificate-decoder.html)<br/>
-
-[online: RSA Encryption Decryption](https://8gwifi.org/RSAFunctionality?keysize=2048)<br/>
 
 [TLS 1.3 Handshake: Taking a Closer Look](https://www.thesslstore.com/blog/tls-1-3-handshake-tls-1-2/)<br/>
 
