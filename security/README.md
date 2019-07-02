@@ -47,6 +47,6 @@
 
 [stack overflow: How are ssl certificates verified?](https://stackoverflow.com/questions/188266/how-are-ssl-certificates-verified)<br/>
 
-[]()<br/>
+[online certificate-decoder](https://www.sslshopper.com/certificate-decoder.html)<br/>
 
 
