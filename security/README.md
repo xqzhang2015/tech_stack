@@ -49,4 +49,7 @@
 
 [online certificate-decoder](https://www.sslshopper.com/certificate-decoder.html)<br/>
 
+[TLS 1.3 Handshake: Taking a Closer Look](https://www.thesslstore.com/blog/tls-1-3-handshake-tls-1-2/)<br/>
+
+[An Overview of TLS 1.3 – Faster and More Secure](https://kinsta.com/blog/tls-1-3/)<br/>
 
