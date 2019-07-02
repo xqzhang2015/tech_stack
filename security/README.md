@@ -41,4 +41,12 @@
 
 # Example: etcd security
 
-[etcd security](https://github.com/etcd-io/etcd/blob/master/Documentation/v2/security.md)
+[etcd security](https://github.com/etcd-io/etcd/blob/master/Documentation/v2/security.md)<br/>
+
+[An Overview of How Digital Certificates Work](https://www.jscape.com/blog/an-overview-of-how-digital-certificates-work)<br/>
+
+[stack overflow: How are ssl certificates verified?](https://stackoverflow.com/questions/188266/how-are-ssl-certificates-verified)<br/>
+
+[]()<br/>
+
+
