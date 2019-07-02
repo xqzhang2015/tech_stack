@@ -8,6 +8,7 @@
   - [HTTPS: CA](#https-ca)
   - [HTTPS: self-signed certificate](#https-self-signed-certificate)
 - [Example: etcd security](#example-etcd-security)
+- [Reference](#reference)
 
 <!-- /MarkdownTOC -->
 
@@ -39,17 +40,29 @@
 
 ![https_self-signed-certificate](../images/2019/https_self-signed-certificate.png)
 
+* Here is one-liner to verify a certificate chain:
+
+```sh
+openssl verify -verbose -x509_strict -CAfile ca.pem -CApath nosuchdir cert_chain.pem
+```
+
 # Example: etcd security
 
 [etcd security](https://github.com/etcd-io/etcd/blob/master/Documentation/v2/security.md)<br/>
+
+# Reference
 
 [An Overview of How Digital Certificates Work](https://www.jscape.com/blog/an-overview-of-how-digital-certificates-work)<br/>
 
 [stack overflow: How are ssl certificates verified?](https://stackoverflow.com/questions/188266/how-are-ssl-certificates-verified)<br/>
 
-[online certificate-decoder](https://www.sslshopper.com/certificate-decoder.html)<br/>
+[online: certificate-decoder](https://www.sslshopper.com/certificate-decoder.html)<br/>
+
+[online: RSA Encryption Decryption](https://8gwifi.org/RSAFunctionality?keysize=2048)<br/>
 
 [TLS 1.3 Handshake: Taking a Closer Look](https://www.thesslstore.com/blog/tls-1-3-handshake-tls-1-2/)<br/>
 
 [An Overview of TLS 1.3 – Faster and More Secure](https://kinsta.com/blog/tls-1-3/)<br/>
+
+[wikipedia: In cryptography, X.509 is a standard defining the format of public key certificates.](https://en.wikipedia.org/wiki/X.509)<br/>
 
