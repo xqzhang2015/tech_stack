@@ -6,8 +6,9 @@
 - [Study notes](#study-notes)
   - [etcd v3 authentication design](#etcd-v3-authentication-design)
     - [Two types of tokens: simple and JWT](#two-types-of-tokens-simple-and-jwt)
-  - [NoFreelistSync](#nofreelistsync)
-  - [mmap flag: syscall.MAP_POPULATE](#mmap-flag-syscallmap_populate)
+  - [boltDB](#boltdb)
+    - [NoFreelistSync](#nofreelistsync)
+    - [mmap flag: syscall.MAP_POPULATE](#mmap-flag-syscallmap_populate)
   - [etcd 概念词汇表](#etcd-%E6%A6%82%E5%BF%B5%E8%AF%8D%E6%B1%87%E8%A1%A8)
 - [References](#references)
 
@@ -46,16 +47,17 @@ There are two kinds of token types: simple and JWT(Json Web Token).
 
 * simple token
 
-The simple token isn’t designed for production use cases. Its tokens aren’t cryptographically signed and servers must statefully track token-user correspondence; it is meant for development testing.
+The simple token isn’t designed for production use cases. Its tokens __aren’t cryptographically signed__ and servers must __statefully track token-user correspondence__; it is meant for development testing.
 
 * JWT token
 
-JWT tokens should be used for production deployments since it is cryptographically signed and verified.
+JWT tokens should be used for production deployments since it is cryptographically signed__ and verified.
 
-From the implementation perspective, JWT is stateless. Its token can include metadata including username and revision, so servers don’t need to remember correspondence between tokens and the metadata.
+From the implementation perspective, JWT is __stateless__. Its token can include metadata including username and revision, so servers don’t need to remember correspondence between tokens and the metadata.
 
+## boltDB
 
-## NoFreelistSync
+### NoFreelistSync
 
 ```golang
 // Do not sync freelist to disk. This improves the database write performance
@@ -70,7 +72,7 @@ However, the free list sync demands more disk space and incurs extra latencies.
 
 In one user's case, where there were lots of free pages due to frequent snapshots with read transactions, the database size quickly grew from 16 MiB to 4 GiB as a result of large freelist syncs.
 
-## mmap flag: syscall.MAP_POPULATE
+### mmap flag: syscall.MAP_POPULATE
 
 https://www.jianshu.com/p/1cb00b599079
 
