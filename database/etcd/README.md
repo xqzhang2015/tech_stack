@@ -4,6 +4,8 @@
 - [节点间数据传输 网络拓扑](#%E8%8A%82%E7%82%B9%E9%97%B4%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93-%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91)
 - [节点间 数据类型和通道类型](#%E8%8A%82%E7%82%B9%E9%97%B4-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%92%8C%E9%80%9A%E9%81%93%E7%B1%BB%E5%9E%8B)
 - [Study notes](#study-notes)
+  - [etcd v3 authentication design](#etcd-v3-authentication-design)
+    - [Two types of tokens: simple and JWT](#two-types-of-tokens-simple-and-jwt)
   - [NoFreelistSync](#nofreelistsync)
   - [mmap flag: syscall.MAP_POPULATE](#mmap-flag-syscallmap_populate)
   - [etcd 概念词汇表](#etcd-%E6%A6%82%E5%BF%B5%E8%AF%8D%E6%B1%87%E8%A1%A8)
@@ -36,6 +38,22 @@
 | SNAPSHOT: even over 1GB | Pipeline | 点到点1个HTTP长连接 |
 
 # Study notes
+
+## [etcd v3 authentication design](https://etcd.io/docs/v3.3.12/learning/auth_design/)
+
+### Two types of tokens: simple and JWT
+There are two kinds of token types: simple and JWT(Json Web Token). 
+
+* simple token
+
+The simple token isn’t designed for production use cases. Its tokens aren’t cryptographically signed and servers must statefully track token-user correspondence; it is meant for development testing.
+
+* JWT token
+
+JWT tokens should be used for production deployments since it is cryptographically signed and verified.
+
+From the implementation perspective, JWT is stateless. Its token can include metadata including username and revision, so servers don’t need to remember correspondence between tokens and the metadata.
+
 
 ## NoFreelistSync
 
