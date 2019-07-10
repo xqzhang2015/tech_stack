@@ -9,6 +9,7 @@
       - [simple token](#simple-token)
       - [JWT token](#jwt-token)
       - [an example using RS256](#an-example-using-rs256)
+    - [\(C++\)How to use the token in AuthenticateResponse?](#chow-to-use-the-token-in-authenticateresponse)
   - [boltDB](#boltdb)
     - [NoFreelistSync](#nofreelistsync)
     - [mmap flag: syscall.MAP_POPULATE](#mmap-flag-syscallmap_populate)
@@ -97,6 +98,21 @@ etcd-1_1  | 2018-10-10 01:40:11.336841 N | auth: granted role root to user root
 etcd-1_1  | 2018-10-10 01:40:28.163644 N | auth: Authentication enabled
 etcd-1_1  | 2018-10-10 01:40:50.448956 D | auth: jwt token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXZpc2lvbiI6NCwidXNlcm5hbWUiOiJyb290In0.TLPHFHP5VnVos6kfndcok-1nrKAWxlH_uSEiadNJUr8lc3MwjdN ...
 ```
+### (C++)How to use the token in AuthenticateResponse?
+
+```cpp
+grpc::ClientContext context;
+context.AddMetadata("token", response.token());
+```
+
+https://github.com/etcd-io/etcd/issues/7705
+
+
+You should create a child class from __grpc::MetadataCredentialsPlugin__ and override its method __GetMetadata()__. The method can be called in each RPC and attach metadata if an instance of the class is given as an argument of __grpc::CreateCustomChannel()__.
+
+* A slack example can be found here:
+https://github.com/mitake/grpc/blob/example/examples/cpp/helloworld/greeter_client.cc
+
 
 ## boltDB
 
