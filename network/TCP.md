@@ -1,5 +1,6 @@
 <!-- MarkdownTOC -->
 
+- [TCP Header](#tcp-header)
 - [TCP connection state transition](#tcp-connection-state-transition)
 - [Connection establishment](#connection-establishment)
   - [Why 三次](#why-%E4%B8%89%E6%AC%A1)
@@ -9,14 +10,24 @@
 - [Connection termination](#connection-termination)
   - [为什么建立连接是三次握手，而关闭连接却是四次挥手呢?](#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5%E6%98%AF%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%8C%E8%80%8C%E5%85%B3%E9%97%AD%E8%BF%9E%E6%8E%A5%E5%8D%B4%E6%98%AF%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E5%91%A2)
   - [Questions?](#questions)
-- [TCP Header](#tcp-header)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
 
 
+# TCP Header
+![tcp_header_1](../images/2018/tcp_header_1.png)<br/>
+* Source port (16 bits)
+Identifies the sending port.
+* Destination port (16 bits)
+Identifies the receiving port.
+* Sequence number (32 bits)
+* Acknowledgment number (32 bits)
+
+
+
 # [TCP connection state transition](https://www.ibm.com/support/knowledgecenter/SSLTBW_2.1.0/com.ibm.zos.v2r1.halu101/constatus.htm)
-![TCP_state_transition](../images/2018/TCP_state_transition.gif)
+![TCP_state_transition](../images/2018/TCP_state_machine.svg)
 
 # Connection establishment
 To establish a connection, TCP uses a three-way handshake.
@@ -70,16 +81,6 @@ A typical tear-down requires a pair of FIN and ACK segments from each TCP endpoi
 * 三次/四次流程？
 * 为什么建立连接是三次握手，而关闭连接却是四次挥手呢?
 * TCP/IP packet header 有哪些？
-
-# TCP Header
-![tcp_header_1](../images/2018/tcp_header_1.png)<br/>
-* Source port (16 bits)
-Identifies the sending port.
-* Destination port (16 bits)
-Identifies the receiving port.
-* Sequence number (32 bits)
-* Acknowledgment number (32 bits)
-
 
 # References
 [wiki/Transmission_Control_Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)<br/>
