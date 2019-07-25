@@ -98,6 +98,9 @@ etcd-1_1  | 2018-10-10 01:40:11.336841 N | auth: granted role root to user root
 etcd-1_1  | 2018-10-10 01:40:28.163644 N | auth: Authentication enabled
 etcd-1_1  | 2018-10-10 01:40:50.448956 D | auth: jwt token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXZpc2lvbiI6NCwidXNlcm5hbWUiOiJyb290In0.TLPHFHP5VnVos6kfndcok-1nrKAWxlH_uSEiadNJUr8lc3MwjdN ...
 ```
+
+* [5 Easy Steps to Understanding JSON Web Tokens (JWT)](https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec)
+
 ### (C++)How to use the token in AuthenticateResponse?
 
 ```cpp
