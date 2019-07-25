@@ -3,13 +3,14 @@
 - [TCP Header](#tcp-header)
 - [TCP connection state transition](#tcp-connection-state-transition)
 - [Connection establishment](#connection-establishment)
-  - [Why 三次](#why-%E4%B8%89%E6%AC%A1)
-  - [Workflow](#workflow)
-  - [Example](#example)
-  - [SYN攻击](#syn%E6%94%BB%E5%87%BB)
+    - [Why 三次](#why-%E4%B8%89%E6%AC%A1)
+    - [Workflow](#workflow)
+    - [Example](#example)
+    - [SYN攻击](#syn%E6%94%BB%E5%87%BB)
 - [Connection termination](#connection-termination)
-  - [为什么建立连接是三次握手，而关闭连接却是四次挥手呢?](#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5%E6%98%AF%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%8C%E8%80%8C%E5%85%B3%E9%97%AD%E8%BF%9E%E6%8E%A5%E5%8D%B4%E6%98%AF%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E5%91%A2)
-  - [Questions?](#questions)
+    - [为什么建立连接是三次握手，而关闭连接却是四次挥手呢?](#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5%E6%98%AF%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%EF%BC%8C%E8%80%8C%E5%85%B3%E9%97%AD%E8%BF%9E%E6%8E%A5%E5%8D%B4%E6%98%AF%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E5%91%A2)
+    - [Questions?](#questions)
+  - [TCP Keep Alive](#tcp-keep-alive)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -81,6 +82,12 @@ A typical tear-down requires a pair of FIN and ACK segments from each TCP endpoi
 * 三次/四次流程？
 * 为什么建立连接是三次握手，而关闭连接却是四次挥手呢?
 * TCP/IP packet header 有哪些？
+
+## TCP Keep Alive
+
+* Kepp TCP connection alive
+
+A TCP keep-alive packet is an ACK with the sequence number set to ___one less than the current sequence number___ for the connection.
 
 # References
 [wiki/Transmission_Control_Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol)<br/>
