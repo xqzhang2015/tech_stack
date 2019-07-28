@@ -14,6 +14,7 @@
     - [NoFreelistSync](#nofreelistsync)
     - [mmap flag: syscall.MAP_POPULATE](#mmap-flag-syscallmap_populate)
   - [etcd 概念词汇表](#etcd-%E6%A6%82%E5%BF%B5%E8%AF%8D%E6%B1%87%E8%A1%A8)
+- [gRPC](#grpc)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -153,6 +154,18 @@ https://www.jianshu.com/p/1cb00b599079
 * Candidate：当 Follower 超过一定时间接收不到 Leader 的心跳时转变为 Candidate 开始竞选。
 * Term：某个节点成为 Leader 到下一次竞选时间，称为一个 Term。
 * Index：数据项编号。Raft 中通过 Term 和 Index 来定位数据。
+
+# gRPC
+
+[www.grpc.io: gRPC Basicss - C++](https://www.grpc.io/docs/tutorials/basic/c/)<br/>
+
+[www.grpc.io: Asynchronous Basics - C++](https://www.grpc.io/docs/tutorials/async/helloasync-cpp.html)<br/>
+
+[]()<br/>
+
+[Lessons learnt from writing asynchronous streaming gRPC services in C++](https://www.gresearch.co.uk/2019/03/20/lessons-learnt-from-writing-asynchronous-streaming-grpc-services-in-c/)<br/>
+
+[]()<br/>
 
 # References
 
