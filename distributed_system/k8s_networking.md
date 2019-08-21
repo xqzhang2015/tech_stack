@@ -62,6 +62,7 @@ In order to keep things focused I’m going to split the post into three parts.
 [An illustrated guide to Kubernetes Networking: Part 2](https://itnext.io/an-illustrated-guide-to-kubernetes-networking-part-2-13fdc6c4e24c)<br/>
 [An illustrated guide to Kubernetes Networking: Part 3](https://itnext.io/an-illustrated-guide-to-kubernetes-networking-part-3-f35957784c8e)<br/>
 
+[趣谈网络协议---容器网络之Flannel](https://blog.csdn.net/u012319493/article/details/82918317)<br/>
 
 [A high level overview of kubernetes](https://kubernetes.io/)<br/>
 
