@@ -56,6 +56,13 @@ In order to keep things focused I’m going to split the post into three parts.
 
 [Understanding kubernetes networking: pods](https://medium.com/google-cloud/understanding-kubernetes-networking-pods-7117dd28727)<br/>
 
+* Good
+
+[An illustrated guide to Kubernetes Networking: Part 1](https://itnext.io/an-illustrated-guide-to-kubernetes-networking-part-1-d1ede3322727)<br/>
+[An illustrated guide to Kubernetes Networking: Part 2](https://itnext.io/an-illustrated-guide-to-kubernetes-networking-part-2-13fdc6c4e24c)<br/>
+[An illustrated guide to Kubernetes Networking: Part 3](https://itnext.io/an-illustrated-guide-to-kubernetes-networking-part-3-f35957784c8e)<br/>
+
+
 [A high level overview of kubernetes](https://kubernetes.io/)<br/>
 
 [An overview of pods specifically](https://kubernetes.io/docs/concepts/workloads/pods/pod/)<br/>
