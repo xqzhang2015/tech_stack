@@ -36,6 +36,65 @@ CSS selectors are used to "find" (or select) HTML elements based on their elemen
 ### The element Selector
 The element selector selects elements based on the element name.
 
+1. 派生选择器
+
+* 上下文选择器 (contextual selectors)
+* 比方说，你希望列表中的 strong 元素变为斜体字，而不是通常的粗体字
+
+```html
+<style type="text/css">
+  li strong {
+    font-style: italic;
+    font-weight: normal;
+  }
+</style>
+
+<li><strong>我是斜体字。这是因为 strong 元素位于 li 元素内。</strong></li>
+```
+
+2. id 选择器
+
+id 选择器以 "#" 来定义。
+
+* 下面的两个 id 选择器，第一个可以定义元素的颜色为红色，第二个定义元素的颜色为绿色：
+
+```html
+<style type="text/css">
+  #red {color:red;}
+  #green {color:green;}
+</style>
+
+<p id="red">这个段落是红色。</p>
+<p id="green">这个段落是绿色。</p>
+```
+
+3. 类选择器
+
+```html
+<style type="text/css">
+  .center {text-align: center}
+</style>
+
+<h1 class="center">
+This heading will be center-aligned
+</h1>
+```
+
+4. 属性选择器
+
+* 下面的例子为带有 title 属性的所有元素设置样式：
+
+```html
+[title] { color:red; }
+```
+
+* 下面的例子为 title="W3School" 的所有元素设置样式：
+
+```html
+[title=W3School] { border:5px solid blue; }
+```
+
+5. 元素选择器
 You can select all <p> elements on a page like this (in this case, all <p> elements will be center-aligned, with a red text color):
 
 * example
