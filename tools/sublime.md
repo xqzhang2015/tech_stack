@@ -4,6 +4,7 @@
   - [Installation](#installation)
   - [Markdown Preview](#markdown-preview)
   - [Compare Side-By-Side](#compare-side-by-side)
+  - [packages for ReactJS on Sublime 3](#packages-for-reactjs-on-sublime-3)
   - [Configuration](#configuration)
   - [Usage](#usage)
   - [Sublime: Package control popular](#sublime-package-control-popular)
@@ -53,6 +54,18 @@ Installation Options
 7. From the command line: see README_COMMANDS.md
 8. Jump to next: Alt+N, Jump to previous: Alt+P
 
+### packages for ReactJS on Sublime 3
+
+* Babel: JSX/Babel Syntax Highlighting
+* Babel Snippets: AutoComplete ReactJS
+* Emmet: AutoComplete JSX/HTML
+* SublimeLinter: A Linter, packages:
+  * SublimeLinter
+  * SublimeLinter-contrib-eslint
+  * `npm install -g eslint`
+
+
+https://medium.com/@adrianmcli/setting-up-sublime-text-3-for-reactjs-3bf6baceb73a
 
 ### Configuration
 * Pick: Sublime Text > Preferences > Package Settings > MarkdownTOC > Settings - User
