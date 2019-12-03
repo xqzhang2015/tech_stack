@@ -19,6 +19,8 @@
   - [Inspecting Dependencies in pod entry.sh](#inspecting-dependencies-in-pod-entrysh)
   - [Using init containers](#using-init-containers)
     - [Base: kubenetes pod life](#base-kubenetes-pod-life)
+- [k8s trouble-shooting](#k8s-trouble-shooting)
+    - [kubectl describe](#kubectl-describe)
 - [References](#references)
 
 <!-- /MarkdownTOC -->
@@ -337,6 +339,15 @@ Pods contain three types of containers:
 * Init container: This is an [initialization container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/?spm=a2c65.11461447.0.0.3b554f4eyEesyQ), generally used to initialize and prepare applications. The application container can start up only after waiting for all initialization containers to finish running.
 * Main container: This is an application container.
 
+
+# k8s trouble-shooting
+
+### kubectl describe
+
+There are three ways to determine when using kubectl:
+* run `kubectl describe pod <EVICTED_POD>` to find out the reason why it was evicted in the events.
+* run `kubectl describe node <THE_NODE_WHERE_THE_POD_WAS_EVICTED>` to check Conditions. 
+* run `kubectl get events`.
 
 
 # References
