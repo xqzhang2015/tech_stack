@@ -3,6 +3,7 @@
 - [GTID\(Global Transaction IDentifier\)](#gtidglobal-transaction-identifier)
     - [简介](#%E7%AE%80%E4%BB%8B)
     - [GTID Limits](#gtid-limits)
+    - [References](#references)
 - [ODBC Driver and Data Source](#odbc-driver-and-data-source)
 - [Connect timeout](#connect-timeout)
 - [Globalization: timezone switch](#globalization-timezone-switch)
@@ -14,7 +15,7 @@
     - [Populating the Time Zone Tables](#populating-the-time-zone-tables)
     - [Get shifting seconds for a timezone: 时间差](#get-shifting-seconds-for-a-timezone-%E6%97%B6%E9%97%B4%E5%B7%AE)
     - [Issue trouble shooting: CONVERT_TZ\(\) returns null](#issue-trouble-shooting-convert_tz-returns-null)
-- [References](#references)
+- [References](#references-1)
 
 <!-- /MarkdownTOC -->
 
@@ -79,6 +80,12 @@ ERROR 1785 (HY000): Statement violates GTID consistency: Updates to non-transact
 
 * 所以建议选择Innodb作为默认的数据库引擎
 
+
+### References
+
+[cnblogs.com:MySQL 基于GTID复制模式-运维小结](https://www.cnblogs.com/kevingrace/p/5569753.html)<br/>
+
+[csdn.net: MySQL主从复制实战 - 基于GTID的复制](https://blog.csdn.net/solarison/article/details/60468505)<br/>
 
 # ODBC Driver and Data Source
 ```

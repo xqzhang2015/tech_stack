@@ -50,7 +50,7 @@ helm list | grep release-X | awk '{print $1}' | xargs helm delete --purge
 
 ```sh
 kops replace -f xxx.yml
-kops update cluster $CLUSTER_NAME --yes
+kops update cluster $CLUSTER_NAME --yes # This change will apply to new instances only
 kops rolling-update cluster --fail-on-validate-error="false" --force --yes
 
 kops rolling-update cluster --fail-on-validate-error="false" --force --yes --instance-group aerospike-node-group-latest
