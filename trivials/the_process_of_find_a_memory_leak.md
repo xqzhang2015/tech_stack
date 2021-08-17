@@ -1,14 +1,14 @@
-<!-- MarkdownTOC -->
+* Keywords: 内存泄漏，svl119，ODBC 驱动管理
 
 - [The Process of figure out memory leak issue](#the-process-of-figure-out-memory-leak-issue)
-  - [Issue](#issue)
-  - [Suspect](#suspect)
-  - [Process](#process)
-  - [Dive into MySQL Driver](#dive-into-mysql-driver)
-  - [Some commands](#some-commands)
-  - [References](#references)
+    - [Issue](#issue)
+    - [Suspect](#suspect)
+    - [Process](#process)
+    - [Dive into MySQL Driver](#dive-into-mysql-driver)
+    - [Some commands](#some-commands)
+    - [References](#references)
 
-<!-- /MarkdownTOC -->
+
 # The Process of figure out memory leak issue
 ### Issue
 The memory of one server is always increasing and higher than others.
@@ -24,7 +24,7 @@ Some kind of memory leak maybe happen or some kind of traffic should be differen
 ![memory_1](../images/2018/memory_1.png)
 
 
-[Cheat sheet: understagitnding the pmap output](https://www.software-architect.net/blog/article/date/2015/07/03/cheat-sheet-understanding-the-pmap1-output.html)<br/>
+[Cheat sheet: understagitnding the pmap output](https://www.labcorner.de/cheat-sheet-understanding-the-pmap1-output/)<br/>
 
 2. 启动gdb ./bin/broker并使用 attach {PID}命令加载现有进程
 例如上述进程号为24671，则使用：attach 24671；
@@ -48,8 +48,10 @@ Gdb.txt中内容的说明和分析：第一列为当前内存地址，如0x22c2f
 
 ![mysql_odbc_driver](../images/2018/mysql_odbc_driver.png)<br/>
 
+* libmyodbc5w.so is loaded at process runtimes
 
 ### Some commands
+
 * strings<br/>
 
 ```
